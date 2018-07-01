@@ -33,7 +33,7 @@ public class RepositorioServico {
        this.listaServicos.set(codigo, servico);
     }
     
-    public ArrayList<Servico> recuperarTodos() {
+    public ArrayList<Servico> recuperar() {
         return listaServicos;
     }
     
