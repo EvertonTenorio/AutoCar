@@ -49,7 +49,7 @@ public class NegocioCliente {
         if (c != null) {
             return c;
         } else {
-            System.out.println("Cliente não existe");
+            System.out.println("Cliente não encontrado");
         }
         return null;
     }

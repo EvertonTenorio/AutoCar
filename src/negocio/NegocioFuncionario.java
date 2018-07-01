@@ -44,7 +44,7 @@ public class NegocioFuncionario {
         if (f != null) {
             return f;
         } else {
-            System.out.println("Funcionário não existe");
+            System.out.println("Funcionário encontrado");
         }
         return null;
     }

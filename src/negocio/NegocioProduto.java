@@ -1,5 +1,6 @@
 package negocio;
 
+import java.util.ArrayList;
 import negocio.entidade.Produto;
 import repositorio.RepositorioProduto;
 
@@ -21,5 +22,40 @@ public class NegocioProduto {
             System.out.println("Não foi possivel cadastrar");
         }
     }
-}
 
+    public void alterarProduto(Produto p) {
+        int indice = repositorio.indiceProduto(p.getCodigo());
+
+        if (p == null) {
+            repositorio.alterarProduto(indice, p);
+        } else {
+            System.out.println("Não é possivel alterar");
+        }
+    }
+
+    public void removerProduto(int codigo) {
+        Produto p = repositorio.recuperarProduto(codigo);
+
+        if (p != null) {
+            repositorio.removerProduto(p);
+        } else {
+            System.out.println("Não é possivel remover");
+        }
+    }
+
+    public Produto buscarProduto(int codigo) {
+        Produto p = repositorio.recuperarProduto(codigo);
+
+        if (p == null) {
+            System.out.println("Produto não encontrado");
+        } else {
+            return p;
+        }
+        return null;
+
+    }
+    public ArrayList<Produto> listaProduto() {
+        return repositorio.recuperarTodos();
+    }
+    
+}
