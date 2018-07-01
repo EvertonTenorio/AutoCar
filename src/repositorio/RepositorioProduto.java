@@ -19,7 +19,7 @@ public class RepositorioProduto {
         this.listaProdutos.remove(produto);
         
     }
-    public ArrayList<Produto> recuperarProduto() {
+    public ArrayList<Produto> recuperarTodos() {
         return listaProdutos;
     }
     public Produto recuperarProduto(int codigo) {
@@ -34,7 +34,7 @@ public class RepositorioProduto {
        this.listaProdutos.set(codigo, produto);
     }
     
-    public int indiceReserva(int codigo){
+    public int indiceProduto(int codigo){
         for(int i=0; i<listaProdutos.size();i++){
             if(listaProdutos.get(i).getCodigo() == codigo){
                 return i;
