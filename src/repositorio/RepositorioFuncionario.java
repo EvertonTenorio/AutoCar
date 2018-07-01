@@ -32,7 +32,7 @@ public class RepositorioFuncionario {
         listaFuncionarios.set(indice, funcionario);
     }
 
-    public ArrayList<Funcionario> recuperar() {
+    public ArrayList<Funcionario> recuperarFuncionario() {
         return listaFuncionarios;
     }
 

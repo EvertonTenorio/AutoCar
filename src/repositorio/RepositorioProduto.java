@@ -19,7 +19,7 @@ public class RepositorioProduto {
         this.listaProdutos.remove(produto);
         
     }
-    public ArrayList<Produto> recuperar() {
+    public ArrayList<Produto> recuperarProduto() {
         return listaProdutos;
     }
     public Produto recuperarProduto(int codigo) {
