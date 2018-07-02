@@ -54,6 +54,6 @@ public class NegocioCliente {
     }
 
     public ArrayList<Cliente> listaClientes() {
-        return repositorio.recuperarCliente();
+        return repositorio.recuperarClientes();
     }
 }

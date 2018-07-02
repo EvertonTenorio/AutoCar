@@ -32,7 +32,7 @@ public class RepositorioCliente {
         listaClientes.set(indice, cliente);
     }
 
-    public ArrayList<Cliente> recuperarCliente() {
+    public ArrayList<Cliente> recuperarClientes() {
         return listaClientes;
     }
 
@@ -44,5 +44,4 @@ public class RepositorioCliente {
         }
         return -1;
     }
-
 }
