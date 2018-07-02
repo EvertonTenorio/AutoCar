@@ -26,7 +26,7 @@ public class NegocioProduto {
     public void alterarProduto(Produto p) {
         int indice = repositorio.indiceProduto(p.getCodigo());
 
-        if (p == null) {
+        if (p != null) {
             repositorio.alterarProduto(indice, p);
         } else {
             System.out.println("Não é possivel alterar");

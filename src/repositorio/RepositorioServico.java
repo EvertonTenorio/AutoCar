@@ -28,18 +28,18 @@ public class RepositorioServico {
         }
         return null;
     }
-    
-    public void alterarServico(int codigo, Servico servico){
-       this.listaServicos.set(codigo, servico);
+
+    public void alterarServico(int codigo, Servico servico) {
+        this.listaServicos.set(codigo, servico);
     }
-    
+
     public ArrayList<Servico> recuperarTodos() {
         return listaServicos;
     }
-    
-    public int indiceServico(int codigo){
-        for(int i=0; i<listaServicos.size();i++){
-            if(listaServicos.get(i).getCodigo() == codigo){
+
+    public int indiceServico(int codigo) {
+        for (int i = 0; i < listaServicos.size(); i++) {
+            if (listaServicos.get(i).getCodigo() == codigo) {
                 return i;
             }
         }
