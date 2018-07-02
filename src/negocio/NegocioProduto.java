@@ -23,11 +23,11 @@ public class NegocioProduto {
         }
     }
 
-    public void alterarProduto(Produto p) {
-        int indice = repositorio.indiceProduto(p.getCodigo());
-
-        if (p != null) {
-            repositorio.alterarProduto(indice, p);
+    public void alterarProduto(Produto produto) {
+        int indice = this.repositorio.indiceProduto(produto.getCodigo());
+        
+        if (indice != -1) {
+            repositorio.alterarProduto(indice, produto);
         } else {
             System.out.println("Não é possivel alterar");
         }
@@ -48,11 +48,10 @@ public class NegocioProduto {
 
         if (p == null) {
             System.out.println("Produto não encontrado");
+            return null;
         } else {
             return p;
-        }
-        return null;
-
+        }       
     }
     public ArrayList<Produto> listaProduto() {
         return repositorio.recuperarTodos();

@@ -13,7 +13,6 @@ public class RepositorioServico {
 
     public void cadastrarServico(Servico servico) {
         this.listaServicos.add(servico);
-
     }
 
     public void removerServico(Servico servico) {
@@ -29,8 +28,8 @@ public class RepositorioServico {
         return null;
     }
 
-    public void alterarServico(int codigo, Servico servico) {
-        this.listaServicos.set(codigo, servico);
+    public void alterarServico(int indice, Servico servico) {
+        this.listaServicos.set(indice, servico);
     }
 
     public ArrayList<Servico> recuperarTodos() {

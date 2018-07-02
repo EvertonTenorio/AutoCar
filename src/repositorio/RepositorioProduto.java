@@ -14,14 +14,16 @@ public class RepositorioProduto {
     public void cadastrarProduto(Produto produto) {
         this.listaProdutos.add(produto);
     }
-    
-    public void removerProduto(Produto produto){
+
+    public void removerProduto(Produto produto) {
         this.listaProdutos.remove(produto);
-        
+
     }
+
     public ArrayList<Produto> recuperarTodos() {
         return listaProdutos;
     }
+
     public Produto recuperarProduto(int codigo) {
         for (Produto p : this.listaProdutos) {
             if (p.getCodigo() == codigo) {
@@ -30,13 +32,14 @@ public class RepositorioProduto {
         }
         return null;
     }
-    public void alterarProduto(int codigo, Produto produto){
-       this.listaProdutos.set(codigo, produto);
+
+    public void alterarProduto(int codigo, Produto produto) {
+        this.listaProdutos.set(codigo, produto);
     }
-    
-    public int indiceProduto(int codigo){
-        for(int i=0; i<listaProdutos.size();i++){
-            if(listaProdutos.get(i).getCodigo() == codigo){
+
+    public int indiceProduto(int codigo) {
+        for (int i = 0; i < listaProdutos.size(); i++) {
+            if (listaProdutos.get(i).getCodigo() == codigo) {
                 return i;
             }
         }

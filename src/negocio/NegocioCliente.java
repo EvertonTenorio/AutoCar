@@ -22,9 +22,8 @@ public class NegocioCliente {
         }
     }
 
-    public void alterarCliente(String cpf) {
-        Cliente cliente = repositorio.buscarCliente(cpf);
-        int indice = repositorio.indiceCliente(cpf);
+    public void alterarCliente(Cliente cliente) {
+        int indice = repositorio.indiceCliente(cliente.getCpf());
 
         if (indice != -1) {
             repositorio.alterarCliente(indice, cliente);

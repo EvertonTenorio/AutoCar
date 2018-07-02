@@ -19,9 +19,8 @@ public class NegocioFuncionario {
             System.out.println("Não foi possivel cadastrar");
         }
     }
-    public void alterarFuncionario(String cpf) {
-        Funcionario funcionario = repositorio.buscarFuncionario(cpf);
-        int indice = repositorio.indiceFuncionario(cpf);
+    public void alterarFuncionario(Funcionario funcionario) {
+        int indice = repositorio.indiceFuncionario(funcionario.getCpf());
 
         if (indice != -1) {
             repositorio.alterarFuncionario(indice, funcionario);
