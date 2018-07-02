@@ -28,4 +28,8 @@ public class Cliente extends Pessoa {
     public void incrementarFrequencia() {
         this.frequencia++;
     }
+    
+    public void adicionarCarro(Carro carro){
+        this.listaCarros.add(carro);
+    }
 }

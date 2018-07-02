@@ -44,11 +44,11 @@ public class Venda {
     }
 
     public void calcularConta() {
-        for (int i = 0; i <= produtos.size(); i++) {
+        for (int i = 0; i < produtos.size(); i++) {
             this.consumo += produtos.get(i).getValor();
 
         }
-        for (int j = 0; j <= servicos.size(); j++) {
+        for (int j = 0; j < servicos.size(); j++) {
             this.consumo += servicos.get(j).getValor();
         }
 
