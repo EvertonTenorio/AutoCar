@@ -34,4 +34,20 @@ public class Produto {
         this.nome = nome;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Produto) {
+            Produto produto = (Produto) obj;
+            if (this.codigo == produto.getCodigo()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    @Override
+    public String toString() {
+        return "Código: " + this.codigo + " Nome: " + this.nome + " Valor: " + this.valor;
+
+    }
 }

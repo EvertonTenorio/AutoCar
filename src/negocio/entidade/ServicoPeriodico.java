@@ -22,5 +22,10 @@ public class ServicoPeriodico extends Servico {
     public void setKmProximoServico(int kmProximoServico) {
         this.kmProximoServico = kmProximoServico;
     }
+    
+    @Override
+    public String toString() {
+        return "Código: " + this.getCodigo() + " Nome: " + this.getNome() + " Valor: " + this.getValor() + " KmAtual :" + this.kmAtual + " KmProximoServico: "+ this.kmProximoServico;   
+    }
 
 }

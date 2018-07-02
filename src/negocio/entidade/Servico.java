@@ -33,5 +33,20 @@ public class Servico {
     public void setNome(String nome) {
         this.nome = nome;
     }
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Servico) {
+            Servico servico = (Servico) obj;
+            if (this.codigo == servico.getCodigo()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    @Override
+    public String toString() {
+        return "Código: " + this.codigo + " Nome: " + this.nome + " Valor: " + this.valor;   
+    }
 
 }
