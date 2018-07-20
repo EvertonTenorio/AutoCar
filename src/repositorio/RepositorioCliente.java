@@ -32,10 +32,15 @@ public class RepositorioCliente {
         listaClientes.set(indice, cliente);
     }
 
+    /* Thaís: É preciso ter cuidado com essa implementação, pois ela expõe o repositório, deixando-o vulnerável à mudanças
+     * sem controle. O correto seria devolver um ArrayList com uma cópia do conteúdo do repositório. Parece a mesma coisa,
+     * mas é diferente. Sendo a cópia, nenhuma mudança feita nela vai afetar o repositório. Isso se aplica aos demais
+     * repositórios.*/
     public ArrayList<Cliente> recuperarClientes() {
         return listaClientes;
     }
 
+    /* Thaís: Esse método só faz sentido para uso nessa classe. Quem usa o repositório não quer "enxergar" índice. */
     public int indiceCliente(String cpf) {
         for (int i = 0; i < listaClientes.size(); i++) {
             if (listaClientes.get(i).getCpf().equals(cpf)) {

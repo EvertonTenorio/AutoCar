@@ -3,6 +3,7 @@ package repositorio;
 import java.util.ArrayList;
 import negocio.entidade.Servico;
 
+/* Thaís: Não faria sentido buscar por serviços periódicos? Como isso poderia ser feito para evitar o uso de instanceof?*/
 public class RepositorioServico {
 
     private ArrayList<Servico> listaServicos;

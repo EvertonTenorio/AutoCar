@@ -2,6 +2,11 @@ package negocio.entidade;
 
 import java.util.ArrayList;
 
+/*
+* Thaís: Por que não há setters para os atributos? A menos que sejam constantes, deve ser possível alterá-los, em particular
+* o histórico.
+* */
+
 public class Carro {
 
     private String placa;
