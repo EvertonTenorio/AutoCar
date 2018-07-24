@@ -68,8 +68,8 @@ public class Main {
                 case 5:
                     String produtos = "", servicos = "";
                     
-                    for(int i = 0; i < negocioProd.listaProduto().size(); i++){
-                        produtos += negocioProd.listaProduto().get(i).toString()+"\n";
+                    for(int i = 0; i < negocioProd.listaProdutos().size(); i++){
+                        produtos += negocioProd.listaProdutos().get(i).toString()+"\n";
                     }
                     
                     for(int i = 0; i < negocioServ.listaServicos().size(); i++){

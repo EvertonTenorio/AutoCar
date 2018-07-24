@@ -53,7 +53,7 @@ public class NegocioProduto {
             return p;
         }       
     }
-    public ArrayList<Produto> listaProduto() {
+    public ArrayList<Produto> listaProdutos() {
         return repositorio.recuperarTodos();
     }
     
