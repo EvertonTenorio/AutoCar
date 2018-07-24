@@ -1,23 +1,37 @@
 package negocio.entidade;
 
-/*
-* Thaís: Vai ter controle de acesso no sistema? Se sim, funcionário deveria ter login e senha, não?
-* Qual a utilidade de cargo?
-* */
 public class Funcionario extends Pessoa {
 
-    private String cargo; //Thaís: Sugiro que os possíveis cargos sejam configurados como constantes. FAZER O ENUM!
+    private CargosEnum cargo;
+    private String login;
+    private String senha;
 
-    public Funcionario(String nome, String cpf, String telefone, String cargo) {
+    public Funcionario(String nome, String cpf, String telefone, CargosEnum cargo) {
         super(nome, cpf, telefone);
         this.cargo = cargo;
     }
 
-    public String getCargo() {
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
+    public CargosEnum getCargo() {
         return cargo;
     }
 
-    public void setCargo(String cargo) {
+    public void setCargo(CargosEnum cargo) {
         this.cargo = cargo;
     }
 

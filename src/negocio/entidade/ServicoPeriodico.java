@@ -5,8 +5,8 @@ public class ServicoPeriodico extends Servico {
     private int kmAtual;
     private int kmProximoServico;
 
-    public ServicoPeriodico(int kmAtual, int kmProximoServico, double valor, String nome) {
-        super(valor, nome);
+    public ServicoPeriodico(int kmAtual, int kmProximoServico, double valor, String nome, Funcionario mecanico) {
+        super(valor, nome, mecanico);
         this.kmAtual = kmAtual;
         this.kmProximoServico = kmProximoServico;
     }

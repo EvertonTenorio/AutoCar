@@ -5,13 +5,31 @@ public class Servico {
     private int codigo;
     private double valor;
     private String nome;
+    private Funcionario mecanico;
 
     private static int GerarCodigo = 1;
 
-    public Servico(double valor, String nome) {
+    public Servico(double valor, String nome, Funcionario mecanico) {
         this.codigo = GerarCodigo++;
         this.valor = valor;
         this.nome = nome;
+        this.mecanico = mecanico;
+    }
+
+    public Funcionario getMecanico() {
+        return mecanico;
+    }
+
+    public void setMecanico(Funcionario mecanico) {
+        this.mecanico = mecanico;
+    }
+
+    public static int getGerarCodigo() {
+        return GerarCodigo;
+    }
+
+    public static void setGerarCodigo(int GerarCodigo) {
+        Servico.GerarCodigo = GerarCodigo;
     }
 
     public int getCodigo() {
