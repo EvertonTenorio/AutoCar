@@ -28,4 +28,21 @@ public class Carro {
         return historico;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+
+        if (obj instanceof Carro) {
+            Carro c = (Carro) obj;
+
+            if (this.placa.equals(c.getPlaca())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    @Override
+    public String toString() {
+        return "Placa: " + this.placa;
+    }
 }
