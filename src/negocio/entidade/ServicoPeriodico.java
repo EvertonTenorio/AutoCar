@@ -23,10 +23,9 @@ public class ServicoPeriodico extends Servico {
         this.kmProximoServico = kmProximoServico;
     }
 
-    /* Thaís: Poderia reusar o toString() herdado de Servico. */
     @Override
     public String toString() {
-        return "Código: " + this.getCodigo() + " Nome: " + this.getNome() + " Valor: " + this.getValor() + " KmAtual :" + this.kmAtual + " KmProximoServico: "+ this.kmProximoServico;   
+        return "Código: " + this.getCodigo() + " Nome: " + this.getNome() + " Valor: " + this.getValor() + " KmAtual :" + this.kmAtual + " KmProximoServico: " + this.kmProximoServico;
     }
 
 }

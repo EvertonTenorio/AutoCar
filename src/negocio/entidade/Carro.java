@@ -2,11 +2,6 @@ package negocio.entidade;
 
 import java.util.ArrayList;
 
-/*
-* Thaís: Por que não há setters para os atributos? A menos que sejam constantes, deve ser possível alterá-los, em particular
-* o histórico.
-* */
-
 public class Carro {
 
     private String placa;
@@ -19,6 +14,14 @@ public class Carro {
 
     public String getPlaca() {
         return placa;
+    }
+
+    public void setPlaca(String placa) {
+        this.placa = placa;
+    }
+
+    public void setHistorico(ArrayList<Servico> historico) {
+        this.historico = historico;
     }
 
     public ArrayList<Servico> getHistorico() {

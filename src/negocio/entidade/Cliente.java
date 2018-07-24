@@ -2,8 +2,6 @@ package negocio.entidade;
 
 import java.util.ArrayList;
 
-/* Thaís: E se o Cliente vender/trocar de carro, como faz para lidar? */
-
 public class Cliente extends Pessoa {
 
     /* Thaís: Não sei se vale à pena manter isso. É que na prática, sabe-se a frequência com base na contratação de
@@ -11,20 +9,20 @@ public class Cliente extends Pessoa {
     * em um só lugar. */
     private int frequencia;
 
-    private ArrayList<Carro> listaCarros; //Thaís: Redundante mencionar "lista", bastaria "carros"
+    private ArrayList<Carro> carros;   
 
     public Cliente(String nome, String cpf, String telefone) {
         super(nome, cpf, telefone);
         this.frequencia = 0;
-        this.listaCarros = new ArrayList<>();
+        this.carros = new ArrayList<>();
     }
 
     public int getFrequencia() {
         return frequencia;
     }
 
-    public ArrayList<Carro> getListaCarros() {
-        return listaCarros;
+    public ArrayList<Carro> getCarros() {
+        return carros;
     }
 
     public void zerarFrequencia() {
@@ -34,8 +32,12 @@ public class Cliente extends Pessoa {
     public void incrementarFrequencia() {
         this.frequencia++;
     }
-    
-    public void adicionarCarro(Carro carro){
-        this.listaCarros.add(carro);
+
+    public void adicionarCarro(Carro carro) {
+        this.carros.add(carro);
+    }
+
+    public void removerCarro(Carro carro) {
+        this.carros.remove(carro);
     }
 }

@@ -15,13 +15,12 @@ import java.util.ArrayList;
 * sem utilidade prática e getters e setters. Ora, para que serve um projeto desses? Apesar de ainda estarmos no P2 podemos
 * fazer algo útil, ainda que simples.
 * */
-
 public class Venda {
 
     private int codigo;
     private ArrayList<Produto> produtos;
     private ArrayList<Servico> servicos;
-    private double consumo; //Thaís: O que isso significa?
+    private double valorTotal;
 
     private static int gerarCodigo = 1;
 
@@ -29,12 +28,12 @@ public class Venda {
         this.codigo = gerarCodigo++;
         this.produtos = new ArrayList<>();
         this.servicos = new ArrayList<>();
-        this.consumo = 0;
+        this.valorTotal = 0;
     }
 
-    public double getConsumo() {
+    public double getValorTotal() {
         this.calcularConta();
-        return consumo;
+        return valorTotal;
     }
 
     public int getCodigo() {
@@ -57,14 +56,13 @@ public class Venda {
         this.servicos.add(servico);
     }
 
-    //Thaís: Deveria ser private
-    public void calcularConta() {
+    private void calcularConta() {
         for (int i = 0; i < produtos.size(); i++) {
-            this.consumo += produtos.get(i).getValor();
+            this.valorTotal += produtos.get(i).getValor();
 
         }
         for (int j = 0; j < servicos.size(); j++) {
-            this.consumo += servicos.get(j).getValor();
+            this.valorTotal += servicos.get(j).getValor();
         }
 
     }

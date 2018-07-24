@@ -83,7 +83,7 @@ public class Main {
                     
                     v.adicionarProduto(negocioProd.buscarProduto(indiceProd));
                     v.adicionarServico(negocioServ.buscarServico(indiceServ));
-                    JOptionPane.showMessageDialog(null,"Valor Total: "+v.getConsumo());
+                    JOptionPane.showMessageDialog(null,"Valor Total: "+v.getValorTotal());
                     break;
                 case 0:
                     break;
