@@ -3,7 +3,7 @@ package negocio.entidade;
 import java.util.ArrayList;
 
 /*
-* Thaís: E se quiser remover produto ou serviço, como faz? Outra coisa, para implementar o programa de fidelidade não
+Outra coisa, para implementar o programa de fidelidade não
 * seria necessário associar a Venda a um Cliente? Outra coisa, o texto diz que o cliente pode escolher o funcionário, mas
 * não localizei código para viabilizar isso. O funcionário tanto pode atuar na venda quanto na prestação de serviço, então
 * minha expectativa era existir relacionamento entre Venda e Funcionário e/ou Serviço e Funcionário. A
@@ -21,14 +21,33 @@ public class Venda {
     private ArrayList<Produto> produtos;
     private ArrayList<Servico> servicos;
     private double valorTotal;
+    private Pessoa cliente;
 
     private static int gerarCodigo = 1;
 
-    public Venda() {
+    public Venda(Pessoa cliente) {
         this.codigo = gerarCodigo++;
         this.produtos = new ArrayList<>();
         this.servicos = new ArrayList<>();
         this.valorTotal = 0;
+        this.cliente = cliente;
+
+    }
+
+    public Pessoa getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Pessoa cliente) {
+        this.cliente = cliente;
+    }
+
+    public static int getGerarCodigo() {
+        return gerarCodigo;
+    }
+
+    public static void setGerarCodigo(int gerarCodigo) {
+        Venda.gerarCodigo = gerarCodigo;
     }
 
     public double getValorTotal() {
@@ -52,17 +71,37 @@ public class Venda {
         this.produtos.add(produto);
     }
 
+    public void removerProduto(Produto produto) {
+        this.produtos.remove(produto);
+    }
+
     public void adicionarServico(Servico servico) {
         this.servicos.add(servico);
     }
 
+    public void removerServico(Servico servico) {
+        this.servicos.remove(servico);
+    }
+
     private void calcularConta() {
+
         for (int i = 0; i < produtos.size(); i++) {
             this.valorTotal += produtos.get(i).getValor();
 
         }
         for (int j = 0; j < servicos.size(); j++) {
             this.valorTotal += servicos.get(j).getValor();
+        }
+        if (cliente instanceof Funcionario) {
+            this.valorTotal *= 0.90;
+        } else if (cliente instanceof Cliente) {
+            Cliente c = (Cliente) cliente;
+
+            if (c.getFrequencia() == 10) {
+                this.valorTotal *= 0.85;
+            }
+        } else {
+            this.valorTotal = valorTotal;
         }
 
     }
