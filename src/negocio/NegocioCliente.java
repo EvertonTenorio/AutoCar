@@ -2,6 +2,9 @@ package negocio;
 
 import java.util.ArrayList;
 import negocio.entidade.Cliente;
+import negocio.execao.cliente.ClienteInvalidoException;
+import negocio.execao.cliente.ClienteJaExisteException;
+import negocio.execao.cliente.ClienteNaoExisteException;
 import repositorio.RepositorioCliente;
 
 /*
@@ -17,45 +20,48 @@ public class NegocioCliente {
         this.repositorio = new RepositorioCliente();
     }
 
-    public void cadastrarCliente(Cliente cliente) {
+    public void cadastrarCliente(Cliente cliente) throws ClienteInvalidoException, ClienteJaExisteException{
         Cliente c = repositorio.buscarCliente(cliente.getCpf());
-
-        if (c == null) {
+        
+        if (cliente.getNome().equals("") && cliente.getCpf().equals("") && cliente.getTelefone().equals("")){
+            throw  new ClienteInvalidoException();
+        }
+        
+        else if (c == null) {
             repositorio.cadastrarCliente(cliente);
         } else {
-            System.out.println("Não foi possivel cadastrar");
+            throw new ClienteJaExisteException();
         }
     }
 
-    public void alterarCliente(Cliente cliente) {
+    public void alterarCliente(Cliente cliente) throws ClienteNaoExisteException{
         int indice = repositorio.indiceCliente(cliente.getCpf());
 
         if (indice != -1) {
             repositorio.alterarCliente(indice, cliente);
         } else {
-            System.out.println("Não é possível alterar");
+            throw new ClienteNaoExisteException();
 
         }
     }
 
-    public void removerCliente(String cpf) {
+    public void removerCliente(String cpf) throws ClienteNaoExisteException{
         Cliente c = repositorio.buscarCliente(cpf);
         if (c != null) {
             repositorio.removerCliente(c);
         } else {
-            System.out.println("Não é possivel remover");
+            throw new ClienteNaoExisteException();
         }
     }
 
-    public Cliente buscarCliente(String cpf) {
+    public Cliente buscarCliente(String cpf) throws ClienteNaoExisteException{
         Cliente c = repositorio.buscarCliente(cpf);
 
         if (c != null) {
             return c;
         } else {
-            System.out.println("Cliente não encontrado");
+            throw new ClienteNaoExisteException();
         }
-        return null;
     }
 
     public ArrayList<Cliente> listaClientes() {

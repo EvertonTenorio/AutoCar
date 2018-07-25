@@ -16,6 +16,9 @@ import negocio.entidade.Venda;
 import negocio.execao.carro.CarroInvalidoException;
 import negocio.execao.carro.CarroJaExisteException;
 import negocio.execao.carro.CarroNaoExisteException;
+import negocio.execao.cliente.ClienteInvalidoException;
+import negocio.execao.cliente.ClienteJaExisteException;
+import negocio.execao.cliente.ClienteNaoExisteException;
 
 public class Fachada {
 
@@ -48,7 +51,7 @@ public class Fachada {
         this.negocioFun.cadastrarFuncionario(funcionario);
     }
 
-    public void cadastrarCliente(Cliente cliente) {
+    public void cadastrarCliente(Cliente cliente) throws ClienteInvalidoException, ClienteJaExisteException{
         this.negocioCli.cadastrarCliente(cliente);
     }
 
@@ -72,7 +75,7 @@ public class Fachada {
         this.negocioFun.alterarFuncionario(funcionario);
     }
 
-    public void alterarCliente(Cliente cliente) {
+    public void alterarCliente(Cliente cliente) throws ClienteNaoExisteException{
         this.negocioCli.alterarCliente(cliente);
     }
 
@@ -96,7 +99,7 @@ public class Fachada {
         return this.negocioFun.buscarFuncionario(cpf);
     }
 
-    public Cliente buscarCliente(String cpf) {
+    public Cliente buscarCliente(String cpf)  throws ClienteNaoExisteException{
         return this.negocioCli.buscarCliente(cpf);
     }
 
@@ -120,7 +123,7 @@ public class Fachada {
         this.negocioFun.removerFuncionario(cpf);
     }
 
-    public void removerCliente(String cpf) {
+    public void removerCliente(String cpf) throws ClienteNaoExisteException{
         this.negocioCli.removerCliente(cpf);
     }
 
