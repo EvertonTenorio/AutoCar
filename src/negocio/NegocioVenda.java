@@ -2,57 +2,61 @@ package negocio;
 
 import java.util.ArrayList;
 import negocio.entidade.Venda;
+import negocio.execao.venda.VendaInvalidaException;
+import negocio.execao.venda.VendaNaoExisteException;
 import repositorio.RepositorioVenda;
 
 public class NegocioVenda {
+
     private RepositorioVenda repositorio;
-    
-    public NegocioVenda(){
+
+    public NegocioVenda() {
         this.repositorio = new RepositorioVenda();
     }
-    
-    public void cadastrarVenda(Venda venda){
+
+    public void cadastrarVenda(Venda venda) throws VendaInvalidaException {
         Venda v = this.repositorio.buscarVenda(venda.getCodigo());
-        
-        if(v != null){
+
+        if (venda.getCliente() == null) { //Verificar produtos e serviços quando os dois estão vazios.
+            throw new VendaInvalidaException();
+        } else if (v != null) {
             this.repositorio.cadastrarVenda(venda);
-        }else{
+        } else {
             System.out.println("Não foi possivel casdastrar");
         }
     }
-    
-    public void alterarVenda(Venda venda){
+
+    public void alterarVenda(Venda venda) throws VendaNaoExisteException {
         int indice = this.repositorio.indiceVenda(venda.getCodigo());
-        
-        if(indice != -1){
+
+        if (indice != -1) {
             this.repositorio.alterarVenda(indice, venda);
-        }else{
-            System.out.println("Não foi possivel alterar");
+        } else {
+            throw new VendaNaoExisteException();
         }
     }
-    
-    public void removerVenda(int codigo){
+
+    public void removerVenda(int codigo) throws VendaNaoExisteException {
         Venda venda = this.repositorio.buscarVenda(codigo);
-        
-        if(venda != null){
+
+        if (venda != null) {
             this.repositorio.removerVenda(venda);
-        }else{
-            System.out.println("Não foi possivel remover");
+        } else {
+            throw new VendaNaoExisteException();
         }
     }
-    
-    public Venda buscarVenda(int codigo){
+
+    public Venda buscarVenda(int codigo) throws VendaNaoExisteException {
         Venda v = this.repositorio.buscarVenda(codigo);
-        
-        if(v != null){
+
+        if (v != null) {
             return v;
-        }else{
-            System.out.println("Venda não encontrada");
-            return null;
+        } else {
+            throw new VendaNaoExisteException();
         }
     }
-    
-    public ArrayList<Venda> listaVendas(){
+
+    public ArrayList<Venda> listaVendas() {
         return this.repositorio.recuperarVendas();
     }
 }

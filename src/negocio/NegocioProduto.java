@@ -2,6 +2,9 @@ package negocio;
 
 import java.util.ArrayList;
 import negocio.entidade.Produto;
+import negocio.execao.produto.ProdutoInvalidoException;
+import negocio.execao.produto.ProdutoJaExisteException;
+import negocio.execao.produto.ProdutoNaoExisteException;
 import repositorio.RepositorioProduto;
 
 public class NegocioProduto {
@@ -13,48 +16,50 @@ public class NegocioProduto {
 
     }
 
-    public void cadastrarProduto(Produto produto) {
+    public void cadastrarProduto(Produto produto) throws ProdutoInvalidoException, ProdutoJaExisteException {
         Produto p = repositorio.recuperarProduto(produto.getCodigo());
 
-        if (p == null) {
+        if (produto.getNome().equals("") && produto.getValor() == 0) {
+            throw new ProdutoInvalidoException();
+        } else if (p == null) {
             repositorio.cadastrarProduto(produto);
         } else {
-            System.out.println("Não foi possivel cadastrar");
+            throw new ProdutoJaExisteException();
         }
     }
 
-    public void alterarProduto(Produto produto) {
+    public void alterarProduto(Produto produto) throws ProdutoNaoExisteException {
         int indice = this.repositorio.indiceProduto(produto.getCodigo());
-        
+
         if (indice != -1) {
             repositorio.alterarProduto(indice, produto);
         } else {
-            System.out.println("Não é possivel alterar");
+            throw new ProdutoNaoExisteException();
         }
     }
 
-    public void removerProduto(int codigo) {
+    public void removerProduto(int codigo) throws ProdutoNaoExisteException {
         Produto p = repositorio.recuperarProduto(codigo);
 
         if (p != null) {
             repositorio.removerProduto(p);
         } else {
-            System.out.println("Não é possivel remover");
+            throw new ProdutoNaoExisteException();
         }
     }
 
-    public Produto buscarProduto(int codigo) {
+    public Produto buscarProduto(int codigo) throws ProdutoNaoExisteException {
         Produto p = repositorio.recuperarProduto(codigo);
 
         if (p == null) {
-            System.out.println("Produto não encontrado");
-            return null;
+            throw new ProdutoNaoExisteException();
         } else {
             return p;
-        }       
+        }
     }
+
     public ArrayList<Produto> listaProdutos() {
         return repositorio.recuperarTodos();
     }
-    
+
 }

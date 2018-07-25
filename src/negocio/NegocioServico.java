@@ -2,57 +2,62 @@ package negocio;
 
 import java.util.ArrayList;
 import negocio.entidade.Servico;
+import negocio.execao.servico.ServicoInvalidoException;
+import negocio.execao.servico.ServicoJaExisteException;
+import negocio.execao.servico.ServicoNaoExisteException;
 import repositorio.RepositorioServico;
 
 public class NegocioServico {
+
     private RepositorioServico repositorio;
 
     public NegocioServico() {
         this.repositorio = new RepositorioServico();
     }
-    
-    public void cadastrarServico(Servico servico){
+
+    public void cadastrarServico(Servico servico) throws ServicoInvalidoException, ServicoJaExisteException {
         Servico s = this.repositorio.recuperarServico(servico.getCodigo());
-        
-        if(s == null){
+
+        if (servico.getNome().equals("") && servico.getValor() == 0 && servico.getMecanico() == null) {
+            throw new ServicoInvalidoException();
+        } else if (s == null) {
             this.repositorio.cadastrarServico(servico);
-        }else{
-            System.out.println("Não foi possivel cadastrar!");
+        } else {
+            throw new ServicoJaExisteException();
         }
     }
-    
-    public void alterarServico(Servico servico){
+
+    public void alterarServico(Servico servico) throws ServicoNaoExisteException {
         int indice = this.repositorio.indiceServico(servico.getCodigo());
-        
-        if(indice != -1){
+
+        if (indice != -1) {
             this.repositorio.alterarServico(indice, servico);
-        }else{
-            System.out.println("Não foi possivel alterar!");
+        } else {
+            throw new ServicoNaoExisteException();
         }
     }
-    
-    public void removerServico(int codigo){
+
+    public void removerServico(int codigo) throws ServicoNaoExisteException {
         Servico s = this.repositorio.recuperarServico(codigo);
-        
-        if(s != null){
+
+        if (s != null) {
             this.repositorio.removerServico(s);
-        }else{
-            System.out.println("Não foi possivel remover");
+        } else {
+            throw new ServicoNaoExisteException();
         }
     }
-    
-    public Servico buscarServico(int codigo){
+
+    public Servico buscarServico(int codigo) throws ServicoNaoExisteException {
         Servico servico = this.repositorio.recuperarServico(codigo);
-        
-        if(servico != null){
+
+        if (servico != null) {
             return servico;
-        }else{
-            System.out.println("Servico não encontrado");
-            return null;
+        } else {
+            throw new ServicoNaoExisteException();
         }
     }
-    
-    public ArrayList<Servico> listaServicos(){
+
+    public ArrayList<Servico> listaServicos() {
         return this.repositorio.recuperarTodos();
     }
 }

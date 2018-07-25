@@ -19,6 +19,17 @@ import negocio.execao.carro.CarroNaoExisteException;
 import negocio.execao.cliente.ClienteInvalidoException;
 import negocio.execao.cliente.ClienteJaExisteException;
 import negocio.execao.cliente.ClienteNaoExisteException;
+import negocio.execao.funcionario.FuncionarioInvalidoException;
+import negocio.execao.funcionario.FuncionarioJaExisteException;
+import negocio.execao.funcionario.FuncionarioNaoExisteException;
+import negocio.execao.produto.ProdutoInvalidoException;
+import negocio.execao.produto.ProdutoJaExisteException;
+import negocio.execao.produto.ProdutoNaoExisteException;
+import negocio.execao.servico.ServicoInvalidoException;
+import negocio.execao.servico.ServicoJaExisteException;
+import negocio.execao.servico.ServicoNaoExisteException;
+import negocio.execao.venda.VendaInvalidaException;
+import negocio.execao.venda.VendaNaoExisteException;
 
 public class Fachada {
 
@@ -47,99 +58,99 @@ public class Fachada {
         return myself;
     }
 
-    public void cadastrarFuncionario(Funcionario funcionario) {
+    public void cadastrarFuncionario(Funcionario funcionario) throws FuncionarioInvalidoException, FuncionarioJaExisteException {
         this.negocioFun.cadastrarFuncionario(funcionario);
     }
 
-    public void cadastrarCliente(Cliente cliente) throws ClienteInvalidoException, ClienteJaExisteException{
+    public void cadastrarCliente(Cliente cliente) throws ClienteInvalidoException, ClienteJaExisteException {
         this.negocioCli.cadastrarCliente(cliente);
     }
 
-    public void cadastrarProduto(Produto produto) {
+    public void cadastrarProduto(Produto produto) throws ProdutoInvalidoException, ProdutoJaExisteException {
         this.negocioProd.cadastrarProduto(produto);
     }
 
-    public void cadastrarServico(Servico servico) {
+    public void cadastrarServico(Servico servico) throws ServicoInvalidoException, ServicoJaExisteException {
         this.negocioServ.cadastrarServico(servico);
     }
 
-    public void cadastrarVenda(Venda venda) {
+    public void cadastrarVenda(Venda venda) throws VendaInvalidaException {
         this.negocioVenda.cadastrarVenda(venda);
     }
-    
-    public void cadastrarCarro(Carro carro) throws CarroInvalidoException, CarroJaExisteException{
+
+    public void cadastrarCarro(Carro carro) throws CarroInvalidoException, CarroJaExisteException {
         this.negocioCarro.cadastrarCarro(carro);
     }
 
-    public void alterarFuncionario(Funcionario funcionario) {
+    public void alterarFuncionario(Funcionario funcionario) throws FuncionarioNaoExisteException {
         this.negocioFun.alterarFuncionario(funcionario);
     }
 
-    public void alterarCliente(Cliente cliente) throws ClienteNaoExisteException{
+    public void alterarCliente(Cliente cliente) throws ClienteNaoExisteException {
         this.negocioCli.alterarCliente(cliente);
     }
 
-    public void alterarProduto(Produto produto) {
+    public void alterarProduto(Produto produto) throws ProdutoNaoExisteException {
         this.negocioProd.alterarProduto(produto);
     }
 
-    public void alterarServico(Servico servico) {
+    public void alterarServico(Servico servico) throws ServicoNaoExisteException {
         this.negocioServ.alterarServico(servico);
     }
 
-    public void alterarVenda(Venda venda) {
+    public void alterarVenda(Venda venda) throws VendaNaoExisteException {
         this.negocioVenda.alterarVenda(venda);
     }
-    
-    public void alterarCarro(Carro carro) throws CarroNaoExisteException{
+
+    public void alterarCarro(Carro carro) throws CarroNaoExisteException {
         this.negocioCarro.alterarCarro(carro);
     }
 
-    public Funcionario buscarFuncionario(String cpf) {
+    public Funcionario buscarFuncionario(String cpf) throws FuncionarioNaoExisteException {
         return this.negocioFun.buscarFuncionario(cpf);
     }
 
-    public Cliente buscarCliente(String cpf)  throws ClienteNaoExisteException{
+    public Cliente buscarCliente(String cpf) throws ClienteNaoExisteException {
         return this.negocioCli.buscarCliente(cpf);
     }
 
-    public Produto buscarProduto(int codigo) {
+    public Produto buscarProduto(int codigo) throws ProdutoNaoExisteException {
         return this.negocioProd.buscarProduto(codigo);
     }
 
-    public Servico buscarServico(int codigo) {
+    public Servico buscarServico(int codigo) throws ServicoNaoExisteException {
         return this.negocioServ.buscarServico(codigo);
     }
 
-    public Venda buscarVenda(int codigo) {
+    public Venda buscarVenda(int codigo) throws VendaNaoExisteException {
         return this.negocioVenda.buscarVenda(codigo);
     }
-    
-    public Carro buscarCarro(String placa) throws CarroNaoExisteException{
+
+    public Carro buscarCarro(String placa) throws CarroNaoExisteException {
         return this.negocioCarro.buscarCarro(placa);
     }
 
-    public void removerFuncionario(String cpf) {
+    public void removerFuncionario(String cpf) throws FuncionarioNaoExisteException {
         this.negocioFun.removerFuncionario(cpf);
     }
 
-    public void removerCliente(String cpf) throws ClienteNaoExisteException{
+    public void removerCliente(String cpf) throws ClienteNaoExisteException {
         this.negocioCli.removerCliente(cpf);
     }
 
-    public void removerProduto(int codigo) {
+    public void removerProduto(int codigo) throws ProdutoNaoExisteException {
         this.negocioProd.removerProduto(codigo);
     }
 
-    public void removerServico(int codido) {
+    public void removerServico(int codido) throws ServicoNaoExisteException {
         this.negocioServ.removerServico(codido);
     }
 
-    public void removerVenda(int codigo) {
+    public void removerVenda(int codigo) throws VendaNaoExisteException {
         this.negocioVenda.removerVenda(codigo);
     }
-    
-    public void removerCarro(String placa) throws CarroNaoExisteException{
+
+    public void removerCarro(String placa) throws CarroNaoExisteException {
         this.negocioCarro.removerCarro(placa);
     }
 
@@ -162,8 +173,8 @@ public class Fachada {
     public List<Venda> listarVendas() {
         return this.negocioVenda.listaVendas();
     }
-    
-    public List<Carro> listarCarros(){
+
+    public List<Carro> listarCarros() {
         return this.negocioCarro.listaCarros();
     }
 }
