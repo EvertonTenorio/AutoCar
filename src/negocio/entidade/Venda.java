@@ -75,7 +75,8 @@ public class Venda {
         this.produtos.remove(produto);
     }
 
-    public void adicionarServico(Servico servico) {
+    public void adicionarServico(Servico servico, Funcionario funcionario) {
+        servico.setMecanico(funcionario);
         this.servicos.add(servico);
     }
 

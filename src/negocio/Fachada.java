@@ -23,6 +23,7 @@ import negocio.execao.servico.ServicoInvalidoException;
 import negocio.execao.servico.ServicoJaExisteException;
 import negocio.execao.servico.ServicoNaoExisteException;
 import negocio.execao.venda.VendaInvalidaException;
+import negocio.execao.venda.VendaJaExisteException;
 import negocio.execao.venda.VendaNaoExisteException;
 
 public class Fachada {
@@ -68,7 +69,7 @@ public class Fachada {
         this.negocioServ.cadastrarServico(servico);
     }
 
-    public void cadastrarVenda(Venda venda) throws VendaInvalidaException {
+    public void cadastrarVenda(Venda venda) throws VendaInvalidaException, VendaJaExisteException {
         this.negocioVenda.cadastrarVenda(venda);
     }
 
