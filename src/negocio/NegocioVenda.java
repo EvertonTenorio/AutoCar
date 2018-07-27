@@ -3,6 +3,7 @@ package negocio;
 import java.util.ArrayList;
 import negocio.entidade.Venda;
 import negocio.execao.venda.VendaInvalidaException;
+import negocio.execao.venda.VendaJaExisteException;
 import negocio.execao.venda.VendaNaoExisteException;
 import repositorio.RepositorioVenda;
 
@@ -14,15 +15,15 @@ public class NegocioVenda {
         this.repositorio = new RepositorioVenda();
     }
 
-    public void cadastrarVenda(Venda venda) throws VendaInvalidaException {
+    public void cadastrarVenda(Venda venda) throws VendaInvalidaException, VendaJaExisteException {
         Venda v = this.repositorio.buscarVenda(venda.getCodigo());
 
-        if (venda.getCliente() == null) { //Verificar produtos e serviços quando os dois estão vazios.
+        if (venda.getCliente() == null && (venda.getProdutos().size() + venda.getProdutos().size() == 0)) {
             throw new VendaInvalidaException();
-        } else if (v != null) {
+        } else if (v == null) {
             this.repositorio.cadastrarVenda(venda);
         } else {
-            System.out.println("Não foi possivel casdastrar");
+            throw new VendaJaExisteException();
         }
     }
 

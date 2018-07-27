@@ -38,13 +38,9 @@ public class NegocioServico {
     }
 
     public void removerServico(int codigo) throws ServicoNaoExisteException {
-        Servico s = this.repositorio.recuperarServico(codigo);
+        Servico s = this.buscarServico(codigo);
 
-        if (s != null) {
-            this.repositorio.removerServico(s);
-        } else {
-            throw new ServicoNaoExisteException();
-        }
+        this.repositorio.removerServico(s);
     }
 
     public Servico buscarServico(int codigo) throws ServicoNaoExisteException {

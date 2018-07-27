@@ -1,12 +1,6 @@
 package negocio;
 
 import java.util.List;
-import negocio.NegocioCarro;
-import negocio.NegocioCliente;
-import negocio.NegocioFuncionario;
-import negocio.NegocioProduto;
-import negocio.NegocioServico;
-import negocio.NegocioVenda;
 import negocio.entidade.Carro;
 import negocio.entidade.Cliente;
 import negocio.entidade.Funcionario;
