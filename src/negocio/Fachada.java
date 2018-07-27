@@ -1,4 +1,4 @@
-package fachada;
+package negocio;
 
 import java.util.List;
 import negocio.NegocioCarro;
