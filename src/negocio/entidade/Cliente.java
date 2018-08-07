@@ -4,12 +4,9 @@ import java.util.ArrayList;
 
 public class Cliente extends Pessoa {
 
-    /* Thaís: Não sei se vale à pena manter isso. É que na prática, sabe-se a frequência com base na contratação de
-    * serviços e compras, certo? Daí que é necessário manter a consistência. Seria mais prático concentrar a informação
-    * em um só lugar. */
     private int frequencia;
 
-    private ArrayList<Carro> carros;   
+    private ArrayList<Carro> carros;
 
     public Cliente(String nome, String cpf, String telefone) {
         super(nome, cpf, telefone);

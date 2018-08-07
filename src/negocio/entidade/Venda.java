@@ -9,17 +9,11 @@ Outra coisa, para implementar o programa de fidelidade não
 * minha expectativa era existir relacionamento entre Venda e Funcionário e/ou Serviço e Funcionário. A
 * loja pode querer acompanhar a produtividade do funcionário pelos atendimentos prestados (seria uma nova funcionalidade),
 * o que daria ainda mais utilidade para tais relações.
-* É aquilo que sempre digo: Com um pouco de criatividade e boa vontade é possível fazer um sistema útil, com riqueza de
-* detalhes que vão dando espaço para usar os conceitos da disciplina. Se a equipe olha para o projeto e procura sempre
-* escrever o mínimo de código para ter um projeto para entregar, vai acabar com um conjunto de classes com atributos
-* sem utilidade prática e getters e setters. Ora, para que serve um projeto desses? Apesar de ainda estarmos no P2 podemos
-* fazer algo útil, ainda que simples.
-* */
+ */
 public class Venda {
 
     private int codigo;
     private ArrayList<Produto> produtos;
-    private ArrayList<Servico> servicos;
     private double valorTotal;
     private Pessoa cliente;
 
@@ -28,7 +22,6 @@ public class Venda {
     public Venda(Pessoa cliente) {
         this.codigo = gerarCodigo++;
         this.produtos = new ArrayList<>();
-        this.servicos = new ArrayList<>();
         this.valorTotal = 0;
         this.cliente = cliente;
 
@@ -51,6 +44,7 @@ public class Venda {
     }
 
     public double getValorTotal() {
+        this.valorTotal = 0;
         this.calcularConta();
         return valorTotal;
     }
@@ -63,10 +57,6 @@ public class Venda {
         return produtos;
     }
 
-    public ArrayList<Servico> getServicos() {
-        return servicos;
-    }
-
     public void adicionarProduto(Produto produto) {
         this.produtos.add(produto);
     }
@@ -75,24 +65,13 @@ public class Venda {
         this.produtos.remove(produto);
     }
 
-    public void adicionarServico(Servico servico, Funcionario funcionario) {
-        servico.setMecanico(funcionario);
-        this.servicos.add(servico);
-    }
-
-    public void removerServico(Servico servico) {
-        this.servicos.remove(servico);
-    }
-
     private void calcularConta() {
 
         for (int i = 0; i < produtos.size(); i++) {
             this.valorTotal += produtos.get(i).getValor();
 
         }
-        for (int j = 0; j < servicos.size(); j++) {
-            this.valorTotal += servicos.get(j).getValor();
-        }
+
         if (cliente instanceof Funcionario) {
             this.valorTotal *= 0.90;
         } else if (cliente instanceof Cliente) {
@@ -100,7 +79,9 @@ public class Venda {
 
             if (c.getFrequencia() == 10) {
                 this.valorTotal *= 0.85;
+                c.zerarFrequencia();
             }
+            c.incrementarFrequencia();
         } else {
             this.valorTotal = valorTotal;
         }
@@ -120,6 +101,6 @@ public class Venda {
 
     @Override
     public String toString() {
-        return "Código: " + this.codigo + " Produtos: " + this.produtos + " Serviços: " + this.servicos;
+        return "Código: " + this.codigo + " Produtos: " + this.produtos;
     }
 }
