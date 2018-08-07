@@ -19,7 +19,7 @@ public class NegocioFuncionario {
     public void cadastrarFuncionario(Funcionario funcionario) throws FuncionarioInvalidoException, FuncionarioJaExisteException {
         Funcionario f = repositorio.buscarFuncionario(funcionario.getCpf());
 
-        if (funcionario.getNome().equals("") && funcionario.getCpf().equals("") && funcionario.getTelefone().equals("") && funcionario.getLogin().equals("") && funcionario.getSenha().equals("")) {
+        if (funcionario.getNome().equals("") && funcionario.getCpf().equals("") && funcionario.getTelefone().equals("")) {
             throw new FuncionarioInvalidoException();
         } else if (f == null) {
             repositorio.cadastrarFuncionario(funcionario);
@@ -57,6 +57,20 @@ public class NegocioFuncionario {
             throw new FuncionarioNaoExisteException();
         }
 
+    }
+    
+    public boolean realizarLogin(String login,String senha){
+        if (login.equals("") || senha.equals("")){
+            System.out.println("Login inválido!");
+            return false;
+        }else{
+            Funcionario f = repositorio.buscarGerente(login, senha);
+            if( f == null){
+                return false;
+            }else{
+                return true;
+            }
+        }
     }
 
     public ArrayList<Funcionario> listaFuncionario() {

@@ -2,6 +2,7 @@ package repositorio;
 
 import negocio.entidade.Funcionario;
 import java.util.ArrayList;
+import negocio.entidade.Gerente;
 
 public class RepositorioFuncionario {
 
@@ -30,6 +31,20 @@ public class RepositorioFuncionario {
 
     public void alterarFuncionario(int indice, Funcionario funcionario) {
         listaFuncionarios.set(indice, funcionario);
+    }
+    
+     public Funcionario buscarGerente(String login, String senha) {
+        
+         for (int i = 0; i < this.listaFuncionarios.size(); i++) {
+            if (listaFuncionarios.get(i) instanceof Gerente){
+                Gerente gerente = (Gerente) listaFuncionarios.get(i);
+                
+                if(gerente.getLogin().equals(login) && gerente.getSenha().equals(senha)){
+                    return gerente;
+                }
+            }
+        }
+        return null;
     }
 
     public ArrayList<Funcionario> recuperarFuncionario() {
