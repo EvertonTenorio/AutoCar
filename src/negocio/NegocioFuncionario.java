@@ -1,11 +1,13 @@
 package negocio;
 
 import java.util.ArrayList;
+import negocio.entidade.CargosEnum;
 import negocio.entidade.Funcionario;
 import negocio.execao.cliente.ClienteInvalidoException;
 import negocio.execao.funcionario.FuncionarioInvalidoException;
 import negocio.execao.funcionario.FuncionarioJaExisteException;
 import negocio.execao.funcionario.FuncionarioNaoExisteException;
+import negocio.execao.pessoa.PessoaInvalidaException;
 import repositorio.RepositorioFuncionario;
 
 public class NegocioFuncionario {
@@ -16,12 +18,11 @@ public class NegocioFuncionario {
         this.repositorio = new RepositorioFuncionario();
     }
 
-    public void cadastrarFuncionario(Funcionario funcionario) throws FuncionarioInvalidoException, FuncionarioJaExisteException {
+    public void cadastrarFuncionario(String nome, String cpf, String telefone, CargosEnum cargo) throws FuncionarioJaExisteException, PessoaInvalidaException {
+        Funcionario funcionario = new Funcionario(nome, cpf, telefone, cargo);
         Funcionario f = repositorio.buscarFuncionario(funcionario.getCpf());
 
-        if (funcionario.getNome().equals("") && funcionario.getCpf().equals("") && funcionario.getTelefone().equals("")) {
-            throw new FuncionarioInvalidoException();
-        } else if (f == null) {
+        if (f == null) {
             repositorio.cadastrarFuncionario(funcionario);
         } else {
             throw new FuncionarioJaExisteException();
@@ -58,16 +59,16 @@ public class NegocioFuncionario {
         }
 
     }
-    
-    public boolean realizarLogin(String login,String senha){
-        if (login.equals("") || senha.equals("")){
+
+    public boolean realizarLogin(String login, String senha) {
+        if (login.equals("") || senha.equals("")) {
             System.out.println("Login inválido!");
             return false;
-        }else{
+        } else {
             Funcionario f = repositorio.buscarGerente(login, senha);
-            if( f == null){
+            if (f == null) {
                 return false;
-            }else{
+            } else {
                 return true;
             }
         }

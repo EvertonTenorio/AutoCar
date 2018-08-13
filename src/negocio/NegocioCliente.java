@@ -5,6 +5,7 @@ import negocio.entidade.Cliente;
 import negocio.execao.cliente.ClienteInvalidoException;
 import negocio.execao.cliente.ClienteJaExisteException;
 import negocio.execao.cliente.ClienteNaoExisteException;
+import negocio.execao.pessoa.PessoaInvalidaException;
 import repositorio.RepositorioCliente;
 
 /*
@@ -18,23 +19,22 @@ public class NegocioCliente {
 
     public NegocioCliente() {
         this.repositorio = new RepositorioCliente();
+
     }
 
-    public void cadastrarCliente(Cliente cliente) throws ClienteInvalidoException, ClienteJaExisteException{
+    public void cadastrarCliente(String nome, String cpf, String telefone) throws ClienteJaExisteException, PessoaInvalidaException {
+        Cliente cliente = new Cliente(nome, cpf, telefone);
+
         Cliente c = repositorio.buscarCliente(cliente.getCpf());
-        
-        if (cliente.getNome().equals("") && cliente.getCpf().equals("") && cliente.getTelefone().equals("")){
-            throw  new ClienteInvalidoException();
-        }
-        
-        else if (c == null) {
+
+        if (c == null) {
             repositorio.cadastrarCliente(cliente);
         } else {
             throw new ClienteJaExisteException();
         }
     }
 
-    public void alterarCliente(Cliente cliente) throws ClienteNaoExisteException{
+    public void alterarCliente(Cliente cliente) throws ClienteNaoExisteException {
         int indice = repositorio.indiceCliente(cliente.getCpf());
 
         if (indice != -1) {
@@ -45,7 +45,7 @@ public class NegocioCliente {
         }
     }
 
-    public void removerCliente(String cpf) throws ClienteNaoExisteException{
+    public void removerCliente(String cpf) throws ClienteNaoExisteException {
         Cliente c = repositorio.buscarCliente(cpf);
         if (c != null) {
             repositorio.removerCliente(c);
@@ -54,7 +54,7 @@ public class NegocioCliente {
         }
     }
 
-    public Cliente buscarCliente(String cpf) throws ClienteNaoExisteException{
+    public Cliente buscarCliente(String cpf) throws ClienteNaoExisteException {
         Cliente c = repositorio.buscarCliente(cpf);
 
         if (c != null) {

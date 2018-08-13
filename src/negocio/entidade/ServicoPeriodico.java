@@ -15,6 +15,10 @@ public class ServicoPeriodico extends Servico {
         return kmAtual;
     }
 
+    public void setKmAtual(int kmAtual) {
+        this.kmAtual = kmAtual;
+    }
+
     public int getKmProximoServico() {
         return kmProximoServico;
     }

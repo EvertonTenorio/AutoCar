@@ -1,9 +1,11 @@
 package negocio.execao.funcionario;
 
-public class FuncionarioInvalidoException extends Exception {
+import negocio.execao.pessoa.PessoaInvalidaException;
+
+public class FuncionarioInvalidoException extends PessoaInvalidaException {
 
     public FuncionarioInvalidoException() {
-        super("Funcionário inválido!");
+        super();
     }
 
 }

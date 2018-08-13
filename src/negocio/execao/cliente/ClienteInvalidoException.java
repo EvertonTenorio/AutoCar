@@ -1,9 +1,11 @@
 package negocio.execao.cliente;
 
-public class ClienteInvalidoException extends Exception {
+import negocio.execao.pessoa.PessoaInvalidaException;
+
+public class ClienteInvalidoException extends PessoaInvalidaException {
 
     public ClienteInvalidoException() {
-        super("Cliente inválido!");
+        super();
     }
 
 }

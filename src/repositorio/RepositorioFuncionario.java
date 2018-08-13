@@ -48,7 +48,13 @@ public class RepositorioFuncionario {
     }
 
     public ArrayList<Funcionario> recuperarFuncionario() {
-        return listaFuncionarios;
+        ArrayList<Funcionario> lista = new ArrayList<>();
+        
+        for(int i = 0; i < listaFuncionarios.size(); i++){
+            lista.add(listaFuncionarios.get(i));
+        }
+        
+        return lista;
     }
 
     public int indiceFuncionario(String cpf) {

@@ -1,13 +1,18 @@
 package negocio.entidade;
 
-public class Gerente extends Funcionario{
+import negocio.execao.funcionario.FuncionarioInvalidoException;
+import negocio.execao.pessoa.PessoaInvalidaException;
+
+public class Gerente extends Funcionario {
+
     private String login;
     private String senha;
 
-    public Gerente(String login, String senha, String nome, String cpf, String telefone, CargosEnum cargo) {
+    public Gerente(String login, String senha, String nome, String cpf, String telefone, CargosEnum cargo) throws PessoaInvalidaException {
         super(nome, cpf, telefone, cargo);
         this.login = login;
         this.senha = senha;
+        this.valida();
     }
 
     public String getLogin() {
@@ -25,6 +30,13 @@ public class Gerente extends Funcionario{
     public void setSenha(String senha) {
         this.senha = senha;
     }
-    
 
+    @Override
+    public void valida() throws FuncionarioInvalidoException, PessoaInvalidaException {
+        if (this.login.equals("") || this.senha.equals("")) {
+            throw new FuncionarioInvalidoException();
+        }
+        super.valida();
+
+    }
 }

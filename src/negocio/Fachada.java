@@ -1,6 +1,7 @@
 package negocio;
 
 import java.util.List;
+import negocio.entidade.CargosEnum;
 import negocio.entidade.Carro;
 import negocio.entidade.Cliente;
 import negocio.entidade.Funcionario;
@@ -16,6 +17,7 @@ import negocio.execao.cliente.ClienteNaoExisteException;
 import negocio.execao.funcionario.FuncionarioInvalidoException;
 import negocio.execao.funcionario.FuncionarioJaExisteException;
 import negocio.execao.funcionario.FuncionarioNaoExisteException;
+import negocio.execao.pessoa.PessoaInvalidaException;
 import negocio.execao.produto.ProdutoInvalidoException;
 import negocio.execao.produto.ProdutoJaExisteException;
 import negocio.execao.produto.ProdutoNaoExisteException;
@@ -53,12 +55,12 @@ public class Fachada {
         return myself;
     }
 
-    public void cadastrarFuncionario(Funcionario funcionario) throws FuncionarioInvalidoException, FuncionarioJaExisteException {
-        this.negocioFun.cadastrarFuncionario(funcionario);
+    public void cadastrarFuncionario(String nome, String cpf, String telefone, CargosEnum cargo) throws FuncionarioJaExisteException, PessoaInvalidaException {
+        this.negocioFun.cadastrarFuncionario(nome, cpf, telefone, cargo);
     }
 
-    public void cadastrarCliente(Cliente cliente) throws ClienteInvalidoException, ClienteJaExisteException {
-        this.negocioCli.cadastrarCliente(cliente);
+    public void cadastrarCliente(String nome, String cpf, String telefone) throws PessoaInvalidaException, ClienteJaExisteException {
+        this.negocioCli.cadastrarCliente(nome, cpf, telefone);
     }
 
     public void cadastrarProduto(Produto produto) throws ProdutoInvalidoException, ProdutoJaExisteException {

@@ -1,6 +1,7 @@
 package negocio.entidade;
 
 import java.util.ArrayList;
+import negocio.execao.pessoa.PessoaInvalidaException;
 
 public class Cliente extends Pessoa {
 
@@ -8,10 +9,11 @@ public class Cliente extends Pessoa {
 
     private ArrayList<Carro> carros;
 
-    public Cliente(String nome, String cpf, String telefone) {
+    public Cliente(String nome, String cpf, String telefone) throws PessoaInvalidaException {
         super(nome, cpf, telefone);
         this.frequencia = 0;
         this.carros = new ArrayList<>();
+        this.valida();
     }
 
     public int getFrequencia() {

@@ -59,6 +59,7 @@ public class Venda {
 
     public void adicionarProduto(Produto produto) {
         this.produtos.add(produto);
+        
     }
 
     public void removerProduto(Produto produto) {

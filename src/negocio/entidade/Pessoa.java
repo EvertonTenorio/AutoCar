@@ -1,5 +1,7 @@
 package negocio.entidade;
 
+import negocio.execao.pessoa.PessoaInvalidaException;
+
 public class Pessoa {
 
     private String nome;
@@ -52,4 +54,11 @@ public class Pessoa {
         return "Nome: " + this.nome + "; Cpf: " + this.cpf + "; Telefone: " + this.telefone;
 
     }
+
+    public void valida() throws PessoaInvalidaException {
+        if (this.nome.equals("") || this.nome.length() < 5 || this.cpf.equals("") || this.cpf.length() != 11 || this.telefone.equals("") || this.telefone.length() != 11) {
+            throw new PessoaInvalidaException();
+        }
+    }
+
 }
