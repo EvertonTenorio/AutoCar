@@ -33,7 +33,7 @@ public class RepositorioFuncionario {
         listaFuncionarios.set(indice, funcionario);
     }
     
-     public Funcionario buscarGerente(String login, String senha) {
+     public Funcionario logarGerente(String login, String senha) {
         
          for (int i = 0; i < this.listaFuncionarios.size(); i++) {
             if (listaFuncionarios.get(i) instanceof Gerente){

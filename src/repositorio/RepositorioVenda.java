@@ -2,8 +2,9 @@ package repositorio;
 
 import java.util.ArrayList;
 import negocio.entidade.Venda;
+import repositorio.interfaces.IRepositorioVenda;
 
-public class RepositorioVenda {
+public class RepositorioVenda implements IRepositorioVenda{
 
     private ArrayList<Venda> listaVendas;
 
@@ -11,10 +12,12 @@ public class RepositorioVenda {
         this.listaVendas = new ArrayList<>();
     }
 
+    @Override
     public void cadastrarVenda(Venda venda) {
         this.listaVendas.add(venda);
     }
 
+    @Override
     public Venda buscarVenda(int codigo) {
         for (int i = 0; i < listaVendas.size(); i++) {
             if (listaVendas.get(i).getCodigo() == codigo) {
@@ -24,10 +27,12 @@ public class RepositorioVenda {
         return null;
     }
 
+    @Override
     public void removerVenda(Venda venda) {
         this.listaVendas.remove(venda);
     }
 
+    @Override
     public void alterarVenda(int indice, Venda venda) {
         this.listaVendas.set(indice, venda);
     }
