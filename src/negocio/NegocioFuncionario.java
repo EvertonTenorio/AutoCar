@@ -64,8 +64,9 @@ public class NegocioFuncionario {
         if (login.equals("") || senha.equals("")) {
             System.out.println("Login inválido!");
             return false;
+
         } else {
-            Funcionario f = repositorio.buscarGerente(login, senha);
+            Funcionario f = repositorio.logarGerente(login, senha);
             if (f == null) {
                 return false;
             } else {

@@ -2,8 +2,9 @@ package repositorio;
 
 import java.util.ArrayList;
 import negocio.entidade.Cliente;
+import repositorio.interfaces.IRepositorioCliente;
 
-public class RepositorioCliente {
+public class RepositorioCliente implements IRepositorioCliente{
 
     private ArrayList<Cliente> listaClientes;
 
@@ -11,10 +12,12 @@ public class RepositorioCliente {
         this.listaClientes = new ArrayList<>();
     }
 
+    @Override
     public void cadastrarCliente(Cliente cliente) {
         this.listaClientes.add(cliente);
     }
 
+    @Override
     public Cliente buscarCliente(String cpf) {
         for (int i = 0; i < this.listaClientes.size(); i++) {
             if (this.listaClientes.get(i).getCpf().equals(cpf)) {
@@ -24,10 +27,12 @@ public class RepositorioCliente {
         return null;
     }
 
+    @Override
     public void removerCliente(Cliente cliente) {
         listaClientes.remove(cliente);
     }
 
+    @Override
     public void alterarCliente(int indice, Cliente cliente) {
         listaClientes.set(indice, cliente);
     }
