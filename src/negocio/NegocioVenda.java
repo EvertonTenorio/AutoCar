@@ -58,6 +58,6 @@ public class NegocioVenda {
     }
 
     public ArrayList<Venda> listaVendas() {
-        return this.repositorio.recuperarVendas();
+        return this.repositorio.recuperarTodos();
     }
 }

@@ -76,7 +76,7 @@ public class NegocioFuncionario {
     }
 
     public ArrayList<Funcionario> listaFuncionario() {
-        return repositorio.recuperarFuncionario();
+        return repositorio.recuperarTodos();
     }
 
 }

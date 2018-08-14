@@ -58,6 +58,6 @@ public class NegocioCarro {
     }
     
     public List<Carro> listaCarros(){
-        return repositorio.listaCarros();
+        return repositorio.recuperarTodos();
     }
 }
