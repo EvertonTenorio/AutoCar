@@ -39,7 +39,13 @@ public class RepositorioServico implements IRepositorioServico{
     }
 
     public ArrayList<Servico> recuperarTodos() {
-        return listaServicos;
+        ArrayList<Servico> lista = new ArrayList<>();
+        
+        for(int i = 0; i < listaServicos.size(); i++){
+            lista.add(listaServicos.get(i));
+        }
+        
+        return lista;
     }
 
     public int indiceServico(int codigo) {

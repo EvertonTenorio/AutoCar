@@ -47,7 +47,7 @@ public class RepositorioCarro implements IRepositorioCarro{
         return -1;
     }
     
-    public List<Carro> listaCarros(){
+    public List<Carro> recuperarTodos(){
         ArrayList<Carro> carros = new ArrayList<>();
         
         for(int i = 0; i < listaCarros.size(); i++){

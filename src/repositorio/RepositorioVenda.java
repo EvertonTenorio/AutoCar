@@ -37,7 +37,7 @@ public class RepositorioVenda implements IRepositorioVenda{
         this.listaVendas.set(indice, venda);
     }
 
-    public ArrayList<Venda> recuperarVendas() {
+    public ArrayList<Venda> recuperarTodos() {
        ArrayList<Venda> lista = new ArrayList<>();
         
         for(int i = 0; i < listaVendas.size(); i++){

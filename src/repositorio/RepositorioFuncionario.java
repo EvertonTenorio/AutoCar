@@ -47,7 +47,7 @@ public class RepositorioFuncionario {
         return null;
     }
 
-    public ArrayList<Funcionario> recuperarFuncionario() {
+    public ArrayList<Funcionario> recuperarTodos() {
         ArrayList<Funcionario> lista = new ArrayList<>();
         
         for(int i = 0; i < listaFuncionarios.size(); i++){

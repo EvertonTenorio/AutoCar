@@ -37,7 +37,7 @@ public class RepositorioCliente implements IRepositorioCliente{
         listaClientes.set(indice, cliente);
     }
 
-    public ArrayList<Cliente> recuperarClientes() {
+    public ArrayList<Cliente> recuperarTodos() {
         ArrayList<Cliente> clientes = new ArrayList<>();
         
         for(int i = 0; i < listaClientes.size(); i++){
