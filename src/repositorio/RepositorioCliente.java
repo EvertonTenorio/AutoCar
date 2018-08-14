@@ -37,11 +37,12 @@ public class RepositorioCliente implements IRepositorioCliente{
         listaClientes.set(indice, cliente);
     }
 
-    /* Thaís: É preciso ter cuidado com essa implementação, pois ela expõe o repositório, deixando-o vulnerável à mudanças
-     * sem controle. O correto seria devolver um ArrayList com uma cópia do conteúdo do repositório. Parece a mesma coisa,
-     * mas é diferente. Sendo a cópia, nenhuma mudança feita nela vai afetar o repositório. Isso se aplica aos demais
-     * repositórios.*/
     public ArrayList<Cliente> recuperarClientes() {
+        ArrayList<Cliente> clientes = new ArrayList<>();
+        
+        for(int i = 0; i < listaClientes.size(); i++){
+            clientes.add(listaClientes.get(i));
+        }
         return listaClientes;
     }
 

@@ -48,6 +48,12 @@ public class RepositorioCarro implements IRepositorioCarro{
     }
     
     public List<Carro> listaCarros(){
-        return this.listaCarros;
+        ArrayList<Carro> carros = new ArrayList<>();
+        
+        for(int i = 0; i < listaCarros.size(); i++){
+            carros.add(listaCarros.get(i));
+        }
+        
+        return carros;
     }
 }

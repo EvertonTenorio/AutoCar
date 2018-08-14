@@ -49,6 +49,11 @@ public class RepositorioProduto implements IRepositorioProduto{
     
     
     public ArrayList<Produto> recuperarTodos() {
-        return listaProdutos;
+        ArrayList<Produto> produtos = new ArrayList<>();
+        
+        for(int i = 0; i < listaProdutos.size(); i++){
+            produtos.add(listaProdutos.get(i));
+        }
+        return produtos;
     }
 }

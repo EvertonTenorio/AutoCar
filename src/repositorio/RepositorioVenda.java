@@ -38,7 +38,13 @@ public class RepositorioVenda implements IRepositorioVenda{
     }
 
     public ArrayList<Venda> recuperarVendas() {
-        return this.listaVendas;
+       ArrayList<Venda> lista = new ArrayList<>();
+        
+        for(int i = 0; i < listaVendas.size(); i++){
+            lista.add(listaVendas.get(i));
+        }
+        
+        return lista;
     }
 
     public int indiceVenda(int codigo) {
