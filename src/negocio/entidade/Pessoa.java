@@ -1,5 +1,6 @@
 package negocio.entidade;
 
+import java.util.ArrayList;
 import negocio.execao.pessoa.PessoaInvalidaException;
 
 public class Pessoa {
@@ -7,11 +8,13 @@ public class Pessoa {
     private String nome;
     private String cpf;
     private String telefone;
+    private ArrayList<Carro> carros;
 
     public Pessoa(String nome, String cpf, String telefone) {
         this.nome = nome;
         this.cpf = cpf;
         this.telefone = telefone;
+        this.carros = new ArrayList<>();
     }
 
     public String getNome() {
@@ -36,6 +39,18 @@ public class Pessoa {
 
     public void setTelefone(String telefone) {
         this.telefone = telefone;
+    }
+
+    public void adicionarCarro(Carro carro) {
+        this.carros.add(carro);
+    }
+
+    public void removerCarro(Carro carro) {
+        this.carros.remove(carro);
+    }
+
+    public ArrayList<Carro> getCarros() {
+        return carros;
     }
 
     @Override
