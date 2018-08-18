@@ -1,15 +1,17 @@
 package negocio;
 
 import java.util.ArrayList;
+import java.util.List;
 import negocio.entidade.Produto;
 import negocio.execao.produto.ProdutoInvalidoException;
 import negocio.execao.produto.ProdutoJaExisteException;
 import negocio.execao.produto.ProdutoNaoExisteException;
 import repositorio.RepositorioProduto;
+import repositorio.interfaces.IRepositorioProduto;
 
 public class NegocioProduto {
 
-    private RepositorioProduto repositorio;
+    private IRepositorioProduto repositorio;
 
     public NegocioProduto() {
         this.repositorio = new RepositorioProduto();
@@ -29,10 +31,10 @@ public class NegocioProduto {
     }
 
     public void alterarProduto(Produto produto) throws ProdutoNaoExisteException {
-        int indice = this.repositorio.indiceProduto(produto.getCodigo());
+        Produto p = this.repositorio.recuperarProduto(produto.getCodigo());
 
-        if (indice != -1) {
-            repositorio.alterarProduto(indice, produto);
+        if (p != null) {
+            repositorio.alterarProduto(produto);
         } else {
             throw new ProdutoNaoExisteException();
         }
@@ -58,7 +60,7 @@ public class NegocioProduto {
         }
     }
 
-    public ArrayList<Produto> listaProdutos() {
+    public List<Produto> listaProdutos() {
         return repositorio.recuperarTodos();
     }
 

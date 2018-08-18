@@ -1,15 +1,17 @@
 package negocio;
 
 import java.util.ArrayList;
+import java.util.List;
 import negocio.entidade.Servico;
 import negocio.execao.servico.ServicoInvalidoException;
 import negocio.execao.servico.ServicoJaExisteException;
 import negocio.execao.servico.ServicoNaoExisteException;
 import repositorio.RepositorioServico;
+import repositorio.interfaces.IRepositorioServico;
 
 public class NegocioServico {
 
-    private RepositorioServico repositorio;
+    private IRepositorioServico repositorio;
 
     public NegocioServico() {
         this.repositorio = new RepositorioServico();
@@ -28,10 +30,10 @@ public class NegocioServico {
     }
 
     public void alterarServico(Servico servico) throws ServicoNaoExisteException {
-        int indice = this.repositorio.indiceServico(servico.getCodigo());
+        Servico s = this.repositorio.recuperarServico(servico.getCodigo());
 
-        if (indice != -1) {
-            this.repositorio.alterarServico(indice, servico);
+        if (s != null) {
+            this.repositorio.alterarServico(servico);
         } else {
             throw new ServicoNaoExisteException();
         }
@@ -53,7 +55,7 @@ public class NegocioServico {
         }
     }
 
-    public ArrayList<Servico> listaServicos() {
+    public List<Servico> listaServicos() {
         return this.repositorio.recuperarTodos();
     }
 }

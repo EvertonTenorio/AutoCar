@@ -3,26 +3,29 @@ package repositorio;
 import java.util.ArrayList;
 import java.util.List;
 import negocio.entidade.Carro;
+import negocio.execao.carro.CarroNaoExisteException;
 import repositorio.interfaces.IRepositorioCarro;
 
-public class RepositorioCarro implements IRepositorioCarro{
+public class RepositorioCarro implements IRepositorioCarro {
 
     private List<Carro> listaCarros;
 
     public RepositorioCarro() {
         this.listaCarros = new ArrayList<>();
     }
-    
+
     @Override
     public void cadastrarCarro(Carro carro) {
         this.listaCarros.add(carro);
     }
 
     @Override
-    public void alterarCarro(int indice, Carro carro) {
+    public void alterarCarro(Carro carro) {
+        int indice = indiceCarro(carro.getPlaca());
+
         this.listaCarros.set(indice, carro);
     }
-    
+
     @Override
     public void removerCarro(Carro carro) {
         this.listaCarros.remove(carro);
@@ -46,14 +49,15 @@ public class RepositorioCarro implements IRepositorioCarro{
         }
         return -1;
     }
-    
-    public List<Carro> recuperarTodos(){
+
+    @Override
+    public List<Carro> recuperarTodos() {
         ArrayList<Carro> carros = new ArrayList<>();
-        
-        for(int i = 0; i < listaCarros.size(); i++){
+
+        for (int i = 0; i < listaCarros.size(); i++) {
             carros.add(listaCarros.get(i));
         }
-        
+
         return carros;
     }
 }

@@ -1,6 +1,7 @@
 package repositorio;
 
 import java.util.ArrayList;
+import java.util.List;
 import negocio.entidade.Servico;
 import repositorio.interfaces.IRepositorioServico;
 
@@ -34,11 +35,13 @@ public class RepositorioServico implements IRepositorioServico{
     }
 
     @Override
-    public void alterarServico(int indice, Servico servico) {
+    public void alterarServico(Servico servico) {
+        int indice = this.indiceServico(servico.getCodigo());
         this.listaServicos.set(indice, servico);
     }
-
-    public ArrayList<Servico> recuperarTodos() {
+    
+    
+    public List<Servico> recuperarTodos() {
         ArrayList<Servico> lista = new ArrayList<>();
         
         for(int i = 0; i < listaServicos.size(); i++){
@@ -48,7 +51,7 @@ public class RepositorioServico implements IRepositorioServico{
         return lista;
     }
 
-    public int indiceServico(int codigo) {
+    private int indiceServico(int codigo) {
         for (int i = 0; i < listaServicos.size(); i++) {
             if (listaServicos.get(i).getCodigo() == codigo) {
                 return i;

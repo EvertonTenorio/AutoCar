@@ -1,6 +1,7 @@
 package repositorio;
 
 import java.util.ArrayList;
+import java.util.List;
 import negocio.entidade.Produto;
 import repositorio.interfaces.IRepositorioProduto;
 
@@ -34,11 +35,13 @@ public class RepositorioProduto implements IRepositorioProduto{
     }
 
     @Override
-    public void alterarProduto(int codigo, Produto produto) {
+    public void alterarProduto(Produto produto) {
+        int codigo = this.indiceProduto(produto.getCodigo());
+        
         this.listaProdutos.set(codigo, produto);
     }
 
-    public int indiceProduto(int codigo) {
+    private int indiceProduto(int codigo) {
         for (int i = 0; i < listaProdutos.size(); i++) {
             if (listaProdutos.get(i).getCodigo() == codigo) {
                 return i;
@@ -47,8 +50,8 @@ public class RepositorioProduto implements IRepositorioProduto{
         return -1;
     }
     
-    
-    public ArrayList<Produto> recuperarTodos() {
+    @Override
+    public List<Produto> recuperarTodos() {
         ArrayList<Produto> produtos = new ArrayList<>();
         
         for(int i = 0; i < listaProdutos.size(); i++){

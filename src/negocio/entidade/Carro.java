@@ -1,8 +1,9 @@
 package negocio.entidade;
 
 import java.util.ArrayList;
+import java.util.function.Predicate;
 
-public class Carro {
+public class Carro implements Predicate<Carro>{
 
     private String placa;
     private ArrayList<Servico> historico;
@@ -48,5 +49,14 @@ public class Carro {
     @Override
     public String toString() {
         return "Placa: " + this.placa;
+    }
+
+    @Override
+    public boolean test(Carro t) {
+        if(this.equals(t)){
+            return true;
+        }
+        
+        return false;
     }
 }
