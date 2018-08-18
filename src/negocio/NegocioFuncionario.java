@@ -1,7 +1,6 @@
 package negocio;
 
 import java.util.ArrayList;
-import negocio.entidade.CargosEnum;
 import negocio.entidade.Funcionario;
 import negocio.execao.cliente.ClienteInvalidoException;
 import negocio.execao.funcionario.FuncionarioInvalidoException;
@@ -18,8 +17,8 @@ public class NegocioFuncionario {
         this.repositorio = new RepositorioFuncionario();
     }
 
-    public void cadastrarFuncionario(String nome, String cpf, String telefone, CargosEnum cargo) throws FuncionarioJaExisteException, PessoaInvalidaException {
-        Funcionario funcionario = new Funcionario(nome, cpf, telefone, cargo);
+    public void cadastrarFuncionario(String nome, String cpf, String telefone, double salario) throws FuncionarioJaExisteException, PessoaInvalidaException {
+        Funcionario funcionario = new Funcionario(nome, cpf, telefone, salario);
         Funcionario f = repositorio.buscarFuncionario(funcionario.getCpf());
 
         if (f == null) {

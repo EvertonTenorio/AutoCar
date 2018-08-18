@@ -27,6 +27,13 @@ public class Venda {
 
     }
 
+    public Venda() {
+        this.codigo = gerarCodigo++;
+        this.produtos = new ArrayList<>();
+        this.valorTotal = 0;
+
+    }
+
     public Pessoa getCliente() {
         return cliente;
     }
@@ -59,6 +66,10 @@ public class Venda {
 
     public void adicionarProduto(Produto produto) {
         this.produtos.add(produto);
+
+    }
+
+    public void adicionarServico(Servico servico, String placa, Mecanico mecanico) {
         
     }
 

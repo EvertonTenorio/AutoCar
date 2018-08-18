@@ -28,6 +28,10 @@ public class Carro {
         return historico;
     }
 
+    public void adicionarNoHistorico(Servico servico) {
+        this.historico.add(servico);
+    }
+
     @Override
     public boolean equals(Object obj) {
 
