@@ -8,8 +8,8 @@ public class Gerente extends Funcionario {
     private String login;
     private String senha;
 
-    public Gerente(String login, String senha, String nome, String cpf, String telefone, CargosEnum cargo) throws PessoaInvalidaException {
-        super(nome, cpf, telefone, cargo);
+    public Gerente(String login, String senha, String nome, String cpf, String telefone, double salario) throws PessoaInvalidaException {
+        super(nome, cpf, telefone, salario);
         this.login = login;
         this.senha = senha;
         this.valida();

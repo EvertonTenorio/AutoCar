@@ -5,32 +5,26 @@ import negocio.execao.pessoa.PessoaInvalidaException;
 
 public class Funcionario extends Pessoa {
 
-    private CargosEnum cargo;
+    private double salario;
 
-    public Funcionario(String nome, String cpf, String telefone, CargosEnum cargo) throws PessoaInvalidaException {
+    public Funcionario(String nome, String cpf, String telefone, double salario) throws PessoaInvalidaException {
         super(nome, cpf, telefone);
-        this.cargo = cargo;
+        this.salario = salario;
         this.valida();
+        
     }
 
-    public CargosEnum getCargo() {
-        return cargo;
+    public double getSalario() {
+        return salario;
     }
 
-    public void setCargo(CargosEnum cargo) {
-        this.cargo = cargo;
+    public void setSalario(double salario) {
+        this.salario = salario;
     }
 
     @Override
     public String toString() {
-        return "Nome do Funcionario: " + this.getNome() + "; Cpf: " + this.getCpf() + "; Cargo: " + this.cargo;
+        return "Nome do Funcionario: " + this.getNome() + "; Cpf: " + this.getCpf();
     }
 
-    @Override
-    public void valida() throws FuncionarioInvalidoException, PessoaInvalidaException {
-        if (this.cargo == null) {
-            throw new FuncionarioInvalidoException();
-        }
-        super.valida();
-    }
 }
