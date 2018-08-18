@@ -14,16 +14,15 @@ public class Mecanico extends Funcionario{
     public double getBonificacao() {
         return bonificacao;
     }
-
-    public void setBonificacao(double bonificacao) {
-        this.bonificacao = bonificacao;
-    }
     
     public void bonificar(double valor){
+        this.bonificacao += valor * 0.05;
+    } 
+    
+    public double retirarBonificação(){
+        double bonificacaoAux = this.bonificacao;
+        this.bonificacao = 0;
         
+        return bonificacaoAux;
     }
-    
-    
-    
-
 }

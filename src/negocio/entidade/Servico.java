@@ -2,18 +2,18 @@ package negocio.entidade;
 
 public class Servico extends Produto {
 
-    private Funcionario mecanico;
+    private Mecanico mecanico;
 
-    public Servico(double valor, String nome, Funcionario mecanico) {
+    public Servico(double valor, String nome, Mecanico mecanico) {
         super(valor, nome);
         this.mecanico = mecanico;
     }
 
-    public Funcionario getMecanico() {
+    public Mecanico getMecanico() {
         return mecanico;
     }
 
-    public void setMecanico(Funcionario mecanico) {
+    public void setMecanico(Mecanico mecanico) {
         this.mecanico = mecanico;
     }
 

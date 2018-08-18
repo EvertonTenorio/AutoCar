@@ -66,11 +66,20 @@ public class Venda {
 
     public void adicionarProduto(Produto produto) {
         this.produtos.add(produto);
-
     }
 
     public void adicionarServico(Servico servico, String placa, Mecanico mecanico) {
+        servico.setMecanico(mecanico);
+        mecanico.bonificar(servico.getValor());
         
+        for(int i = 0; i < cliente.getCarros().size(); i++){
+            if(cliente.getCarros().get(i).getPlaca().equals(placa)){
+                cliente.getCarros().get(i).adicionarNoHistorico(servico);
+                break;
+            }            
+        }
+        
+        this.produtos.add(servico);
     }
 
     public void removerProduto(Produto produto) {
