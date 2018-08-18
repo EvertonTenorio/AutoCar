@@ -14,7 +14,7 @@ import javafx.fxml.Initializable;
  *
  * @author Everton
  */
-public class TelePrincipalController implements Initializable {
+public class TelaPrincipalController implements Initializable {
 
     /**
      * Initializes the controller class.
