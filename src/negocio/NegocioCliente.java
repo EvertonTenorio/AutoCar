@@ -1,12 +1,14 @@
 package negocio;
 
 import java.util.ArrayList;
+import java.util.List;
 import negocio.entidade.Cliente;
 import negocio.execao.cliente.ClienteInvalidoException;
 import negocio.execao.cliente.ClienteJaExisteException;
 import negocio.execao.cliente.ClienteNaoExisteException;
 import negocio.execao.pessoa.PessoaInvalidaException;
 import repositorio.RepositorioCliente;
+import repositorio.interfaces.IRepositorioCliente;
 
 /*
  Por exemplo, o que acontece se o cliente for removido e tiver
@@ -15,7 +17,7 @@ import repositorio.RepositorioCliente;
 * */
 public class NegocioCliente {
 
-    private RepositorioCliente repositorio;
+    private IRepositorioCliente repositorio;
 
     public NegocioCliente() {
         this.repositorio = new RepositorioCliente();
@@ -35,10 +37,10 @@ public class NegocioCliente {
     }
 
     public void alterarCliente(Cliente cliente) throws ClienteNaoExisteException {
-        int indice = repositorio.indiceCliente(cliente.getCpf());
+        Cliente c = repositorio.buscarCliente(cliente.getCpf());
 
-        if (indice != -1) {
-            repositorio.alterarCliente(indice, cliente);
+        if (c != null) {
+            repositorio.alterarCliente(cliente);
         } else {
             throw new ClienteNaoExisteException();
 
@@ -64,7 +66,7 @@ public class NegocioCliente {
         }
     }
 
-    public ArrayList<Cliente> listaClientes() {
+    public List<Cliente> listaClientes() {
         return repositorio.recuperarTodos();
     }
 }

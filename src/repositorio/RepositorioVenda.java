@@ -1,6 +1,7 @@
 package repositorio;
 
 import java.util.ArrayList;
+import java.util.List;
 import negocio.entidade.Venda;
 import repositorio.interfaces.IRepositorioVenda;
 
@@ -33,11 +34,13 @@ public class RepositorioVenda implements IRepositorioVenda{
     }
 
     @Override
-    public void alterarVenda(int indice, Venda venda) {
-        this.listaVendas.set(indice, venda);
+    public void alterarVenda(Venda venda) {
+        int indice = this.indiceVenda(venda.getCodigo());
+
+        listaVendas.set(indice, venda);
     }
 
-    public ArrayList<Venda> recuperarTodos() {
+    public List<Venda> recuperarTodos() {
        ArrayList<Venda> lista = new ArrayList<>();
         
         for(int i = 0; i < listaVendas.size(); i++){
@@ -47,7 +50,7 @@ public class RepositorioVenda implements IRepositorioVenda{
         return lista;
     }
 
-    public int indiceVenda(int codigo) {
+    private int indiceVenda(int codigo) {
         for (int i = 0; i < listaVendas.size(); i++) {
             if (listaVendas.get(i).getCodigo() == codigo) {
                 return i;

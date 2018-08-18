@@ -2,14 +2,6 @@ package negocio.entidade;
 
 import java.util.ArrayList;
 
-/*
-Outra coisa, para implementar o programa de fidelidade não
-* seria necessário associar a Venda a um Cliente? Outra coisa, o texto diz que o cliente pode escolher o funcionário, mas
-* não localizei código para viabilizar isso. O funcionário tanto pode atuar na venda quanto na prestação de serviço, então
-* minha expectativa era existir relacionamento entre Venda e Funcionário e/ou Serviço e Funcionário. A
-* loja pode querer acompanhar a produtividade do funcionário pelos atendimentos prestados (seria uma nova funcionalidade),
-* o que daria ainda mais utilidade para tais relações.
- */
 public class Venda {
 
     private int codigo;
@@ -71,14 +63,14 @@ public class Venda {
     public void adicionarServico(Servico servico, String placa, Mecanico mecanico) {
         servico.setMecanico(mecanico);
         mecanico.bonificar(servico.getValor());
-        
-        for(int i = 0; i < cliente.getCarros().size(); i++){
-            if(cliente.getCarros().get(i).getPlaca().equals(placa)){
+
+        for (int i = 0; i < cliente.getCarros().size(); i++) {
+            if (cliente.getCarros().get(i).getPlaca().equals(placa)) {
                 cliente.getCarros().get(i).adicionarNoHistorico(servico);
                 break;
-            }            
+            }
         }
-        
+
         this.produtos.add(servico);
     }
 

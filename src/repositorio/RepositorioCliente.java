@@ -1,10 +1,12 @@
 package repositorio;
 
 import java.util.ArrayList;
+import java.util.List;
 import negocio.entidade.Cliente;
+import negocio.execao.cliente.ClienteNaoExisteException;
 import repositorio.interfaces.IRepositorioCliente;
 
-public class RepositorioCliente implements IRepositorioCliente{
+public class RepositorioCliente implements IRepositorioCliente {
 
     private ArrayList<Cliente> listaClientes;
 
@@ -33,21 +35,22 @@ public class RepositorioCliente implements IRepositorioCliente{
     }
 
     @Override
-    public void alterarCliente(int indice, Cliente cliente) {
+    public void alterarCliente(Cliente cliente) {
+        int indice = this.indiceCliente(cliente.getCpf());
+
         listaClientes.set(indice, cliente);
     }
 
-    public ArrayList<Cliente> recuperarTodos() {
+    public List<Cliente> recuperarTodos() {
         ArrayList<Cliente> clientes = new ArrayList<>();
-        
-        for(int i = 0; i < listaClientes.size(); i++){
+
+        for (int i = 0; i < listaClientes.size(); i++) {
             clientes.add(listaClientes.get(i));
         }
         return listaClientes;
     }
 
-    /* Thaís: Esse método só faz sentido para uso nessa classe. Quem usa o repositório não quer "enxergar" índice. */
-    public int indiceCliente(String cpf) {
+    private int indiceCliente(String cpf) {
         for (int i = 0; i < listaClientes.size(); i++) {
             if (listaClientes.get(i).getCpf().equals(cpf)) {
                 return i;

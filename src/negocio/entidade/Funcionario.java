@@ -26,5 +26,12 @@ public class Funcionario extends Pessoa {
     public String toString() {
         return "Nome do Funcionario: " + this.getNome() + "; Cpf: " + this.getCpf();
     }
+    
+    @Override
+    public void valida() throws PessoaInvalidaException {
+        if (this.salario <= 0){
+            throw new FuncionarioInvalidoException();
+        }
+    }
 
 }

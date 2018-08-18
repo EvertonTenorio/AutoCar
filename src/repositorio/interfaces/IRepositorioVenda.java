@@ -1,5 +1,6 @@
 package repositorio.interfaces;
 
+import java.util.List;
 import negocio.entidade.Venda;
 
 public interface IRepositorioVenda {
@@ -10,5 +11,7 @@ public interface IRepositorioVenda {
     
     Venda buscarVenda(int codigo);
     
-    void alterarVenda(int indice, Venda venda);
+    void alterarVenda(Venda venda);
+    
+    List<Venda> recuperarTodos();
 }

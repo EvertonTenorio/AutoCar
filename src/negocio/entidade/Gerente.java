@@ -32,7 +32,7 @@ public class Gerente extends Funcionario {
     }
 
     @Override
-    public void valida() throws FuncionarioInvalidoException, PessoaInvalidaException {
+    public void valida() throws PessoaInvalidaException {
         if (this.login.equals("") || this.senha.equals("")) {
             throw new FuncionarioInvalidoException();
         }

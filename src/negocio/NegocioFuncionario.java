@@ -1,17 +1,18 @@
 package negocio;
 
 import java.util.ArrayList;
+import java.util.List;
 import negocio.entidade.Funcionario;
-import negocio.execao.cliente.ClienteInvalidoException;
 import negocio.execao.funcionario.FuncionarioInvalidoException;
 import negocio.execao.funcionario.FuncionarioJaExisteException;
 import negocio.execao.funcionario.FuncionarioNaoExisteException;
 import negocio.execao.pessoa.PessoaInvalidaException;
 import repositorio.RepositorioFuncionario;
+import repositorio.interfaces.IRepositorioFuncionario;
 
 public class NegocioFuncionario {
 
-    private RepositorioFuncionario repositorio;
+    private IRepositorioFuncionario repositorio;
 
     public NegocioFuncionario() {
         this.repositorio = new RepositorioFuncionario();
@@ -29,14 +30,15 @@ public class NegocioFuncionario {
     }
 
     public void alterarFuncionario(Funcionario funcionario) throws FuncionarioNaoExisteException {
-        int indice = repositorio.indiceFuncionario(funcionario.getCpf());
+        Funcionario f = repositorio.buscarFuncionario(funcionario.getCpf());
 
-        if (indice != -1) {
-            repositorio.alterarFuncionario(indice, funcionario);
+        if (f != null) {
+            repositorio.alterarFuncionario(funcionario);
         } else {
             throw new FuncionarioNaoExisteException();
 
         }
+
     }
 
     public void removerFuncionario(String cpf) throws FuncionarioNaoExisteException {
@@ -74,7 +76,7 @@ public class NegocioFuncionario {
         }
     }
 
-    public ArrayList<Funcionario> listaFuncionario() {
+    public List<Funcionario> listaFuncionario() {
         return repositorio.recuperarTodos();
     }
 

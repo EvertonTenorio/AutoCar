@@ -1,15 +1,17 @@
 package negocio;
 
 import java.util.ArrayList;
+import java.util.List;
 import negocio.entidade.Venda;
 import negocio.execao.venda.VendaInvalidaException;
 import negocio.execao.venda.VendaJaExisteException;
 import negocio.execao.venda.VendaNaoExisteException;
 import repositorio.RepositorioVenda;
+import repositorio.interfaces.IRepositorioVenda;
 
 public class NegocioVenda {
 
-    private RepositorioVenda repositorio;
+    private IRepositorioVenda repositorio;
 
     public NegocioVenda() {
         this.repositorio = new RepositorioVenda();
@@ -28,10 +30,10 @@ public class NegocioVenda {
     }
 
     public void alterarVenda(Venda venda) throws VendaNaoExisteException {
-        int indice = this.repositorio.indiceVenda(venda.getCodigo());
+        Venda v = repositorio.buscarVenda(venda.getCodigo());
 
-        if (indice != -1) {
-            this.repositorio.alterarVenda(indice, venda);
+        if (v != null) {
+            this.repositorio.alterarVenda(venda);
         } else {
             throw new VendaNaoExisteException();
         }
@@ -57,7 +59,7 @@ public class NegocioVenda {
         }
     }
 
-    public ArrayList<Venda> listaVendas() {
+    public List<Venda> listaVendas() {
         return this.repositorio.recuperarTodos();
     }
 }

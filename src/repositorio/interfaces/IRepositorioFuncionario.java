@@ -1,5 +1,6 @@
 package repositorio.interfaces;
 
+import java.util.List;
 import negocio.entidade.Funcionario;
 
 public interface IRepositorioFuncionario {
@@ -10,5 +11,9 @@ public interface IRepositorioFuncionario {
     
     Funcionario buscarFuncionario(String cpf);
     
-    void alterarFuncionario(int indice, Funcionario funcionario);
+    void alterarFuncionario(Funcionario funcionario);
+    
+    List<Funcionario> recuperarTodos();
+    
+    Funcionario logarGerente(String login, String senha);
 }
