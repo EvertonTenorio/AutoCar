@@ -6,10 +6,11 @@ import negocio.execao.carro.CarroJaExisteException;
 import negocio.execao.carro.CarroNaoExisteException;
 import negocio.entidade.Carro;
 import repositorio.RepositorioCarro;
+import repositorio.interfaces.IRepositorioCarro;
 
 public class NegocioCarro {
 
-    private RepositorioCarro repositorio;
+    private IRepositorioCarro repositorio;
 
     public NegocioCarro() {
         this.repositorio = new RepositorioCarro();
@@ -27,37 +28,38 @@ public class NegocioCarro {
         }
     }
 
-    public void alterarCarro(Carro carro) throws CarroNaoExisteException{
-        int indice = repositorio.indiceCarro(carro.getPlaca());
+    public void alterarCarro(Carro carro) throws CarroNaoExisteException {
+        Carro c = repositorio.buscarCarro(carro.getPlaca());
+        
+        if(c != null){
+            repositorio.alterarCarro(carro);
+        } else {
+            throw new CarroNaoExisteException();
+        }
+        
+    }
 
-        if (indice != -1) {
-            repositorio.alterarCarro(indice, carro);
-        }else{
-            throw new CarroNaoExisteException();
-        }
-    }
-    
-    public void removerCarro(String placa) throws CarroNaoExisteException{
+    public void removerCarro(String placa) throws CarroNaoExisteException {
         Carro c = repositorio.buscarCarro(placa);
-        
-        if(c != null){
+
+        if (c != null) {
             repositorio.removerCarro(c);
-        }else{
+        } else {
             throw new CarroNaoExisteException();
         }
     }
-    
-    public Carro buscarCarro(String placa) throws CarroNaoExisteException{
+
+    public Carro buscarCarro(String placa) throws CarroNaoExisteException {
         Carro c = repositorio.buscarCarro(placa);
-        
-        if(c != null){
+
+        if (c != null) {
             return c;
-        }else{
+        } else {
             throw new CarroNaoExisteException();
         }
     }
-    
-    public List<Carro> listaCarros(){
+
+    public List<Carro> listaCarros() {
         return repositorio.recuperarTodos();
     }
 }
