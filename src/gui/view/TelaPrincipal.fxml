@@ -8,46 +8,47 @@
 <?import javafx.scene.layout.*?>
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="gui.controller.TelaPrincipalController">
-   <children>
-      <MenuBar prefHeight="23.0" prefWidth="600.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-        <menus>
-            <Menu mnemonicParsing="false" text="Venda">
-              <items>
-                <MenuItem mnemonicParsing="false" text="Realizar venda" />
-              </items>
-            </Menu>
-          <Menu mnemonicParsing="false" text="Cliente">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Cadastrar" />
-                  <MenuItem mnemonicParsing="false" text="Buscar" />
-                  <MenuItem mnemonicParsing="false" text="Alterar" />
-                  <MenuItem mnemonicParsing="false" text="Remover" />
-                  <MenuItem mnemonicParsing="false" text="Listar" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Produto">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Cadastrar" />
-                  <MenuItem mnemonicParsing="false" text="Buscar" />
-                  <MenuItem mnemonicParsing="false" text="Alterar" />
-                  <MenuItem mnemonicParsing="false" text="Remover" />
-                  <MenuItem mnemonicParsing="false" text="Listar" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Serviço">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Cadastrar" />
-                  <MenuItem mnemonicParsing="false" text="Buscar" />
-                  <MenuItem mnemonicParsing="false" text="Alterar" />
-                  <MenuItem mnemonicParsing="false" text="Remover" />
-                  <MenuItem mnemonicParsing="false" text="Listar" />
-            </items>
-          </Menu>
-            <Menu mnemonicParsing="false" text="Gerente">
-               <items>
-                  <MenuItem fx:id="btLogar" mnemonicParsing="false" onAction="#abrirTelaLogin" text="Logar" />
-               </items></Menu>
-        </menus>
-      </MenuBar>
-   </children>
+    <children>
+        <MenuBar prefHeight="23.0" prefWidth="600.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+            <menus>
+                <Menu mnemonicParsing="false" text="Venda">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Realizar venda" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Cliente">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Cadastrar" />
+                        <MenuItem mnemonicParsing="false" text="Buscar" />
+                        <MenuItem mnemonicParsing="false" text="Alterar" />
+                        <MenuItem mnemonicParsing="false" text="Remover" />
+                        <MenuItem mnemonicParsing="false" text="Listar" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Produto">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Cadastrar" />
+                        <MenuItem mnemonicParsing="false" text="Buscar" />
+                        <MenuItem mnemonicParsing="false" text="Alterar" />
+                        <MenuItem mnemonicParsing="false" text="Remover" />
+                        <MenuItem mnemonicParsing="false" text="Listar" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Serviço">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Cadastrar" />
+                        <MenuItem mnemonicParsing="false" text="Buscar" />
+                        <MenuItem mnemonicParsing="false" text="Alterar" />
+                        <MenuItem mnemonicParsing="false" text="Remover" />
+                        <MenuItem mnemonicParsing="false" text="Listar" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Gerente">
+                    <items>
+                        <MenuItem fx:id="btLogar" mnemonicParsing="false" onAction="#abrirTelaLogin" text="Logar" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+    </children>
 </AnchorPane>
