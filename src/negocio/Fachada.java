@@ -62,8 +62,8 @@ public class Fachada {
         this.negocioCli.cadastrarCliente(nome, cpf, telefone);
     }
 
-    public void cadastrarProduto(Produto produto) throws ProdutoInvalidoException, ProdutoJaExisteException {
-        this.negocioProd.cadastrarProduto(produto);
+    public void cadastrarProduto(String nome, double valor) throws ProdutoInvalidoException, ProdutoJaExisteException {
+        this.negocioProd.cadastrarProduto(nome, valor);
     }
 
     public void cadastrarServico(Servico servico) throws ServicoInvalidoException, ServicoJaExisteException {

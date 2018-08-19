@@ -30,7 +30,7 @@
                         <MenuItem fx:id="btCadastroProduto" mnemonicParsing="false" onAction="#abrirTelaCadastroProduto" text="Cadastrar" />
                         <MenuItem fx:id="btBuscarProduto" mnemonicParsing="false" onAction="#abrirTelaBuscarProduto" text="Buscar" />
                         <MenuItem fx:id="btAlterarProduto" mnemonicParsing="false" onAction="#abrirTelaAlterarProduto" text="Alterar" />
-                        <MenuItem fx:id="btRemoverProduto" mnemonicParsing="false" onAction="#abrirTelaCadastroProduto" text="Remover" />
+                        <MenuItem fx:id="btRemoverProduto" mnemonicParsing="false" onAction="#abrirTelaRemoverProduto" text="Remover" />
                         <MenuItem fx:id="btListarProduto" mnemonicParsing="false" onAction="#abrirTelaListarProduto" text="Listar" />
                     </items>
                 </Menu>

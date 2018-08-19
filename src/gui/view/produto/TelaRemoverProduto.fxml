@@ -6,18 +6,17 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="gui.controller.produto.TelaRemoverProdutoController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.produto.TelaRemoverProdutoController">
    <children>
       <Label layoutX="37.0" layoutY="36.0" text="Codigo:" />
       <Separator layoutY="95.0" prefHeight="0.0" prefWidth="600.0" />
-      <TextField layoutX="100.0" layoutY="32.0" />
-      <Button layoutX="300.0" layoutY="32.0" mnemonicParsing="false" text="Buscar" />
+      <TextField fx:id="txtCodigo" layoutX="100.0" layoutY="32.0" />
+      <Button layoutX="300.0" layoutY="32.0" mnemonicParsing="false" onAction="#buscarRemover" text="Buscar" />
       <Label layoutX="44.0" layoutY="153.0" text="Nome:" />
       <Label layoutX="44.0" layoutY="218.0" text="Valor:" />
-      <Label layoutX="100.0" layoutY="149.0" prefHeight="25.0" prefWidth="174.0" />
-      <Label layoutX="100.0" layoutY="214.0" prefHeight="25.0" prefWidth="87.0" />
-      <Button layoutX="100.0" layoutY="321.0" mnemonicParsing="false" text="Remover" />
+      <Label fx:id="nome" layoutX="100.0" layoutY="149.0" prefHeight="25.0" prefWidth="174.0" />
+      <Label fx:id="valor" layoutX="100.0" layoutY="214.0" prefHeight="25.0" prefWidth="87.0" />
+      <Button layoutX="100.0" layoutY="321.0" mnemonicParsing="false" onAction="#remover" text="Remover" />
       <Button layoutX="213.0" layoutY="321.0" mnemonicParsing="false" text="Cancelar" />
    </children>
 </AnchorPane>
