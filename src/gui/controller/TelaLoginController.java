@@ -15,8 +15,8 @@ public class TelaLoginController implements Initializable {
     private TextField senha;
     @FXML
     private Button entrar;
-    @FXML
-    private Button cancelar;
+
+    
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
