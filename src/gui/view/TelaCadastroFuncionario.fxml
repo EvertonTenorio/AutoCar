@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="gui.controller.TelaCadastroFuncionarioController">
+   <children>
+      <Label layoutX="36.0" layoutY="40.0" text="Nome:" />
+      <Label layoutX="40.0" layoutY="88.0" text="Cpf:" />
+      <Label layoutX="26.0" layoutY="136.0" text="Telefone:" />
+      <Label layoutX="31.0" layoutY="180.0" text="Salário:" />
+      <TextField layoutX="93.0" layoutY="36.0" prefHeight="25.0" prefWidth="438.0" />
+      <TextField layoutX="93.0" layoutY="84.0" prefHeight="25.0" prefWidth="165.0" />
+      <TextField layoutX="93.0" layoutY="132.0" prefHeight="25.0" prefWidth="165.0" />
+      <TextField layoutX="93.0" layoutY="176.0" prefHeight="25.0" prefWidth="165.0" />
+      <Label layoutX="312.0" layoutY="136.0" text="Cargo:" />
+      <ComboBox layoutX="366.0" layoutY="132.0" prefWidth="150.0" />
+      <Label layoutX="34.0" layoutY="226.0" text="Login:" />
+      <Label layoutX="33.0" layoutY="271.0" text="Senha:" />
+      <TextField layoutX="93.0" layoutY="222.0" prefHeight="25.0" prefWidth="165.0" />
+      <TextField layoutX="93.0" layoutY="267.0" prefHeight="25.0" prefWidth="165.0" />
+      <Button layoutX="157.0" layoutY="331.0" mnemonicParsing="false" text="Cadastrar" />
+      <Button layoutX="286.0" layoutY="331.0" mnemonicParsing="false" text="Cancelar" />
+   </children>
+</AnchorPane>

@@ -1,7 +1,5 @@
 package main;
 
-import java.awt.Dimension;
-import java.awt.Toolkit;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
 import javafx.fxml.FXMLLoader;
