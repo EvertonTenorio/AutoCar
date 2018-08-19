@@ -22,6 +22,7 @@ public class Main extends Application {
         stage.setTitle("Auto Car");
         stage.setScene(new Scene(root));
         stage.show();
+
     }
 
     public static void main(String[] args) {

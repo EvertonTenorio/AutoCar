@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.TelaAlterarProdutoController">
+   <children>
+      <Label layoutX="35.0" layoutY="45.0" text="Nome:" />
+      <Label layoutX="35.0" layoutY="114.0" text="Código:" />
+      <Label layoutX="35.0" layoutY="190.0" text="Valor:" />
+      <TextField layoutX="123.0" layoutY="185.0" prefHeight="31.0" prefWidth="110.0" promptText="Digite o valor" />
+      <TextField layoutX="123.0" layoutY="109.0" prefHeight="31.0" prefWidth="67.0" promptText="Id" />
+      <TextField layoutX="123.0" layoutY="40.0" prefHeight="31.0" prefWidth="230.0" promptText="Digite o nome" />
+      <Button layoutX="268.0" layoutY="109.0" mnemonicParsing="false" text="Buscar" />
+      <Button layoutX="151.0" layoutY="277.0" mnemonicParsing="false" text="Alterar" />
+      <Button layoutX="342.0" layoutY="277.0" mnemonicParsing="false" text="Cancelar" />
+   </children>
+</AnchorPane>
