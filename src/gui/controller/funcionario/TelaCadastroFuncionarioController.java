@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package gui.controller;
+package gui.controller.funcionario;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -12,9 +12,9 @@ import javafx.fxml.Initializable;
 /**
  * FXML Controller class
  *
- * @author jenil
+ * @author Everton
  */
-public class TelaAlterarProdutoController implements Initializable {
+public class TelaCadastroFuncionarioController implements Initializable {
 
     /**
      * Initializes the controller class.
