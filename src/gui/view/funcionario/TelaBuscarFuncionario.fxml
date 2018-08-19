@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="gui.controller.TelaBuscarFuncionarioController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="gui.controller.funcionario.TelaBuscarFuncionarioController">
    <children>
       <Label layoutX="42.0" layoutY="40.0" text="Cpf:" />
       <TextField layoutX="99.0" layoutY="35.0" prefHeight="31.0" prefWidth="231.0" />

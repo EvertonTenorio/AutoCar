@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="gui.controller.TelaRemoverProdutoController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="gui.controller.produto.TelaRemoverProdutoController">
    <children>
       <Label layoutX="37.0" layoutY="36.0" text="Codigo:" />
       <Separator layoutY="95.0" prefHeight="0.0" prefWidth="600.0" />
