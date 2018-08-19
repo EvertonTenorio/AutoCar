@@ -13,7 +13,7 @@
             <menus>
                 <Menu mnemonicParsing="false" text="Venda">
                     <items>
-                        <MenuItem mnemonicParsing="false" text="Realizar venda" />
+                        <MenuItem fx:id="btVenda" mnemonicParsing="false" onAction="#abrirTelaVenda" text="Realizar venda" />
                     </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Cliente">
@@ -27,11 +27,11 @@
                 </Menu>
                 <Menu mnemonicParsing="false" text="Produto">
                     <items>
-                        <MenuItem mnemonicParsing="false" text="Cadastrar" />
-                        <MenuItem mnemonicParsing="false" text="Buscar" />
-                        <MenuItem mnemonicParsing="false" text="Alterar" />
-                        <MenuItem mnemonicParsing="false" text="Remover" />
-                        <MenuItem mnemonicParsing="false" text="Listar" />
+                        <MenuItem fx:id="btCadastroProduto" mnemonicParsing="false" onAction="#abrirTelaCadastroProduto" text="Cadastrar" />
+                        <MenuItem fx:id="btBuscarProduto" mnemonicParsing="false" onAction="#abrirTelaBuscarProduto" text="Buscar" />
+                        <MenuItem fx:id="btAlterarProduto" mnemonicParsing="false" onAction="#abrirTelaAlterarProduto" text="Alterar" />
+                        <MenuItem fx:id="btRemoverProduto" mnemonicParsing="false" onAction="#abrirTelaCadastroProduto" text="Remover" />
+                        <MenuItem fx:id="btListarProduto" mnemonicParsing="false" onAction="#abrirTelaListarProduto" text="Listar" />
                     </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Serviço">

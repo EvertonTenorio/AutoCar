@@ -32,6 +32,19 @@ public class TelaPrincipalController implements Initializable {
     private MenuItem btAlterarServico;
     @FXML
     private MenuItem btRemoverServico;
+    @FXML
+    private MenuItem btCadastroProduto;
+    @FXML
+    private MenuItem btAlterarProduto;
+    @FXML
+    private MenuItem btBuscarProduto;
+    @FXML
+    private MenuItem btRemoverProduto;
+    @FXML
+    private MenuItem btListarProduto;
+    @FXML
+    private MenuItem btVenda;
+
 
     @FXML
     public void abrirTelaLogin() {
@@ -42,6 +55,102 @@ public class TelaPrincipalController implements Initializable {
             Scene scene = new Scene(fxmlLoader.load(), 600, 400);
             Stage stage = new Stage();
             stage.setTitle("Login");
+            stage.setScene(scene);
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    @FXML
+    public void abrirTelaCadastroProduto() {
+
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("/gui/view/produto/TelaCadastrarProduto.fxml"));
+            Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+            Stage stage = new Stage();
+            stage.setTitle("Cadastrar Produto");
+            stage.setScene(scene);
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    @FXML
+    public void abrirTelaAlterarProduto() {
+
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("/gui/view/produto/TelaAlterarProduto.fxml"));
+            Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+            Stage stage = new Stage();
+            stage.setTitle("Alterar Produto");
+            stage.setScene(scene);
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    @FXML
+    public void abrirTelaBuscarProduto() {
+
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("/gui/view/produto/TelaBuscarProduto.fxml"));
+            Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+            Stage stage = new Stage();
+            stage.setTitle("Buscar Produto");
+            stage.setScene(scene);
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    @FXML
+    public void abrirTelaRemoverProduto() {
+
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("/gui/view/produto/TelaRemoverProduto.fxml"));
+            Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+            Stage stage = new Stage();
+            stage.setTitle("Remover Produto");
+            stage.setScene(scene);
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    @FXML
+    public void abrirTelaListarProduto() {
+
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("/gui/view/produto/TelaListarProduto.fxml"));
+            Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+            Stage stage = new Stage();
+            stage.setTitle("Listar Produtos");
+            stage.setScene(scene);
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    @FXML
+    public void abrirTelaVenda() {
+
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("/gui/view/venda/TelaVenda.fxml"));
+            Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+            Stage stage = new Stage();
+            stage.setTitle("Realizar Venda");
             stage.setScene(scene);
             stage.show();
         } catch (Exception e) {
