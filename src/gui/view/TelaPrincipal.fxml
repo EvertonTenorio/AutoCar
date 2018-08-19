@@ -43,7 +43,10 @@
                   <MenuItem mnemonicParsing="false" text="Listar" />
             </items>
           </Menu>
-            <Menu mnemonicParsing="false" text="Logar" />
+            <Menu mnemonicParsing="false" text="Gerente">
+               <items>
+                  <MenuItem fx:id="btLogin" mnemonicParsing="false" onAction="#abrirTelaLogin" text="Logar" />
+               </items></Menu>
         </menus>
       </MenuBar>
    </children>

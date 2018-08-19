@@ -17,7 +17,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
         stage = primaryStage;
         FXMLLoader load = new FXMLLoader();
-        load.setLocation(getClass().getResource("/gui/view/cliente/TelaBuscarCliente.fxml"));
+        load.setLocation(getClass().getResource("/gui/view/TelaPrincipal.fxml"));
         root = (AnchorPane) load.load();
         stage.setTitle("Auto Car");
         stage.setScene(new Scene(root));
