@@ -7,7 +7,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.TelaPrincipalController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="gui.controller.TelaPrincipalController">
    <children>
       <MenuBar prefHeight="23.0" prefWidth="600.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
         <menus>
@@ -43,7 +43,10 @@
                   <MenuItem mnemonicParsing="false" text="Listar" />
             </items>
           </Menu>
-            <Menu mnemonicParsing="false" text="Logar" />
+            <Menu mnemonicParsing="false" text="Gerente">
+               <items>
+                  <MenuItem fx:id="btLogar" mnemonicParsing="false" onAction="#abrirTelaLogin" text="Logar" />
+               </items></Menu>
         </menus>
       </MenuBar>
    </children>
