@@ -71,7 +71,7 @@ public class Pessoa {
     }
 
     public void valida() throws PessoaInvalidaException {
-        if (this.nome.equals("") || this.nome.length() < 5 || this.cpf.equals("") || this.cpf.length() != 11 || this.telefone.equals("") || this.telefone.length() != 11) {
+        if (this.nome.equals("") || this.nome.length() < 5 || this.cpf.equals("") || this.cpf.length() != 11 || this.telefone.equals("") || this.telefone.length() < 8) {
             throw new PessoaInvalidaException();
         }
     }
