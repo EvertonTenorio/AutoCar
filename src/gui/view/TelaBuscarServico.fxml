@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.TelaBuscarServicoController">
+   <children>
+      <Label layoutX="41.0" layoutY="50.0" text="Código:" />
+      <Label layoutX="41.0" layoutY="190.0" text="Nome:" />
+      <Label layoutX="41.0" layoutY="248.0" text="Valor:" />
+      <TextField layoutX="123.0" layoutY="45.0" prefHeight="31.0" prefWidth="73.0" promptText="Id" />
+      <Separator layoutY="131.0" prefHeight="1.0" prefWidth="600.0" />
+      <Label layoutX="123.0" layoutY="185.0" prefHeight="31.0" prefWidth="464.0" />
+      <Label layoutX="123.0" layoutY="243.0" prefHeight="31.0" prefWidth="92.0" />
+      <Button layoutX="329.0" layoutY="45.0" mnemonicParsing="false" text="Buscar" />
+      <Button layoutX="257.0" layoutY="320.0" mnemonicParsing="false" text="Cancelar" />
+   </children>
+</AnchorPane>

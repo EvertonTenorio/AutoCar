@@ -4,7 +4,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
 
-public class TelaPrincipalController implements Initializable {
+public class TelaBuscarClienteController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {

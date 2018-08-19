@@ -1,7 +1,5 @@
 package main;
 
-import java.awt.Dimension;
-import java.awt.Toolkit;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
 import javafx.fxml.FXMLLoader;
@@ -24,6 +22,7 @@ public class Main extends Application {
         stage.setTitle("Auto Car");
         stage.setScene(new Scene(root));
         stage.show();
+
     }
 
     public static void main(String[] args) {

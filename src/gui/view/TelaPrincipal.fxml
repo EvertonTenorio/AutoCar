@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
@@ -12,29 +13,37 @@
         <menus>
             <Menu mnemonicParsing="false" text="Venda">
               <items>
-                <MenuItem mnemonicParsing="false" text="Action 1" />
+                <MenuItem mnemonicParsing="false" text="Realizar venda" />
               </items>
             </Menu>
           <Menu mnemonicParsing="false" text="Cliente">
             <items>
-              <MenuItem mnemonicParsing="false" text="Close" />
+              <MenuItem mnemonicParsing="false" text="Cadastrar" />
+                  <MenuItem mnemonicParsing="false" text="Buscar" />
+                  <MenuItem mnemonicParsing="false" text="Alterar" />
+                  <MenuItem mnemonicParsing="false" text="Remover" />
+                  <MenuItem mnemonicParsing="false" text="Listar" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Produto">
             <items>
-              <MenuItem mnemonicParsing="false" text="Delete" />
+              <MenuItem mnemonicParsing="false" text="Cadastrar" />
+                  <MenuItem mnemonicParsing="false" text="Buscar" />
+                  <MenuItem mnemonicParsing="false" text="Alterar" />
+                  <MenuItem mnemonicParsing="false" text="Remover" />
+                  <MenuItem mnemonicParsing="false" text="Listar" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Serviço">
             <items>
-              <MenuItem mnemonicParsing="false" text="About" />
+              <MenuItem mnemonicParsing="false" text="Cadastrar" />
+                  <MenuItem mnemonicParsing="false" text="Buscar" />
+                  <MenuItem mnemonicParsing="false" text="Alterar" />
+                  <MenuItem mnemonicParsing="false" text="Remover" />
+                  <MenuItem mnemonicParsing="false" text="Listar" />
             </items>
           </Menu>
-            <Menu mnemonicParsing="false" text="Logar">
-              <items>
-                <MenuItem mnemonicParsing="false" text="Action 1" />
-              </items>
-            </Menu>
+            <Menu mnemonicParsing="false" text="Logar" />
         </menus>
       </MenuBar>
    </children>

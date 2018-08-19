@@ -4,9 +4,9 @@ public class Servico extends Produto {
 
     private Mecanico mecanico;
 
-    public Servico(double valor, String nome, Mecanico mecanico) {
+    public Servico(double valor, String nome) {
         super(valor, nome);
-        this.mecanico = mecanico;
+        this.mecanico = null;
     }
 
     public Mecanico getMecanico() {
