@@ -16,6 +16,5 @@
       <TextField fx:id="telefone" layoutX="107.0" layoutY="159.0" prefHeight="31.0" prefWidth="209.0" promptText="Digite o telefone" />
       <Button fx:id="btBuscar" layoutX="378.0" layoutY="93.0" mnemonicParsing="false" onAction="#buscarAlterar" text="Buscar" />
       <Button fx:id="btAlterar" layoutX="157.0" layoutY="252.0" mnemonicParsing="false" onAction="#alterar" text="Alterar" />
-      <Button layoutX="353.0" layoutY="252.0" mnemonicParsing="false" text="Cancelar" />
    </children>
 </AnchorPane>

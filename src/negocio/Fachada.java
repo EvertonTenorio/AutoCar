@@ -74,8 +74,8 @@ public class Fachada {
         this.negocioVenda.cadastrarVenda(venda);
     }
 
-    public void cadastrarCarro(Carro carro) throws CarroInvalidoException, CarroJaExisteException {
-        this.negocioCarro.cadastrarCarro(carro);
+    public void cadastrarCarro(String placa) throws CarroInvalidoException, CarroJaExisteException {
+        this.negocioCarro.cadastrarCarro(placa);
     }
 
     public void alterarFuncionario(Funcionario funcionario) throws FuncionarioNaoExisteException {

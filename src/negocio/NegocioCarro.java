@@ -16,27 +16,27 @@ public class NegocioCarro {
         this.repositorio = new RepositorioCarro();
     }
 
-    public void cadastrarCarro(Carro carro) throws CarroJaExisteException, CarroInvalidoException {
-        Carro c = repositorio.buscarCarro(carro.getPlaca());
+    public void cadastrarCarro(String placa) throws CarroJaExisteException, CarroInvalidoException {
+        Carro carro = new Carro(placa);
 
-        if (carro.getPlaca().equals("")) {
-            throw new CarroInvalidoException();
-        } else if (c != null) {
-            throw new CarroJaExisteException();
+        Carro c = repositorio.buscarCarro(carro.getPlaca());
+        if (c == null) {
+            this.repositorio.cadastrarCarro(carro);;
         } else {
-            this.repositorio.cadastrarCarro(carro);
+            throw new CarroJaExisteException();
         }
+
     }
 
     public void alterarCarro(Carro carro) throws CarroNaoExisteException {
         Carro c = repositorio.buscarCarro(carro.getPlaca());
-        
-        if(c != null){
+
+        if (c != null) {
             repositorio.alterarCarro(carro);
         } else {
             throw new CarroNaoExisteException();
         }
-        
+
     }
 
     public void removerCarro(String placa) throws CarroNaoExisteException {

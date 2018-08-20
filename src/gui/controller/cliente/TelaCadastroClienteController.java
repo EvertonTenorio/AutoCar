@@ -28,8 +28,7 @@ public class TelaCadastroClienteController implements Initializable {
     private TextField txtTelefone;
     @FXML
     private Button cadastrar;
-    @FXML
-    private ListView<Carro> listaCarros = new ListView<>();
+    
 
     @FXML
     protected void cadastrar() {

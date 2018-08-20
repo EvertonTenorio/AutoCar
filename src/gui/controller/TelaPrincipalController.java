@@ -45,7 +45,6 @@ public class TelaPrincipalController implements Initializable {
     @FXML
     private MenuItem btVenda;
 
-
     @FXML
     public void abrirTelaLogin() {
 
@@ -61,7 +60,7 @@ public class TelaPrincipalController implements Initializable {
             e.printStackTrace();
         }
     }
-    
+
     @FXML
     public void abrirTelaCadastroProduto() {
 
@@ -77,7 +76,7 @@ public class TelaPrincipalController implements Initializable {
             e.printStackTrace();
         }
     }
-    
+
     @FXML
     public void abrirTelaAlterarProduto() {
 
@@ -93,7 +92,7 @@ public class TelaPrincipalController implements Initializable {
             e.printStackTrace();
         }
     }
-    
+
     @FXML
     public void abrirTelaBuscarProduto() {
 
@@ -109,7 +108,7 @@ public class TelaPrincipalController implements Initializable {
             e.printStackTrace();
         }
     }
-    
+
     @FXML
     public void abrirTelaRemoverProduto() {
 
@@ -125,7 +124,7 @@ public class TelaPrincipalController implements Initializable {
             e.printStackTrace();
         }
     }
-    
+
     @FXML
     public void abrirTelaListarProduto() {
 
@@ -141,7 +140,7 @@ public class TelaPrincipalController implements Initializable {
             e.printStackTrace();
         }
     }
-    
+
     @FXML
     public void abrirTelaVenda() {
 
@@ -295,6 +294,22 @@ public class TelaPrincipalController implements Initializable {
             Scene scene = new Scene(fxmlLoader.load(), 600, 400);
             Stage stage = new Stage();
             stage.setTitle("Remover serviço");
+            stage.setScene(scene);
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void abrirTelaAdicionarCarro() {
+
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("/gui/view/cliente/TelaAdicionarCarro.fxml"));
+            Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+            Stage stage = new Stage();
+            stage.setTitle("Adicionar carro");
             stage.setScene(scene);
             stage.show();
         } catch (Exception e) {
