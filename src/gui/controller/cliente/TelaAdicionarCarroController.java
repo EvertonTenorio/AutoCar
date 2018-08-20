@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javax.swing.JOptionPane;
@@ -32,11 +33,21 @@ public class TelaAdicionarCarroController implements Initializable {
                 cliente = Fachada.getnstance().buscarCliente(txtCpf.getText());
                 nome.setText(cliente.getNome());
             } else {
-                JOptionPane.showMessageDialog(null, "Cliente não identificado.");
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Buscar");
+                alert.setHeaderText(null);
+                alert.setContentText("Cliente não encontrado!");
+
+                alert.showAndWait();
             }
 
         } catch (ClienteNaoExisteException e) {
-            JOptionPane.showMessageDialog(null, e.getMessage());
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Buscar");
+            alert.setHeaderText(null);
+            alert.setContentText(e.getMessage());
+
+            alert.showAndWait();
         }
 
     }
@@ -51,25 +62,30 @@ public class TelaAdicionarCarroController implements Initializable {
                 Carro c = new Carro(placa);
                 Fachada.getnstance().cadastrarCarro(placa);
                 cliente.adicionarCarro(c);
-                JOptionPane.showMessageDialog(null, "Carro adicioado.");
-                
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Adicionar");
+                alert.setHeaderText(null);
+                alert.setContentText("Carro adicionado!");
+
+                alert.showAndWait();
+
                 txtPlaca.setText("");
 
             }
-        }catch (CarroJaExisteException | CarroInvalidoException e){
-            JOptionPane.showMessageDialog(null, e.getMessage());
-        }
-            
+        } catch (CarroJaExisteException | CarroInvalidoException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Adicinar");
+            alert.setHeaderText(null);
+            alert.setContentText(e.getMessage());
+
+            alert.showAndWait();
         }
 
-        @Override
-        public void initialize
-        (URL url, ResourceBundle rb
-        
-        
-    
+    }
 
-) {
+    @Override
+    public void initialize(URL url, ResourceBundle rb
+    ) {
         // TODO
     }
 

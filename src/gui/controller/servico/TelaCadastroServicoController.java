@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 import javax.swing.JOptionPane;
@@ -31,17 +32,32 @@ public class TelaCadastroServicoController implements Initializable {
         try {
             if (checkServico.isSelected()) {
                 Fachada.getnstance().cadastrarServicoPeriodico(valor, nome);
-                JOptionPane.showMessageDialog(null, "Serviço cadastrado.");
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Cadastro");
+                alert.setHeaderText(null);
+                alert.setContentText("Serviço cadastrado!");
+
+                alert.showAndWait();
                 txtNome.setText("");
                 txtValor.setText("");
             } else {
                 Fachada.getnstance().cadastrarServico(valor, nome);
-                JOptionPane.showMessageDialog(null, "Serviço cadastrado.");
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Cadastrar!");
+                alert.setHeaderText(null);
+                alert.setContentText("Serviço cadastrado!");
+
+                alert.showAndWait();
                 txtNome.setText("");
                 txtValor.setText("");
             }
         } catch (ProdutoInvalidoException | ServicoInvalidoException | ServicoJaExisteException e) {
-            JOptionPane.showMessageDialog(null, e.getMessage());
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Cadastrar");
+            alert.setHeaderText(null);
+            alert.setContentText(e.getMessage());
+
+            alert.showAndWait();
         }
     }
 

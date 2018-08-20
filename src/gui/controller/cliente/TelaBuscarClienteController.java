@@ -7,6 +7,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
@@ -48,11 +49,21 @@ public class TelaBuscarClienteController implements Initializable {
                 listaCarros.setItems(listaDeCarros);
 
             } else {
-                JOptionPane.showMessageDialog(null, "Cliente não identificado.");
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Buscar");
+                alert.setHeaderText(null);
+                alert.setContentText("Cliente não identificado!");
+
+                alert.showAndWait();
             }
 
         } catch (ClienteNaoExisteException e) {
-            JOptionPane.showMessageDialog(null, e.getMessage());
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Buscar");
+            alert.setHeaderText(null);
+            alert.setContentText(e.getMessage());
+
+            alert.showAndWait();;
         }
 
     }

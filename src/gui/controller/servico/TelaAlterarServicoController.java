@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javax.swing.JOptionPane;
 import negocio.Fachada;
@@ -30,11 +31,21 @@ public class TelaAlterarServicoController implements Initializable {
                 txtValor.setText(servico.getValor() + "");
 
             } else {
-                JOptionPane.showMessageDialog(null, "Serviço não identificado.");
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Buscar");
+                alert.setHeaderText(null);
+                alert.setContentText("Serviço não identificado!");
+
+                alert.showAndWait();
 
             }
         } catch (ServicoNaoExisteException e) {
-            JOptionPane.showMessageDialog(null, e.getMessage());
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Buscar");
+            alert.setHeaderText(null);
+            alert.setContentText(e.getMessage());
+
+            alert.showAndWait();
         }
     }
 
@@ -49,12 +60,27 @@ public class TelaAlterarServicoController implements Initializable {
                 servico.setValor(valor);
 
                 Fachada.getnstance().alterarServico(servico);
-                JOptionPane.showMessageDialog(null, "Serviço alterado.");
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Alterar");
+                alert.setHeaderText(null);
+                alert.setContentText("Serviço alterado!");
+
+                alert.showAndWait();
             } else {
-                JOptionPane.showMessageDialog(null, "Serviço não identificado.");
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Alterar");
+                alert.setHeaderText(null);
+                alert.setContentText("Serviço não identificado!");
+
+                alert.showAndWait();
             }
         } catch (ServicoNaoExisteException e) {
-            JOptionPane.showMessageDialog(null, e.getMessage());
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Alterar");
+            alert.setHeaderText(null);
+            alert.setContentText(e.getMessage());
+
+            alert.showAndWait();
         }
 
     }

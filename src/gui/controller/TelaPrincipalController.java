@@ -147,7 +147,7 @@ public class TelaPrincipalController implements Initializable {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader();
             fxmlLoader.setLocation(getClass().getResource("/gui/view/venda/TelaVenda.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(), 600, 600);
+            Scene scene = new Scene(fxmlLoader.load(), 700, 600);
             Stage stage = new Stage();
             stage.setTitle("Realizar Venda");
             stage.setScene(scene);

@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -37,11 +38,21 @@ public class TelaRemoverClienteController implements Initializable {
                 nome.setText(cliente.getNome());
                 telefone.setText(cliente.getTelefone());
             } else {
-                JOptionPane.showMessageDialog(null, "Cliente não identificado.");
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Buscar");
+                alert.setHeaderText(null);
+                alert.setContentText("Cliente não identificado!");
+
+                alert.showAndWait();
             }
 
         } catch (ClienteNaoExisteException e) {
-            JOptionPane.showMessageDialog(null, e.getMessage());
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Buscar");
+            alert.setHeaderText(null);
+            alert.setContentText(e.getMessage());
+
+            alert.showAndWait();
         }
 
     }
@@ -51,15 +62,30 @@ public class TelaRemoverClienteController implements Initializable {
         try {
             if (cliente != null) {
                 Fachada.getnstance().removerCliente(cliente.getCpf());
-                JOptionPane.showMessageDialog(null, "Cliente removido.");
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Remover");
+                alert.setHeaderText(null);
+                alert.setContentText("Cliente removido!");
+
+                alert.showAndWait();
                 nome.setText("");
                 telefone.setText("");
             } else {
-                JOptionPane.showMessageDialog(null, "Cliente não identificado.");
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Remover");
+                alert.setHeaderText(null);
+                alert.setContentText("Cliente não identificado");
+
+                alert.showAndWait();
             }
 
         } catch (ClienteNaoExisteException e) {
-            JOptionPane.showMessageDialog(null, e.getMessage());
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Remover");
+            alert.setHeaderText(null);
+            alert.setContentText(e.getMessage());
+
+            alert.showAndWait();
 
         }
     }

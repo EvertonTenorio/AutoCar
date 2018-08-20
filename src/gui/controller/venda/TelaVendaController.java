@@ -121,6 +121,7 @@ public class TelaVendaController implements Initializable {
         }
         mecanicos.setVisible(true);
         mecanico.setVisible(true);
+        preencherMecanicos();
     }
 
     @FXML

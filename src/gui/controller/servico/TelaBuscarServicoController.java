@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javax.swing.JOptionPane;
@@ -31,18 +32,26 @@ public class TelaBuscarServicoController implements Initializable {
                 valor.setText(servico.getValor() + "");
 
             } else {
-                JOptionPane.showMessageDialog(null, "Serviço não identificado.");
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Buscar");
+                alert.setHeaderText(null);
+                alert.setContentText("Serviço não identificado");
+
+                alert.showAndWait();
 
             }
         } catch (ServicoNaoExisteException e) {
-            JOptionPane.showMessageDialog(null, e.getMessage());
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Buscar");
+            alert.setHeaderText(null);
+            alert.setContentText(e.getMessage());
+
+            alert.showAndWait();
         }
     }
 
-        @Override
-        public void initialize(URL url, ResourceBundle rb){
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }
 }
-
-

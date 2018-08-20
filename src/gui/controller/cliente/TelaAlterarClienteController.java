@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javax.swing.JOptionPane;
@@ -34,12 +35,27 @@ public class TelaAlterarClienteController implements Initializable {
                 cliente.setNome(nome.getText());
                 cliente.setTelefone(telefone.getText());
                 Fachada.getnstance().alterarCliente(cliente);
-                JOptionPane.showMessageDialog(null, "Cliente alterado.");
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Alterar");
+                alert.setHeaderText(null);
+                alert.setContentText("Cliente alterado!");
+
+                alert.showAndWait();
             } else {
-                JOptionPane.showMessageDialog(null, "Cliente não identificado.");
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Alterar");
+                alert.setHeaderText(null);
+                alert.setContentText("Cliente não identificado");
+
+                alert.showAndWait();
             }
         } catch (ClienteNaoExisteException e) {
-            JOptionPane.showMessageDialog(null, e.getMessage());
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Alterar");
+            alert.setHeaderText(null);
+            alert.setContentText(e.getMessage());
+
+            alert.showAndWait();
         }
     }
 
@@ -51,11 +67,21 @@ public class TelaAlterarClienteController implements Initializable {
                 nome.setText(cliente.getNome());
                 telefone.setText(cliente.getTelefone());
             } else {
-                JOptionPane.showMessageDialog(null, "Cliente não identificado.");
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Buscar");
+                alert.setHeaderText(null);
+                alert.setContentText("Cliente não identificado!");
+
+                alert.showAndWait();;
             }
 
         } catch (ClienteNaoExisteException e) {
-            JOptionPane.showMessageDialog(null, e.getMessage());
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Buscar");
+            alert.setHeaderText(null);
+            alert.setContentText(e.getMessage());
+
+            alert.showAndWait();
         }
 
     }

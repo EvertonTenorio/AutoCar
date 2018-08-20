@@ -82,7 +82,7 @@ public class Fachada {
     }
 
     public void cadastrarServicoPeriodico(double valor, String nome) throws ServicoInvalidoException, ServicoJaExisteException, ProdutoInvalidoException {
-        this.negocioServ.cadastrarServico(valor, nome);
+        this.negocioServ.cadastrarServicoPeriodico(valor, nome);
     }
 
     public void cadastrarVenda(Venda venda) throws VendaInvalidaException, VendaJaExisteException {
