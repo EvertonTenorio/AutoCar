@@ -31,6 +31,8 @@
                         <MenuItem fx:id="btAlterarCliente" mnemonicParsing="false" onAction="#abrirTelaAlterarCliente" text="Alterar" />
                         <MenuItem fx:id="btRemoverCliente" mnemonicParsing="false" onAction="#abrirTelaRemoverCliente" text="Remover" />
                         <MenuItem fx:id="btListarClientes" mnemonicParsing="false" onAction="#abrirTelaListarClientes" text="Listar" />
+                  <MenuItem mnemonicParsing="false" onAction="#abrirTelaAdicionarCarro" text="Adicionar carro" />
+                  <MenuItem mnemonicParsing="false" onAction="#abrirTelaRemoverCarro" text="Remover carro" />
                     </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Produto">
