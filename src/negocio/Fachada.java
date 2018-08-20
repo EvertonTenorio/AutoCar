@@ -5,6 +5,7 @@ import java.util.List;
 import negocio.entidade.Carro;
 import negocio.entidade.Cliente;
 import negocio.entidade.Funcionario;
+import negocio.entidade.Gerente;
 import negocio.entidade.Produto;
 import negocio.entidade.Servico;
 import negocio.entidade.Venda;
@@ -57,6 +58,10 @@ public class Fachada {
 
     public void cadastrarFuncionario(String nome, String cpf, String telefone, double salario) throws FuncionarioJaExisteException, PessoaInvalidaException {
         this.negocioFun.cadastrarFuncionario(nome, cpf, telefone, salario);
+    }
+    
+    public void cadastrarGerente(String nome, String cpf, String telefone, double salario, String login, String senha) throws FuncionarioJaExisteException, PessoaInvalidaException {
+        this.negocioFun.cadastrarGerente(nome, cpf, telefone, salario, login, senha);
     }
 
     public void cadastrarCliente(String nome, String cpf, String telefone) throws PessoaInvalidaException, ClienteJaExisteException {

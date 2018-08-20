@@ -1,27 +1,56 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package gui.controller.funcionario;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import negocio.Fachada;
+import negocio.entidade.Funcionario;
+import negocio.execao.funcionario.FuncionarioNaoExisteException;
 
-/**
- * FXML Controller class
- *
- * @author jenil
- */
 public class TelaBuscarFuncionarioController implements Initializable {
-
-    /**
-     * Initializes the controller class.
-     */
+    private Funcionario funcionario;
+    @FXML
+    private TextField txtCpf;
+    @FXML
+    private Label nome;
+    @FXML
+    private Label salario;
+    @FXML
+    private Label telefone;
+    
+    @FXML
+    protected void buscar(){
+        try{
+            String cpf = txtCpf.getText();
+            
+            funcionario = Fachada.getnstance().buscarFuncionario(cpf);
+            
+            nome.setText(funcionario.getNome());
+            telefone.setText(funcionario.getTelefone());
+            salario.setText(funcionario.getSalario()+"");
+            
+        }catch(NumberFormatException e){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Buscar");
+            alert.setHeaderText(null);
+            alert.setContentText("Digite apenas números");
+        } catch (FuncionarioNaoExisteException ex) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Buscar");
+            alert.setHeaderText(null);
+            alert.setContentText(ex.getMessage());
+        }
+    }
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
-    
+    }
+
 }

@@ -27,13 +27,23 @@ public class TelaLoginController implements Initializable {
         try {
             boolean flag = Fachada.getnstance().realizarLogin(login.getText(), senha.getText());
 
-            FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(getClass().getResource("/gui/view/TelaPrincipalGerente.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(), 600, 400);
-            Stage stage = new Stage();
-            stage.setTitle("Login");
-            stage.setScene(scene);
-            stage.show();
+            if (flag) {
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("/gui/view/TelaPrincipalGerente.fxml"));
+                Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+                Stage stage = new Stage();
+                stage.setTitle("Login");
+                stage.setScene(scene);
+                stage.show();
+            } else {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Login");
+                alert.setHeaderText(null);
+                alert.setContentText("Login ou senha invalido(s)");
+
+                alert.showAndWait();
+            }
+
         } catch (Exception ex) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Login");

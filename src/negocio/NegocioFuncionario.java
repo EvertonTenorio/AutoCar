@@ -4,6 +4,7 @@ import negocio.execao.carro.LoginInvalidoException;
 import java.util.ArrayList;
 import java.util.List;
 import negocio.entidade.Funcionario;
+import negocio.entidade.Gerente;
 import negocio.execao.funcionario.FuncionarioInvalidoException;
 import negocio.execao.funcionario.FuncionarioJaExisteException;
 import negocio.execao.funcionario.FuncionarioNaoExisteException;
@@ -21,6 +22,19 @@ public class NegocioFuncionario {
 
     public void cadastrarFuncionario(String nome, String cpf, String telefone, double salario) throws FuncionarioJaExisteException, PessoaInvalidaException {
         Funcionario funcionario = new Funcionario(nome, cpf, telefone, salario);
+        funcionario.valida();
+        Funcionario f = repositorio.buscarFuncionario(funcionario.getCpf());
+
+        if (f == null) {
+            repositorio.cadastrarFuncionario(funcionario);
+        } else {
+            throw new FuncionarioJaExisteException();
+        }
+    }
+    
+    public void cadastrarGerente(String nome, String cpf, String telefone, double salario, String login, String senha) throws FuncionarioJaExisteException, PessoaInvalidaException {
+        Gerente funcionario = new Gerente(login, senha, nome, cpf, telefone, salario);
+        funcionario.valida();
         Funcionario f = repositorio.buscarFuncionario(funcionario.getCpf());
 
         if (f == null) {

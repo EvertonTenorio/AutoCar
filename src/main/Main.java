@@ -1,12 +1,20 @@
 package main;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import negocio.Fachada;
+import negocio.entidade.Funcionario;
+import negocio.entidade.Gerente;
+import negocio.execao.funcionario.FuncionarioJaExisteException;
+import negocio.execao.pessoa.PessoaInvalidaException;
 
 public class Main extends Application {
 
@@ -26,6 +34,18 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) {
+        try {
+            Fachada.getnstance().cadastrarGerente("Everton", "12343256789", "87996147789", 2000, "admin", "admin");
+        } catch (PessoaInvalidaException ex) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Alterar");
+            alert.setHeaderText(null);
+            alert.setContentText(ex.getMessage());
+
+            alert.showAndWait();
+        } catch (FuncionarioJaExisteException ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
         launch(args);
     }
 }
