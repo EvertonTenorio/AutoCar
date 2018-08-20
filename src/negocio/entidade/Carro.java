@@ -1,9 +1,8 @@
 package negocio.entidade;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Carro implements Serializable{
+public class Carro {
 
     private String placa;
     private ArrayList<Servico> historico;
