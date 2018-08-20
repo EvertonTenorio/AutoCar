@@ -3,6 +3,7 @@ package negocio;
 import java.util.ArrayList;
 import java.util.List;
 import negocio.entidade.Servico;
+import negocio.entidade.ServicoPeriodico;
 import negocio.execao.produto.ProdutoInvalidoException;
 import negocio.execao.servico.ServicoInvalidoException;
 import negocio.execao.servico.ServicoJaExisteException;
@@ -20,6 +21,17 @@ public class NegocioServico {
 
     public void cadastrarServico(double valor, String nome) throws ServicoInvalidoException, ServicoJaExisteException, ProdutoInvalidoException {
         Servico servico = new Servico(valor, nome);
+
+        Servico s = repositorio.recuperarServico(servico.getCodigo());
+
+        if (s == null) {
+            repositorio.cadastrarServico(servico);
+        } else {
+            throw new ServicoJaExisteException();
+        }
+    }
+    public void cadastrarServicoPeriodico(double valor, String nome) throws ServicoInvalidoException, ServicoJaExisteException, ProdutoInvalidoException {
+        ServicoPeriodico servico = new ServicoPeriodico(valor, nome);
 
         Servico s = repositorio.recuperarServico(servico.getCodigo());
 
