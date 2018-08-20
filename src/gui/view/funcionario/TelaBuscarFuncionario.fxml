@@ -6,19 +6,18 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="gui.controller.funcionario.TelaBuscarFuncionarioController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.funcionario.TelaBuscarFuncionarioController">
    <children>
       <Label layoutX="42.0" layoutY="40.0" text="Cpf:" />
-      <TextField layoutX="99.0" layoutY="35.0" prefHeight="31.0" prefWidth="231.0" />
+      <TextField fx:id="txtCpf" layoutX="99.0" layoutY="35.0" prefHeight="31.0" prefWidth="231.0" />
       <Separator layoutX="7.0" layoutY="119.0" prefHeight="6.0" prefWidth="591.0" />
-      <Button layoutX="428.0" layoutY="35.0" mnemonicParsing="false" text="Buscar" />
+      <Button layoutX="428.0" layoutY="35.0" mnemonicParsing="false" onAction="#buscar" text="Buscar" />
       <Label layoutX="38.0" layoutY="154.0" text="Nome:" />
       <Label layoutX="38.0" layoutY="222.0" text="Telefone:" />
       <Label layoutX="38.0" layoutY="295.0" text="Salário:" />
-      <Label layoutX="132.0" layoutY="149.0" prefHeight="31.0" prefWidth="446.0" />
-      <Label layoutX="132.0" layoutY="217.0" prefHeight="31.0" prefWidth="185.0" />
-      <Label layoutX="132.0" layoutY="287.0" prefHeight="31.0" prefWidth="120.0" />
+      <Label fx:id="nome" layoutX="132.0" layoutY="149.0" prefHeight="31.0" prefWidth="446.0" />
+      <Label fx:id="telefone" layoutX="132.0" layoutY="217.0" prefHeight="31.0" prefWidth="185.0" />
+      <Label fx:id="salario" layoutX="132.0" layoutY="287.0" prefHeight="31.0" prefWidth="120.0" />
       <Button layoutX="238.0" layoutY="345.0" mnemonicParsing="false" text="Cancelar" />
    </children>
 </AnchorPane>

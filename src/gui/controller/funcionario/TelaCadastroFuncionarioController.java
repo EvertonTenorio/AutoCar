@@ -58,7 +58,7 @@ public class TelaCadastroFuncionarioController implements Initializable {
             if (gerente == true) {
                 Fachada.getnstance().cadastrarGerente(nome, cpf, telefone, salario, login, senha);
                 
-                Alert alert = new Alert(Alert.AlertType.ERROR);
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Cadastrar");
                 alert.setHeaderText(null);
                 alert.setContentText("Gerente Cadastrado!");
@@ -67,7 +67,7 @@ public class TelaCadastroFuncionarioController implements Initializable {
             }else{
                 Fachada.getnstance().cadastrarFuncionario(nome, cpf, telefone, salario);
                 
-                Alert alert = new Alert(Alert.AlertType.ERROR);
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Cadastrar");
                 alert.setHeaderText(null);
                 alert.setContentText("Funcionário Cadastrado!");
@@ -84,20 +84,13 @@ public class TelaCadastroFuncionarioController implements Initializable {
 
         } catch (NumberFormatException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Alterar");
+            alert.setTitle("Cadastrar");
             alert.setHeaderText(null);
             alert.setContentText("Digite apenas números nos campos: Cpf, Telefone e Salario");
 
             alert.showAndWait();
-        } catch (FuncionarioJaExisteException ex) {
+        } catch (FuncionarioJaExisteException | PessoaInvalidaException ex) {
 
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Cadastrar");
-            alert.setHeaderText(null);
-            alert.setContentText(ex.getMessage());
-
-            alert.showAndWait();
-        } catch (PessoaInvalidaException ex) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Cadastrar");
             alert.setHeaderText(null);
