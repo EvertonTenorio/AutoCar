@@ -65,22 +65,36 @@ public class TelaCadastroFuncionarioController implements Initializable {
 
                 alert.showAndWait();
             } else {
-                Fachada.getnstance().cadastrarFuncionario(nome, cpf, telefone, salario);
+                String cargo = cargos.valueProperty().get();
+                if (cargo.equals("Mecanico")) {
+                    Fachada.getnstance().cadastrarMecanico(nome, cpf, telefone, salario);
 
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Cadastrar");
-                alert.setHeaderText(null);
-                alert.setContentText("Funcionário Cadastrado!");
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Cadastrar");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Funcionário Cadastrado!");
 
-                alert.showAndWait();
+                    alert.showAndWait();
+
+                } else {
+
+                    Fachada.getnstance().cadastrarFuncionario(nome, cpf, telefone, salario);
+
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Cadastrar");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Funcionário Cadastrado!");
+
+                    alert.showAndWait();
+                }
+
+                txtCpf.setText("");
+                txtLogin.setText("");
+                txtNome.setText("");
+                txtSalario.setText("");
+                txtSenha.setText("");
+                txtTelefone.setText("");
             }
-
-            txtCpf.setText("");
-            txtLogin.setText("");
-            txtNome.setText("");
-            txtSalario.setText("");
-            txtSenha.setText("");
-            txtTelefone.setText("");
 
         } catch (NumberFormatException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);

@@ -1,9 +1,8 @@
 package negocio.entidade;
 
-import java.io.Serializable;
 import negocio.execao.produto.ProdutoInvalidoException;
 
-public class Servico extends Produto implements Serializable {
+public class Servico extends Produto {
 
     private Mecanico mecanico;
 

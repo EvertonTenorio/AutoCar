@@ -1,9 +1,8 @@
 package negocio.entidade;
 
-import java.io.Serializable;
 import negocio.execao.produto.ProdutoInvalidoException;
 
-public class Produto implements Serializable{
+public class Produto {
 
     private int codigo;
     private double valor;
@@ -54,8 +53,8 @@ public class Produto implements Serializable{
         return "Código: " + this.codigo + " Nome: " + this.nome + " Valor: " + this.valor;
 
     }
-    
-    public void valida() throws ProdutoInvalidoException{
+
+    public void valida() throws ProdutoInvalidoException {
         if (this.nome.equals("") || this.valor <= 0) {
             throw new ProdutoInvalidoException();
         }

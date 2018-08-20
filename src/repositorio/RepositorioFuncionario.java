@@ -3,6 +3,7 @@ package repositorio;
 import negocio.entidade.Funcionario;
 import java.util.ArrayList;
 import negocio.entidade.Gerente;
+import negocio.entidade.Mecanico;
 import repositorio.interfaces.IRepositorioFuncionario;
 
 public class RepositorioFuncionario implements IRepositorioFuncionario{
@@ -57,6 +58,17 @@ public class RepositorioFuncionario implements IRepositorioFuncionario{
             lista.add(listaFuncionarios.get(i));
         }
 
+        return lista;
+    }
+    
+    public ArrayList<Mecanico> recuperarMecanicos(){
+        ArrayList<Mecanico> lista = new ArrayList<>();
+        
+        for (int i = 0; i < listaFuncionarios.size(); i++){
+            if (listaFuncionarios.get(i) instanceof Mecanico){
+                lista.add((Mecanico) listaFuncionarios.get(i));
+            }
+        }
         return lista;
     }
 
