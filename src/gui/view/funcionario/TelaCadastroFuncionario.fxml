@@ -23,6 +23,5 @@
       <TextField fx:id="txtLogin" layoutX="93.0" layoutY="222.0" prefHeight="25.0" prefWidth="165.0" visible="false" />
       <TextField fx:id="txtSenha" layoutX="93.0" layoutY="267.0" prefHeight="25.0" prefWidth="165.0" visible="false" />
       <Button layoutX="157.0" layoutY="331.0" mnemonicParsing="false" onAction="#cadastrar" text="Cadastrar" />
-      <Button layoutX="286.0" layoutY="331.0" mnemonicParsing="false" text="Cancelar" />
    </children>
 </AnchorPane>

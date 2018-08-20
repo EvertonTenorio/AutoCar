@@ -14,7 +14,7 @@
       <ComboBox fx:id="servicos" layoutX="87.0" layoutY="408.0" onAction="#selecionarServico" prefHeight="31.0" prefWidth="187.0" promptText="Selecione o serviço" />
       <Button layoutX="300.0" layoutY="355.0" mnemonicParsing="false" text="Adicionar produto" />
       <Button layoutX="300.0" layoutY="408.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="141.0" text="Adicionar serviço" />
-      <Button layoutX="215.0" layoutY="536.0" mnemonicParsing="false" text="Finalizar venda" />
+      <Button layoutX="215.0" layoutY="536.0" mnemonicParsing="false" onAction="#finalizar" text="Finalizar venda" />
       <Label layoutX="17.0" layoutY="220.0" text="Nome:" />
       <Label layoutX="24.0" layoutY="279.0" text="Cpf:" />
       <Label fx:id="labelNome" layoutX="87.0" layoutY="212.0" prefHeight="37.0" prefWidth="510.0" />

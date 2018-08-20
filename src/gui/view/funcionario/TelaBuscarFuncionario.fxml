@@ -18,6 +18,5 @@
       <Label fx:id="nome" layoutX="132.0" layoutY="149.0" prefHeight="31.0" prefWidth="446.0" />
       <Label fx:id="telefone" layoutX="132.0" layoutY="217.0" prefHeight="31.0" prefWidth="185.0" />
       <Label fx:id="salario" layoutX="132.0" layoutY="287.0" prefHeight="31.0" prefWidth="120.0" />
-      <Button layoutX="238.0" layoutY="345.0" mnemonicParsing="false" text="Cancelar" />
    </children>
 </AnchorPane>

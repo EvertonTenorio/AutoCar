@@ -13,6 +13,5 @@
       <TextField fx:id="txtNome" layoutX="98.0" layoutY="31.0" prefHeight="31.0" prefWidth="251.0" promptText="Digite o nome" />
       <TextField fx:id="txtValor" layoutX="98.0" layoutY="157.0" prefHeight="31.0" prefWidth="147.0" promptText="Digite o valor" />
       <Button fx:id="btCadastrar" layoutX="130.0" layoutY="271.0" mnemonicParsing="false" onAction="#cadastrar" text="Cadastrar" />
-      <Button layoutX="364.0" layoutY="271.0" mnemonicParsing="false" text="Cancelar" />
    </children>
 </AnchorPane>

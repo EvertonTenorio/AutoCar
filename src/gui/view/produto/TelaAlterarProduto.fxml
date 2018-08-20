@@ -16,6 +16,5 @@
       <TextField fx:id="txtNome" layoutX="123.0" layoutY="40.0" prefHeight="31.0" prefWidth="230.0" promptText="Digite o nome" />
       <Button layoutX="268.0" layoutY="109.0" mnemonicParsing="false" onAction="#buscarAlterar" text="Buscar" />
       <Button layoutX="151.0" layoutY="277.0" mnemonicParsing="false" onAction="#alterar" text="Alterar" />
-      <Button layoutX="342.0" layoutY="277.0" mnemonicParsing="false" text="Cancelar" />
    </children>
 </AnchorPane>

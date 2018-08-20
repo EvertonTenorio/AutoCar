@@ -18,7 +18,6 @@
       <TextField fx:id="txtSalario" layoutX="91.0" layoutY="161.0" prefHeight="25.0" prefWidth="165.0" />
       <Button layoutX="300.0" layoutY="71.0" mnemonicParsing="false" onAction="#buscarAlterar" text="Buscar" />
       <Button layoutX="148.0" layoutY="324.0" mnemonicParsing="false" onAction="#alterar" text="Alterar" />
-      <Button layoutX="256.0" layoutY="324.0" mnemonicParsing="false" text="Cancelar" />
       <Label fx:id="login" layoutX="32.0" layoutY="210.0" text="Login:" visible="false" />
       <Label fx:id="senha" layoutX="31.0" layoutY="253.0" text="Senha:" visible="false" />
       <TextField fx:id="txtLogin" layoutX="91.0" layoutY="206.0" prefHeight="25.0" prefWidth="165.0" visible="false" />

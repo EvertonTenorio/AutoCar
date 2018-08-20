@@ -16,6 +16,5 @@
       <Label fx:id="nome" layoutX="123.0" layoutY="185.0" prefHeight="31.0" prefWidth="464.0" />
       <Label fx:id="valor" layoutX="123.0" layoutY="243.0" prefHeight="31.0" prefWidth="92.0" />
       <Button layoutX="329.0" layoutY="45.0" mnemonicParsing="false" onAction="#buscarServico" text="Buscar" />
-      <Button layoutX="257.0" layoutY="320.0" mnemonicParsing="false" text="Cancelar" />
    </children>
 </AnchorPane>

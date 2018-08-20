@@ -3,6 +3,8 @@ package gui.controller.venda;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -24,15 +26,11 @@ import negocio.entidade.Servico;
 import negocio.entidade.ServicoPeriodico;
 import negocio.entidade.Venda;
 import negocio.execao.cliente.ClienteNaoExisteException;
+import negocio.execao.venda.VendaInvalidaException;
+import negocio.execao.venda.VendaJaExisteException;
 
 public class TelaVendaController implements Initializable {
 
-    @FXML
-    private TableColumn codigo;
-    @FXML
-    private TableColumn nome;
-    @FXML
-    private TableColumn valor;
     @FXML
     private ComboBox<Produto> produtos = new ComboBox<>();
     @FXML
@@ -102,11 +100,19 @@ public class TelaVendaController implements Initializable {
     protected void adicionarProduto() {
         produto = produtos.getValue();
         venda.adicionarProduto(produto);
+        listar();
     }
 
     private void preencherMecanicos() {
         ObservableList<Mecanico> listaMecanicos = FXCollections.observableArrayList((ArrayList) Fachada.getnstance().listarMecanicos());
         mecanicos.setItems(listaMecanicos);
+    }
+
+    @FXML
+    protected void listar() {
+        ArrayList<Produto> listaProd = (ArrayList<Produto>) venda.getProdutos();
+        ObservableList<Produto> lista = FXCollections.observableArrayList(listaProd);
+        produtos.setItems(lista);
     }
 
     @FXML
@@ -153,6 +159,38 @@ public class TelaVendaController implements Initializable {
         servico.setMecanico(mecanicos.getValue());
 
         venda.adicionarServico(servico, cliente.getCarros().get(0).getPlaca(), mecanicos.getValue());
+
+        listar();
+    }
+
+    @FXML
+    protected void finalizar() {
+        if (venda != null) {
+            try {
+                Fachada.getnstance().cadastrarVenda(venda);
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Venda");
+                alert.setHeaderText(null);
+                alert.setContentText("Total: " + venda.getValorTotal());
+
+                alert.showAndWait();
+            } catch (VendaInvalidaException ex) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Venda");
+                alert.setHeaderText(null);
+                alert.setContentText(ex.getMessage());
+
+                alert.showAndWait();
+            } catch (VendaJaExisteException ex) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Venda");
+                alert.setHeaderText(null);
+                alert.setContentText(ex.getMessage());
+
+                alert.showAndWait();
+            }
+        }
+
     }
 
     @Override
