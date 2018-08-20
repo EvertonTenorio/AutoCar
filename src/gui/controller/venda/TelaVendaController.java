@@ -15,6 +15,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TextField;
 import javax.swing.JOptionPane;
 import negocio.Fachada;
+import negocio.entidade.Carro;
 import negocio.entidade.Cliente;
 import negocio.entidade.Mecanico;
 import negocio.entidade.Pessoa;
@@ -38,7 +39,10 @@ public class TelaVendaController implements Initializable {
     private ComboBox<Servico> servicos = new ComboBox<>();
     @FXML
     private ComboBox<Mecanico> mecanicos = new ComboBox<>();
+    @FXML
+    private ComboBox<Carro> carros = new ComboBox<>();
     private Venda venda = null;
+    private Carro carro;
     private Servico servico;
     @FXML
     private Label labelNome;
@@ -76,6 +80,9 @@ public class TelaVendaController implements Initializable {
                 cliente = Fachada.getnstance().buscarCliente(txtCpf.getText());
                 labelNome.setText(cliente.getNome());
                 venda = new Venda(cliente);
+
+                ObservableList<Carro> listaCarros = FXCollections.observableArrayList(((ArrayList) cliente.getCarros()));
+                carros.setItems(listaCarros);
             } else {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Login");
@@ -98,7 +105,7 @@ public class TelaVendaController implements Initializable {
     }
 
     private void preencherMecanicos() {
-        ObservableList<Produto> listaMecanicos = FXCollections.observableArrayList(((ArrayList) Fachada.getnstance());
+        ObservableList<Mecanico> listaMecanicos = FXCollections.observableArrayList((ArrayList) Fachada.getnstance().listarMecanicos());
         mecanicos.setItems(listaMecanicos);
     }
 
@@ -141,9 +148,9 @@ public class TelaVendaController implements Initializable {
 
             }
         }
-        
+
         servico.setMecanico(mecanicos.getValue());
-        
+
         venda.adicionarServico(servico, cliente.getCarros().get(0).getPlaca(), mecanicos.getValue());
     }
 
