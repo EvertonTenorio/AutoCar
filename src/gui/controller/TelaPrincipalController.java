@@ -316,6 +316,22 @@ public class TelaPrincipalController implements Initializable {
             e.printStackTrace();
         }
     }
+    
+    @FXML
+    public void abrirTelaRemoverCarro() {
+
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("/gui/view/cliente/TelaRemoverCarro.fxml"));
+            Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+            Stage stage = new Stage();
+            stage.setTitle("Remover carro");
+            stage.setScene(scene);
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
