@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 import javax.swing.JOptionPane;
 import negocio.Fachada;
@@ -17,6 +18,8 @@ public class TelaCadastroServicoController implements Initializable {
     private TextField txtNome;
     @FXML
     private TextField txtValor;
+    @FXML
+    private CheckBox checkServico;
 
     @FXML
     protected void cadastrar() {
@@ -26,10 +29,17 @@ public class TelaCadastroServicoController implements Initializable {
         valor = Double.parseDouble(txtValor.getText());
 
         try {
-            Fachada.getnstance().cadastrarServico(valor, nome);
-            JOptionPane.showMessageDialog(null, "Serviço cadastrado.");
-            txtNome.setText("");
-            txtValor.setText("");
+            if (checkServico.isSelected()) {
+                Fachada.getnstance().cadastrarServicoPeriodico(valor, nome);
+                JOptionPane.showMessageDialog(null, "Serviço cadastrado.");
+                txtNome.setText("");
+                txtValor.setText("");
+            } else {
+                Fachada.getnstance().cadastrarServico(valor, nome);
+                JOptionPane.showMessageDialog(null, "Serviço cadastrado.");
+                txtNome.setText("");
+                txtValor.setText("");
+            }
         } catch (ProdutoInvalidoException | ServicoInvalidoException | ServicoJaExisteException e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }

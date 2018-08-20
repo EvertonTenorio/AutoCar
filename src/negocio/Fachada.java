@@ -59,7 +59,7 @@ public class Fachada {
     public void cadastrarFuncionario(String nome, String cpf, String telefone, double salario) throws FuncionarioJaExisteException, PessoaInvalidaException {
         this.negocioFun.cadastrarFuncionario(nome, cpf, telefone, salario);
     }
-    
+
     public void cadastrarGerente(String nome, String cpf, String telefone, double salario, String login, String senha) throws FuncionarioJaExisteException, PessoaInvalidaException {
         this.negocioFun.cadastrarGerente(nome, cpf, telefone, salario, login, senha);
     }
@@ -73,6 +73,10 @@ public class Fachada {
     }
 
     public void cadastrarServico(double valor, String nome) throws ServicoInvalidoException, ServicoJaExisteException, ProdutoInvalidoException {
+        this.negocioServ.cadastrarServico(valor, nome);
+    }
+
+    public void cadastrarServicoPeriodico(double valor, String nome) throws ServicoInvalidoException, ServicoJaExisteException, ProdutoInvalidoException {
         this.negocioServ.cadastrarServico(valor, nome);
     }
 
@@ -179,8 +183,8 @@ public class Fachada {
     public List<Carro> listarCarros() {
         return this.negocioCarro.listaCarros();
     }
-    
-    public boolean realizarLogin(String login, String senha) throws LoginInvalidoException{
+
+    public boolean realizarLogin(String login, String senha) throws LoginInvalidoException {
         return this.negocioFun.realizarLogin(login, senha);
     }
 }
