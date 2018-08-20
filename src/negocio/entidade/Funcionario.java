@@ -1,9 +1,10 @@
 package negocio.entidade;
 
+import java.io.Serializable;
 import negocio.execao.funcionario.FuncionarioInvalidoException;
 import negocio.execao.pessoa.PessoaInvalidaException;
 
-public class Funcionario extends Pessoa {
+public class Funcionario extends Pessoa implements Serializable{
 
     private double salario;
 

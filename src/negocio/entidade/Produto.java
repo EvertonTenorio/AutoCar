@@ -1,8 +1,9 @@
 package negocio.entidade;
 
+import java.io.Serializable;
 import negocio.execao.produto.ProdutoInvalidoException;
 
-public class Produto {
+public class Produto implements Serializable{
 
     private int codigo;
     private double valor;

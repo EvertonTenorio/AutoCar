@@ -1,8 +1,9 @@
 package negocio.entidade;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Venda {
+public class Venda implements Serializable{
 
     private int codigo;
     private ArrayList<Produto> produtos;

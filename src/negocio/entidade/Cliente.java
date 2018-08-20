@@ -1,9 +1,10 @@
 package negocio.entidade;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import negocio.execao.pessoa.PessoaInvalidaException;
 
-public class Cliente extends Pessoa {
+public class Cliente extends Pessoa implements Serializable{
 
     private int frequencia;
 

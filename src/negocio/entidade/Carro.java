@@ -1,9 +1,9 @@
 package negocio.entidade;
 
+import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.function.Predicate;
 
-public class Carro implements Predicate<Carro>{
+public class Carro implements Serializable{
 
     private String placa;
     private ArrayList<Servico> historico;
@@ -49,14 +49,5 @@ public class Carro implements Predicate<Carro>{
     @Override
     public String toString() {
         return "Placa: " + this.placa;
-    }
-
-    @Override
-    public boolean test(Carro t) {
-        if(this.equals(t)){
-            return true;
-        }
-        
-        return false;
     }
 }
