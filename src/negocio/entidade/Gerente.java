@@ -8,11 +8,10 @@ public class Gerente extends Funcionario {
     private String login;
     private String senha;
 
-    public Gerente(String login, String senha, String nome, String cpf, String telefone, double salario) throws PessoaInvalidaException {
+    public Gerente(String login, String senha, String nome, String cpf, String telefone, double salario) {
         super(nome, cpf, telefone, salario);
         this.login = login;
         this.senha = senha;
-        this.valida();
     }
 
     public String getLogin() {
@@ -37,6 +36,5 @@ public class Gerente extends Funcionario {
             throw new FuncionarioInvalidoException();
         }
         super.valida();
-
     }
 }

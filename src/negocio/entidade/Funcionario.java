@@ -8,11 +8,9 @@ public class Funcionario extends Pessoa implements Serializable{
 
     private double salario;
 
-    public Funcionario(String nome, String cpf, String telefone, double salario) throws PessoaInvalidaException {
+    public Funcionario(String nome, String cpf, String telefone, double salario) {
         super(nome, cpf, telefone);
-        this.salario = salario;
-        this.valida();
-        
+        this.salario = salario;   
     }
 
     public double getSalario() {
@@ -33,6 +31,6 @@ public class Funcionario extends Pessoa implements Serializable{
         if (this.salario <= 0){
             throw new FuncionarioInvalidoException();
         }
+        super.valida();
     }
-
 }

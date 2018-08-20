@@ -48,6 +48,7 @@ public class TelaAlterarProdutoController implements Initializable {
 
             alert.showAndWait();
         } catch (ProdutoNaoExisteException ex) {
+            
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Alterar");
             alert.setHeaderText(null);
