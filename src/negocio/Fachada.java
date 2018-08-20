@@ -1,5 +1,6 @@
 package negocio;
 
+import negocio.execao.carro.LoginInvalidoException;
 import java.util.List;
 import negocio.entidade.Carro;
 import negocio.entidade.Cliente;
@@ -62,8 +63,8 @@ public class Fachada {
         this.negocioCli.cadastrarCliente(nome, cpf, telefone);
     }
 
-    public void cadastrarProduto(Produto produto) throws ProdutoInvalidoException, ProdutoJaExisteException {
-        this.negocioProd.cadastrarProduto(produto);
+    public void cadastrarProduto(String nome, double valor) throws ProdutoInvalidoException, ProdutoJaExisteException {
+        this.negocioProd.cadastrarProduto(nome, valor);
     }
 
     public void cadastrarServico(Servico servico) throws ServicoInvalidoException, ServicoJaExisteException {
@@ -172,5 +173,9 @@ public class Fachada {
 
     public List<Carro> listarCarros() {
         return this.negocioCarro.listaCarros();
+    }
+    
+    public boolean realizarLogin(String login, String senha) throws LoginInvalidoException{
+        return this.negocioFun.realizarLogin(login, senha);
     }
 }

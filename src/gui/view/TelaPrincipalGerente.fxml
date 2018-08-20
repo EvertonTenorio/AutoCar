@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.TelaPrincipalController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.TelaPrincipalGerenteController">
     <children>
         <MenuBar prefHeight="23.0" prefWidth="600.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
             <menus>
@@ -16,6 +15,15 @@
                         <MenuItem fx:id="btVenda" mnemonicParsing="false" onAction="#abrirTelaVenda" text="Realizar venda" />
                     </items>
                 </Menu>
+            <Menu mnemonicParsing="false" text="Funcionario">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#abrirTelaCadastrarFuncionario" text="Cadastrar" />
+                  <MenuItem mnemonicParsing="false" onAction="#abrirTelaBuscarFuncionario" text="Buscar" />
+                  <MenuItem mnemonicParsing="false" onAction="#abrirTelaAlterarFuncionario" text="Alterar" />
+                  <MenuItem mnemonicParsing="false" onAction="#abrirTelaRemoverFuncionario" text="Remover" />
+                  <MenuItem mnemonicParsing="false" onAction="#abrirTelaListarFuncionario" text="Listar" />
+              </items>
+            </Menu>
                 <Menu mnemonicParsing="false" text="Cliente">
                     <items>
                         <MenuItem fx:id="btCadastroCliente" mnemonicParsing="false" onAction="#abrirTelaCadastroCliente" text="Cadastrar" />
@@ -23,8 +31,6 @@
                         <MenuItem fx:id="btAlterarCliente" mnemonicParsing="false" onAction="#abrirTelaAlterarCliente" text="Alterar" />
                         <MenuItem fx:id="btRemoverCliente" mnemonicParsing="false" onAction="#abrirTelaRemoverCliente" text="Remover" />
                         <MenuItem fx:id="btListarClientes" mnemonicParsing="false" onAction="#abrirTelaListarClientes" text="Listar" />
-                  <MenuItem mnemonicParsing="false" onAction="#abrirTelaAdicionarCarro" text="Adicionar carro" />
-                  <MenuItem mnemonicParsing="false" text="Remover carro" />
                     </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Produto">
@@ -46,7 +52,7 @@
                 </Menu>
                 <Menu mnemonicParsing="false" text="Gerente">
                     <items>
-                        <MenuItem fx:id="btLogar" mnemonicParsing="false" onAction="#abrirTelaLogin" text="Logar" />
+                        <MenuItem fx:id="btLogar" mnemonicParsing="false" onAction="#sair" text="Logar" />
                     </items>
                 </Menu>
             </menus>

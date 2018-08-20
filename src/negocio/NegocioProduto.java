@@ -18,15 +18,14 @@ public class NegocioProduto {
 
     }
 
-    public void cadastrarProduto(Produto produto) throws ProdutoInvalidoException, ProdutoJaExisteException {
+    public void cadastrarProduto(String nome, double valor) throws ProdutoInvalidoException, ProdutoJaExisteException {
+        Produto produto = new Produto(valor, nome);
         Produto p = repositorio.recuperarProduto(produto.getCodigo());
-
-        if (produto.getNome().equals("") && produto.getValor() == 0) {
-            throw new ProdutoInvalidoException();
-        } else if (p == null) {
-            repositorio.cadastrarProduto(produto);
-        } else {
+   
+        if (p != null) {
             throw new ProdutoJaExisteException();
+        } else {
+            repositorio.cadastrarProduto(produto);
         }
     }
 

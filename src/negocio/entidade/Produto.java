@@ -1,5 +1,7 @@
 package negocio.entidade;
 
+import negocio.execao.produto.ProdutoInvalidoException;
+
 public class Produto {
 
     private int codigo;
@@ -8,10 +10,11 @@ public class Produto {
 
     private static int GerarCodigo = 1;
 
-    public Produto(double valor, String nome) {
+    public Produto(double valor, String nome) throws ProdutoInvalidoException {
         this.codigo = GerarCodigo++;
         this.valor = valor;
         this.nome = nome;
+        valida();
     }
 
     public int getCodigo() {
@@ -49,5 +52,11 @@ public class Produto {
     public String toString() {
         return "Código: " + this.codigo + " Nome: " + this.nome + " Valor: " + this.valor;
 
+    }
+    
+    public void valida() throws ProdutoInvalidoException{
+        if (this.nome.equals("") || this.valor <= 0) {
+            throw new ProdutoInvalidoException();
+        }
     }
 }

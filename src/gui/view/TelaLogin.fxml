@@ -11,9 +11,9 @@
    <children>
       <Label layoutX="151.0" layoutY="118.0" text="Login:" />
       <Label layoutX="150.0" layoutY="200.0" text="Senha:" />
-      <TextField layoutX="216.0" layoutY="113.0" promptText="Digite o login" />
-      <TextField layoutX="216.0" layoutY="195.0" promptText="Digite a senha" />
-      <Button layoutX="204.0" layoutY="285.0" mnemonicParsing="false" text="Entrar" />
+      <TextField fx:id="login" layoutX="204.0" layoutY="114.0" promptText="Digite o login" />
+      <Button fx:id="entrar" layoutX="204.0" layoutY="285.0" mnemonicParsing="false" onAction="#logar" text="Entrar" />
       <Button layoutX="355.0" layoutY="285.0" mnemonicParsing="false" text="Cancelar" />
+      <PasswordField fx:id="senha" layoutX="204.0" layoutY="196.0" prefHeight="25.0" prefWidth="149.0" promptText="Digite a senha" />
    </children>
 </AnchorPane>

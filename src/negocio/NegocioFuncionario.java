@@ -1,5 +1,6 @@
 package negocio;
 
+import negocio.execao.carro.LoginInvalidoException;
 import java.util.ArrayList;
 import java.util.List;
 import negocio.entidade.Funcionario;
@@ -61,11 +62,9 @@ public class NegocioFuncionario {
 
     }
 
-    public boolean realizarLogin(String login, String senha) {
+    public boolean realizarLogin(String login, String senha) throws LoginInvalidoException {
         if (login.equals("") || senha.equals("")) {
-            System.out.println("Login inválido!");
-            return false;
-
+            throw new LoginInvalidoException();
         } else {
             Funcionario f = repositorio.logarGerente(login, senha);
             if (f == null) {
