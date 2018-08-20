@@ -57,16 +57,16 @@ public class TelaCadastroFuncionarioController implements Initializable {
 
             if (gerente == true) {
                 Fachada.getnstance().cadastrarGerente(nome, cpf, telefone, salario, login, senha);
-                
+
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Cadastrar");
                 alert.setHeaderText(null);
                 alert.setContentText("Gerente Cadastrado!");
 
                 alert.showAndWait();
-            }else{
+            } else {
                 Fachada.getnstance().cadastrarFuncionario(nome, cpf, telefone, salario);
-                
+
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Cadastrar");
                 alert.setHeaderText(null);
@@ -74,7 +74,7 @@ public class TelaCadastroFuncionarioController implements Initializable {
 
                 alert.showAndWait();
             }
-            
+
             txtCpf.setText("");
             txtLogin.setText("");
             txtNome.setText("");
@@ -114,14 +114,15 @@ public class TelaCadastroFuncionarioController implements Initializable {
     @FXML
     protected void habilitarCampos() {
         String cargo = cargos.valueProperty().get();
-        
-        if (cargo.equals("Gerente6")) {
+
+        if (cargo.equals("Gerente")) {
+
             loginLabel.setVisible(true);
             senhaLabel.setVisible(true);
             txtLogin.setVisible(true);
             txtSenha.setVisible(true);
             gerente = true;
-        }else{
+        } else {
             loginLabel.setVisible(false);
             senhaLabel.setVisible(false);
             txtLogin.setVisible(false);

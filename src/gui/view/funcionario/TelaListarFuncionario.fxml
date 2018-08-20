@@ -6,9 +6,8 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="gui.controller.funcionario.TelaListarFuncionarioController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.funcionario.TelaListarFuncionarioController">
    <children>
-      <ListView layoutX="3.0" layoutY="2.0" prefHeight="394.0" prefWidth="594.0" />
+      <ListView fx:id="listaFunc" layoutX="3.0" layoutY="2.0" onMouseMoved="#listarFuncionarios" prefHeight="394.0" prefWidth="594.0" />
    </children>
 </AnchorPane>
