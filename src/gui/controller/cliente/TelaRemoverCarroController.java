@@ -8,6 +8,7 @@ import javafx.collections.ObservableList;
 import javafx.event.EventType;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -39,7 +40,12 @@ public class TelaRemoverCarroController implements Initializable {
                 carros.setItems(listaCarros);
 
             } else {
-                JOptionPane.showMessageDialog(null, "Cliente não identificado.");
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Buscar");
+                alert.setHeaderText(null);
+                alert.setContentText("Cliente não identificado");
+
+                alert.showAndWait();
             }
 
         } catch (ClienteNaoExisteException e) {
@@ -50,7 +56,16 @@ public class TelaRemoverCarroController implements Initializable {
 
     @FXML
     protected void removerCarro() {
-            
+        Carro c = carros.getValue();
+
+        cliente.removerCarro(c);
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Remover");
+        alert.setHeaderText(null);
+        alert.setContentText("Carro removido!");
+
+        alert.showAndWait();
+
     }
 
     @Override
