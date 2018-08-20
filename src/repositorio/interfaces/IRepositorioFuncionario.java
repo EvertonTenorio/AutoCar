@@ -1,7 +1,9 @@
 package repositorio.interfaces;
 
+import java.util.ArrayList;
 import java.util.List;
 import negocio.entidade.Funcionario;
+import negocio.entidade.Mecanico;
 
 public interface IRepositorioFuncionario {
     
@@ -16,4 +18,6 @@ public interface IRepositorioFuncionario {
     List<Funcionario> recuperarTodos();
     
     Funcionario logarGerente(String login, String senha);
+    
+    public ArrayList<Mecanico> recuperarMecanicos();
 }

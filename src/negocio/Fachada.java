@@ -6,6 +6,7 @@ import negocio.entidade.Carro;
 import negocio.entidade.Cliente;
 import negocio.entidade.Funcionario;
 import negocio.entidade.Gerente;
+import negocio.entidade.Mecanico;
 import negocio.entidade.Produto;
 import negocio.entidade.Servico;
 import negocio.entidade.Venda;
@@ -59,6 +60,10 @@ public class Fachada {
     public void cadastrarFuncionario(String nome, String cpf, String telefone, double salario) throws FuncionarioJaExisteException, PessoaInvalidaException {
         this.negocioFun.cadastrarFuncionario(nome, cpf, telefone, salario);
     }
+    public void cadastrarMecanico(String nome, String cpf, String telefone, double salario) throws FuncionarioJaExisteException, PessoaInvalidaException {
+        this.negocioFun.cadastrarFuncionario(nome, cpf, telefone, salario);
+    }
+
 
     public void cadastrarGerente(String nome, String cpf, String telefone, double salario, String login, String senha) throws FuncionarioJaExisteException, PessoaInvalidaException {
         this.negocioFun.cadastrarGerente(nome, cpf, telefone, salario, login, senha);
@@ -163,7 +168,10 @@ public class Fachada {
     public List<Funcionario> listarFuncionarios() {
         return this.negocioFun.listaFuncionario();
     }
-
+    
+    public List<Mecanico> listarMecanicos(){
+        return this.negocioFun.listaMecanico();
+    }
     public List<Cliente> listarClientes() {
         return this.negocioCli.listaClientes();
     }
