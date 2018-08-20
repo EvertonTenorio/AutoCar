@@ -113,9 +113,9 @@ public class TelaCadastroFuncionarioController implements Initializable {
 
     @FXML
     protected void abilitarCampos() {
-        String cargo = cargos.valueProperty().get();
+        String cargo = cargos.getValue();
         
-        if (cargo.equals("Gerente")) {
+        if (cargo.equals("Gerente") == true) {
             loginLabel.setVisible(true);
             senhaLabel.setVisible(true);
             txtLogin.setVisible(true);

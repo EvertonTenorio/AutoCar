@@ -40,11 +40,13 @@ public class TelaBuscarFuncionarioController implements Initializable {
             alert.setTitle("Buscar");
             alert.setHeaderText(null);
             alert.setContentText("Digite apenas números");
+            alert.showAndWait();
         } catch (FuncionarioNaoExisteException ex) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Buscar");
             alert.setHeaderText(null);
             alert.setContentText(ex.getMessage());
+            alert.showAndWait();
         }
     }
     
