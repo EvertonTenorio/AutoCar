@@ -52,7 +52,7 @@
                 </Menu>
                 <Menu mnemonicParsing="false" text="Gerente">
                     <items>
-                        <MenuItem fx:id="btLogar" mnemonicParsing="false" onAction="#sair" text="Logar" />
+                        <MenuItem fx:id="btLogar" mnemonicParsing="false" onAction="#sair" text="Sair" />
                     </items>
                 </Menu>
             </menus>

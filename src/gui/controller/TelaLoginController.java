@@ -32,7 +32,7 @@ public class TelaLoginController implements Initializable {
                 fxmlLoader.setLocation(getClass().getResource("/gui/view/TelaPrincipalGerente.fxml"));
                 Scene scene = new Scene(fxmlLoader.load(), 600, 400);
                 Stage stage = new Stage();
-                stage.setTitle("Login");
+                stage.setTitle("Tela Principal Gerente");
                 stage.setScene(scene);
                 stage.show();
             } else {
