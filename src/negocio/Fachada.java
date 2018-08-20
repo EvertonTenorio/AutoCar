@@ -1,5 +1,6 @@
 package negocio;
 
+import java.util.ArrayList;
 import negocio.execao.carro.LoginInvalidoException;
 import java.util.List;
 import negocio.entidade.Carro;
@@ -169,7 +170,7 @@ public class Fachada {
         return this.negocioFun.listaFuncionario();
     }
     
-    public List<Mecanico> listarMecanicos(){
+    public ArrayList<Mecanico> listarMecanicos(){
         return this.negocioFun.listaMecanico();
     }
     public List<Cliente> listarClientes() {

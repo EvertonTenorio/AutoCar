@@ -61,12 +61,15 @@ public class RepositorioFuncionario implements IRepositorioFuncionario{
         return lista;
     }
     
+    @Override
     public ArrayList<Mecanico> recuperarMecanicos(){
         ArrayList<Mecanico> lista = new ArrayList<>();
         
         for (int i = 0; i < listaFuncionarios.size(); i++){
-            if (listaFuncionarios.get(i) instanceof Mecanico){
-                lista.add((Mecanico) listaFuncionarios.get(i));
+            Funcionario f = listaFuncionarios.get(i);
+            if ( f instanceof Mecanico){
+                Mecanico m = (Mecanico) listaFuncionarios.get(i);
+                lista.add(m);
             }
         }
         return lista;

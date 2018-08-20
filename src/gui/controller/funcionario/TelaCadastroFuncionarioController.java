@@ -65,8 +65,8 @@ public class TelaCadastroFuncionarioController implements Initializable {
 
                 alert.showAndWait();
             } else {
-                String cargo = cargos.valueProperty().get();
-                if (cargo.equals("Mecanico")) {
+                String cargo = cargos.getValue();
+                if (cargo.equals("Mecânico")) {
                     Fachada.getnstance().cadastrarMecanico(nome, cpf, telefone, salario);
 
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);

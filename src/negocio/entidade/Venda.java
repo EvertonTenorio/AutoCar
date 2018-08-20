@@ -61,8 +61,7 @@ public class Venda {
     }
 
     public void adicionarServico(Servico servico, String placa, Mecanico mecanico) {
-        servico.setMecanico(mecanico);
-        mecanico.bonificar(servico.getValor());
+        servico.setMecanico(mecanico);       
 
         for (int i = 0; i < cliente.getCarros().size(); i++) {
             if (cliente.getCarros().get(i).getPlaca().equals(placa)) {

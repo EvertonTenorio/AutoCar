@@ -6,9 +6,9 @@ public class Mecanico extends Funcionario{
     
     private double bonificacao;
 
-    public Mecanico(double bonificacao, String nome, String cpf, String telefone, double salario) throws PessoaInvalidaException {
+    public Mecanico(String nome, String cpf, String telefone, double salario) throws PessoaInvalidaException {
         super(nome, cpf, telefone, salario);
-        this.bonificacao = bonificacao;
+        this.bonificacao = 0;
     }
 
     public double getBonificacao() {

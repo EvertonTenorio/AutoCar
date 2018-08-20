@@ -34,12 +34,12 @@ public class NegocioFuncionario {
     }
 
     public void cadastrarMecanico(String nome, String cpf, String telefone, double salario) throws FuncionarioJaExisteException, PessoaInvalidaException {
-        Funcionario funcionario = new Funcionario(nome, cpf, telefone, salario);
-        funcionario.valida();
-        Funcionario f = repositorio.buscarFuncionario(funcionario.getCpf());
+        Mecanico mecanico = new Mecanico(nome, cpf, telefone, salario);
+        mecanico.valida();
+        Funcionario f = repositorio.buscarFuncionario(mecanico.getCpf());
 
         if (f == null) {
-            repositorio.cadastrarFuncionario(funcionario);
+            repositorio.cadastrarFuncionario(mecanico);
         } else {
             throw new FuncionarioJaExisteException();
         }
@@ -106,7 +106,7 @@ public class NegocioFuncionario {
         return repositorio.recuperarTodos();
     }
 
-    public List<Mecanico> listaMecanico() {
+    public ArrayList<Mecanico> listaMecanico() {
         return repositorio.recuperarMecanicos();
     }
 

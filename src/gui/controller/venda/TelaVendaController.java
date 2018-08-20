@@ -69,6 +69,7 @@ public class TelaVendaController implements Initializable {
 
         ObservableList<Servico> listaServicos = FXCollections.observableArrayList(((ArrayList) Fachada.getnstance().listarServicos()));
         servicos.setItems(listaServicos);
+        
     }
 
     @FXML
@@ -111,8 +112,8 @@ public class TelaVendaController implements Initializable {
     @FXML
     protected void listar() {
         ArrayList<Produto> listaProd = (ArrayList<Produto>) venda.getProdutos();
-        ObservableList<Produto> lista = FXCollections.observableArrayList(listaProd);
-        produtos.setItems(lista);
+        ObservableList<Produto> lista1 = FXCollections.observableArrayList(listaProd);
+        lista.setItems(lista1);
     }
 
     @FXML
@@ -140,9 +141,10 @@ public class TelaVendaController implements Initializable {
                 int km2 = Integer.parseInt(txtkmProx.getText());
                 s.setKmAtual(km1);
                 s.setKmProximoServico(km2);
-                if (mecanicos.getValue() != null) {
+                Mecanico m = mecanicos.getValue();
+                if (m != null) {
                     s.setMecanico(mecanicos.getValue());
-                    venda.adicionarServico(servico, cliente.getCarros().get(0).getPlaca(), mecanicos.getValue());
+                    venda.adicionarServico(servico, carros.getValue().getPlaca(), m);
                 } else {
                     Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setTitle("Venda");
@@ -156,11 +158,22 @@ public class TelaVendaController implements Initializable {
             }
         }
 
-        servico.setMecanico(mecanicos.getValue());
+        Mecanico m = mecanicos.getValue();
 
-        venda.adicionarServico(servico, cliente.getCarros().get(0).getPlaca(), mecanicos.getValue());
+        if (m != null) {
+            servico.setMecanico(m);
 
-        listar();
+            venda.adicionarServico(servico, carros.getValue().getPlaca(), m);
+
+            listar();
+        } else {
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("Venda");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Selecione o mecanico!");
+
+                    alert.showAndWait();
+                }
     }
 
     @FXML
