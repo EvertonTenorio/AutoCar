@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.TelaPrincipalGerenteController">
+    <children>
+        <MenuBar prefHeight="23.0" prefWidth="600.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+            <menus>
+                <Menu mnemonicParsing="false" text="Venda">
+                    <items>
+                        <MenuItem fx:id="btVenda" mnemonicParsing="false" onAction="#abrirTelaVenda" text="Realizar venda" />
+                    </items>
+                </Menu>
+            <Menu mnemonicParsing="false" text="Funcionario">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#abrirTelaCadastrarFuncionario" text="Cadastrar" />
+                  <MenuItem mnemonicParsing="false" onAction="#abrirTelaBuscarFuncionario" text="Buscar" />
+                  <MenuItem mnemonicParsing="false" onAction="#abrirTelaAlterarFuncionario" text="Alterar" />
+                  <MenuItem mnemonicParsing="false" onAction="#abrirTelaRemoverFuncionario" text="Remover" />
+                  <MenuItem mnemonicParsing="false" onAction="#abrirTelaListarFuncionario" text="Listar" />
+              </items>
+            </Menu>
+                <Menu mnemonicParsing="false" text="Cliente">
+                    <items>
+                        <MenuItem fx:id="btCadastroCliente" mnemonicParsing="false" onAction="#abrirTelaCadastroCliente" text="Cadastrar" />
+                        <MenuItem fx:id="btBuscarCliente" mnemonicParsing="false" onAction="#abrirTelaBuscarCliente" text="Buscar" />
+                        <MenuItem fx:id="btAlterarCliente" mnemonicParsing="false" onAction="#abrirTelaAlterarCliente" text="Alterar" />
+                        <MenuItem fx:id="btRemoverCliente" mnemonicParsing="false" onAction="#abrirTelaRemoverCliente" text="Remover" />
+                        <MenuItem fx:id="btListarClientes" mnemonicParsing="false" onAction="#abrirTelaListarClientes" text="Listar" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Produto">
+                    <items>
+                        <MenuItem fx:id="btCadastroProduto" mnemonicParsing="false" onAction="#abrirTelaCadastroProduto" text="Cadastrar" />
+                        <MenuItem fx:id="btBuscarProduto" mnemonicParsing="false" onAction="#abrirTelaBuscarProduto" text="Buscar" />
+                        <MenuItem fx:id="btAlterarProduto" mnemonicParsing="false" onAction="#abrirTelaAlterarProduto" text="Alterar" />
+                        <MenuItem fx:id="btRemoverProduto" mnemonicParsing="false" onAction="#abrirTelaRemoverProduto" text="Remover" />
+                        <MenuItem fx:id="btListarProduto" mnemonicParsing="false" onAction="#abrirTelaListarProduto" text="Listar" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Serviço">
+                    <items>
+                        <MenuItem fx:id="btCadastrarServico" mnemonicParsing="false" onAction="#abrirTelaCadastrarServico" text="Cadastrar" />
+                        <MenuItem fx:id="btBuscarServico" mnemonicParsing="false" onAction="#abrirTelaBuscarServico" text="Buscar" />
+                        <MenuItem fx:id="btAlterarServico" mnemonicParsing="false" onAction="#abrirTelaAlterarServico" text="Alterar" />
+                        <MenuItem fx:id="btRemoverServico" mnemonicParsing="false" onAction="#abrirTelaRemoverServico" text="Remover" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Gerente">
+                    <items>
+                        <MenuItem fx:id="btLogar" mnemonicParsing="false" onAction="#sair" text="Logar" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+    </children>
+</AnchorPane>

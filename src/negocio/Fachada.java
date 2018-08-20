@@ -1,5 +1,6 @@
 package negocio;
 
+import negocio.execao.carro.LoginInvalidoException;
 import java.util.List;
 import negocio.entidade.Carro;
 import negocio.entidade.Cliente;
@@ -172,5 +173,9 @@ public class Fachada {
 
     public List<Carro> listarCarros() {
         return this.negocioCarro.listaCarros();
+    }
+    
+    public boolean realizarLogin(String login, String senha) throws LoginInvalidoException{
+        return this.negocioFun.realizarLogin(login, senha);
     }
 }

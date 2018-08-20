@@ -10,10 +10,11 @@ public class Produto {
 
     private static int GerarCodigo = 1;
 
-    public Produto(double valor, String nome) {
+    public Produto(double valor, String nome) throws ProdutoInvalidoException {
         this.codigo = GerarCodigo++;
         this.valor = valor;
         this.nome = nome;
+        valida();
     }
 
     public int getCodigo() {
