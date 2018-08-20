@@ -3,7 +3,7 @@ package negocio.entidade;
 import java.io.Serializable;
 import negocio.execao.produto.ProdutoInvalidoException;
 
-public class Servico extends Produto implements Serializable{
+public class Servico extends Produto implements Serializable {
 
     private Mecanico mecanico;
 
@@ -18,11 +18,6 @@ public class Servico extends Produto implements Serializable{
 
     public void setMecanico(Mecanico mecanico) {
         this.mecanico = mecanico;
-    }
-
-    @Override
-    public String toString() {
-        return super.toString() + " Mecânico: " + mecanico.getNome();
     }
 
 }

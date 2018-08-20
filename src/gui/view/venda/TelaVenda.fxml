@@ -6,23 +6,20 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="gui.controller.venda.TelaVendaController">
+<AnchorPane id="AnchorPane" onMouseMoved="#preencherProdutos" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.venda.TelaVendaController">
    <children>
-      <TableView layoutX="5.0" layoutY="4.0" prefHeight="181.0" prefWidth="591.0">
-        <columns>
-          <TableColumn prefWidth="100.0" text="Código" />
-          <TableColumn minWidth="60.0" prefWidth="350.0" text="Nome" />
-            <TableColumn prefWidth="138.0" text="Valor" />
-        </columns>
-      </TableView>
-      <ComboBox layoutX="87.0" layoutY="195.0" prefHeight="31.0" prefWidth="187.0" promptText="Selecione o produto" />
-      <Label layoutX="14.0" layoutY="200.0" text="Produto:" />
-      <Label layoutX="17.0" layoutY="273.0" text="Serviço:" />
-      <ComboBox layoutX="87.0" layoutY="268.0" prefHeight="31.0" prefWidth="187.0" promptText="Selecione o serviço" />
-      <Button layoutX="300.0" layoutY="195.0" mnemonicParsing="false" text="Adicionar produto" />
-      <Button layoutX="301.0" layoutY="268.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="141.0" text="Adicionar serviço" />
-      <Button layoutX="106.0" layoutY="340.0" mnemonicParsing="false" text="Finalizar venda" />
-      <Button layoutX="335.0" layoutY="340.0" mnemonicParsing="false" text="Cancelar" />
+      <ComboBox fx:id="produtos" layoutX="87.0" layoutY="395.0" prefHeight="31.0" prefWidth="187.0" promptText="Selecione o produto" />
+      <Label layoutX="14.0" layoutY="400.0" text="Produto:" />
+      <Label layoutX="14.0" layoutY="471.0" text="Serviço:" />
+      <ComboBox fx:id="servicos" layoutX="87.0" layoutY="466.0" prefHeight="31.0" prefWidth="187.0" promptText="Selecione o serviço" />
+      <Button layoutX="301.0" layoutY="395.0" mnemonicParsing="false" text="Adicionar produto" />
+      <Button layoutX="301.0" layoutY="466.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="141.0" text="Adicionar serviço" />
+      <Button layoutX="215.0" layoutY="536.0" mnemonicParsing="false" text="Finalizar venda" />
+      <Label layoutX="17.0" layoutY="220.0" text="Nome:" />
+      <Label layoutX="17.0" layoutY="280.0" text="Cpf:" />
+      <Label fx:id="labelNome" layoutX="87.0" layoutY="212.0" prefHeight="37.0" prefWidth="510.0" />
+      <TextField fx:id="txtCpf" layoutX="87.0" layoutY="275.0" prefHeight="31.0" prefWidth="214.0" promptText="Digite o cpf" />
+      <Button layoutX="360.0" layoutY="275.0" mnemonicParsing="false" onAction="#buscar" text="Buscar" />
+      <ListView layoutX="4.0" layoutY="7.0" prefHeight="207.0" prefWidth="594.0" />
    </children>
 </AnchorPane>

@@ -13,5 +13,6 @@
       <TextField fx:id="txtValor" layoutX="102.0" layoutY="108.0" promptText="Digite o valor" />
       <Label layoutX="43.0" layoutY="112.0" text="Valor:" />
       <Button layoutX="241.0" layoutY="279.0" mnemonicParsing="false" onAction="#cadastrar" text="Cadastrar" />
+      <CheckBox layoutX="43.0" layoutY="208.0" mnemonicParsing="false" text="Serviço periódico" />
    </children>
 </AnchorPane>

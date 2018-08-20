@@ -17,7 +17,7 @@
       <TextField fx:id="txtTelefone" layoutX="93.0" layoutY="132.0" prefHeight="25.0" prefWidth="165.0" />
       <TextField fx:id="txtSalario" layoutX="93.0" layoutY="176.0" prefHeight="25.0" prefWidth="165.0" />
       <Label layoutX="312.0" layoutY="136.0" text="Cargo:" />
-      <ComboBox fx:id="cargos" layoutX="366.0" layoutY="132.0" onAction="#abilitarCampos" prefWidth="150.0" promptText="Selecione o cargo" />
+      <ComboBox fx:id="cargos" layoutX="366.0" layoutY="132.0" onAction="#habilitarCampos" prefWidth="150.0" promptText="Selecione o cargo" />
       <Label fx:id="loginLabel" layoutX="34.0" layoutY="226.0" text="Login:" visible="false" />
       <Label fx:id="senhaLabel" layoutX="33.0" layoutY="271.0" text="Senha:" visible="false" />
       <TextField fx:id="txtLogin" layoutX="93.0" layoutY="222.0" prefHeight="25.0" prefWidth="165.0" visible="false" />

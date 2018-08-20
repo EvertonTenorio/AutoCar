@@ -50,8 +50,7 @@ public class TelaRemoverCarroController implements Initializable {
 
     @FXML
     protected void removerCarro() {
-         
-
+            
     }
 
     @Override
