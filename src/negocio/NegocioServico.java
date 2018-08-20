@@ -3,6 +3,7 @@ package negocio;
 import java.util.ArrayList;
 import java.util.List;
 import negocio.entidade.Servico;
+import negocio.execao.produto.ProdutoInvalidoException;
 import negocio.execao.servico.ServicoInvalidoException;
 import negocio.execao.servico.ServicoJaExisteException;
 import negocio.execao.servico.ServicoNaoExisteException;
@@ -17,13 +18,13 @@ public class NegocioServico {
         this.repositorio = new RepositorioServico();
     }
 
-    public void cadastrarServico(Servico servico) throws ServicoInvalidoException, ServicoJaExisteException {
-        Servico s = this.repositorio.recuperarServico(servico.getCodigo());
+    public void cadastrarServico(double valor, String nome) throws ServicoInvalidoException, ServicoJaExisteException, ProdutoInvalidoException {
+        Servico servico = new Servico(valor, nome);
 
-        if (servico.getNome().equals("") && servico.getValor() == 0 && servico.getMecanico() == null) {
-            throw new ServicoInvalidoException();
-        } else if (s == null) {
-            this.repositorio.cadastrarServico(servico);
+        Servico s = repositorio.recuperarServico(servico.getCodigo());
+
+        if (s == null) {
+            repositorio.cadastrarServico(servico);
         } else {
             throw new ServicoJaExisteException();
         }
