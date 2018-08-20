@@ -6,20 +6,27 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" onMouseMoved="#preencherProdutos" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.venda.TelaVendaController">
+<AnchorPane id="AnchorPane" onMouseMoved="#preencherProdutos" prefHeight="600.0" prefWidth="686.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.venda.TelaVendaController">
    <children>
-      <ComboBox fx:id="produtos" layoutX="87.0" layoutY="395.0" prefHeight="31.0" prefWidth="187.0" promptText="Selecione o produto" />
-      <Label layoutX="14.0" layoutY="400.0" text="Produto:" />
-      <Label layoutX="14.0" layoutY="471.0" text="Serviço:" />
-      <ComboBox fx:id="servicos" layoutX="87.0" layoutY="466.0" prefHeight="31.0" prefWidth="187.0" promptText="Selecione o serviço" />
-      <Button layoutX="301.0" layoutY="395.0" mnemonicParsing="false" text="Adicionar produto" />
-      <Button layoutX="301.0" layoutY="466.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="141.0" text="Adicionar serviço" />
+      <ComboBox fx:id="produtos" layoutX="87.0" layoutY="355.0" prefHeight="25.0" prefWidth="187.0" promptText="Selecione o produto" />
+      <Label layoutX="12.0" layoutY="359.0" text="Produto:" />
+      <Label layoutX="15.0" layoutY="412.0" text="Serviço:" />
+      <ComboBox fx:id="servicos" layoutX="87.0" layoutY="408.0" prefHeight="25.0" prefWidth="187.0" promptText="Selecione o serviço" />
+      <Button layoutX="300.0" layoutY="355.0" mnemonicParsing="false" text="Adicionar produto" />
+      <Button layoutX="300.0" layoutY="408.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="113.0" text="Adicionar serviço" />
       <Button layoutX="215.0" layoutY="536.0" mnemonicParsing="false" text="Finalizar venda" />
       <Label layoutX="17.0" layoutY="220.0" text="Nome:" />
-      <Label layoutX="17.0" layoutY="280.0" text="Cpf:" />
+      <Label layoutX="24.0" layoutY="279.0" text="Cpf:" />
       <Label fx:id="labelNome" layoutX="87.0" layoutY="212.0" prefHeight="37.0" prefWidth="510.0" />
       <TextField fx:id="txtCpf" layoutX="87.0" layoutY="275.0" prefHeight="31.0" prefWidth="214.0" promptText="Digite o cpf" />
       <Button layoutX="360.0" layoutY="275.0" mnemonicParsing="false" onAction="#buscar" text="Buscar" />
-      <ListView layoutX="4.0" layoutY="7.0" prefHeight="207.0" prefWidth="594.0" />
+      <ListView layoutX="4.0" layoutY="2.0" prefHeight="212.0" prefWidth="679.0" />
+      <Separator layoutX="4.0" layoutY="327.0" prefHeight="0.0" prefWidth="686.0" />
+      <Label fx:id="kmAtual" layoutX="10.0" layoutY="474.0" text="Km Atual:" visible="false" />
+      <Label fx:id="kmProx" layoutX="263.0" layoutY="474.0" text="Km Proximo Serviço:" visible="false" />
+      <TextField fx:id="txtKmAtual" layoutX="87.0" layoutY="470.0" visible="false" />
+      <TextField fx:id="txtKmProx" layoutX="394.0" layoutY="470.0" visible="false" />
+      <ComboBox fx:id="mecanicos" layoutX="514.0" layoutY="408.0" prefHeight="25.0" prefWidth="158.0" promptText="Selecione o mecanico" visible="false" />
+      <Label fx:id="mecanico" layoutX="447.0" layoutY="412.0" text="Mecanico:" visible="false" />
    </children>
 </AnchorPane>
