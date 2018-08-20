@@ -11,11 +11,10 @@
       <Label layoutX="39.0" layoutY="43.0" text="Nome:" />
       <Label layoutX="36.0" layoutY="105.0" text="Código:" />
       <Label layoutX="43.0" layoutY="172.0" text="Valor:" />
-      <TextField layoutX="107.0" layoutY="39.0" prefHeight="25.0" prefWidth="229.0" />
-      <TextField layoutX="107.0" layoutY="101.0" prefHeight="25.0" prefWidth="108.0" />
-      <TextField layoutX="107.0" layoutY="168.0" prefHeight="25.0" prefWidth="108.0" />
-      <Button layoutX="274.0" layoutY="101.0" mnemonicParsing="false" text="Buscar" />
-      <Button layoutX="116.0" layoutY="280.0" mnemonicParsing="false" text="Alterar" />
-      <Button layoutX="248.0" layoutY="280.0" mnemonicParsing="false" text="Cancelar" />
+      <TextField fx:id="txtNome" layoutX="107.0" layoutY="39.0" prefHeight="25.0" prefWidth="229.0" promptText="Digite o nome" />
+      <TextField fx:id="txtCodigo" layoutX="107.0" layoutY="100.0" prefHeight="25.0" prefWidth="108.0" promptText="Digite o código" />
+      <TextField fx:id="txtValor" layoutX="107.0" layoutY="168.0" prefHeight="25.0" prefWidth="108.0" promptText="Dgite o valor" />
+      <Button layoutX="274.0" layoutY="101.0" mnemonicParsing="false" onAction="#buscarAlterarServico" text="Buscar" />
+      <Button layoutX="116.0" layoutY="280.0" mnemonicParsing="false" onAction="#alterar" text="Alterar" />
    </children>
 </AnchorPane>
