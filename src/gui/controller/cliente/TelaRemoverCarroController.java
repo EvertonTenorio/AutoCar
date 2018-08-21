@@ -49,7 +49,12 @@ public class TelaRemoverCarroController implements Initializable {
             }
 
         } catch (ClienteNaoExisteException e) {
-            JOptionPane.showMessageDialog(null, e.getMessage());
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Buscar");
+                alert.setHeaderText(null);
+                alert.setContentText(e.getMessage());
+
+                alert.showAndWait();
         }
 
     }

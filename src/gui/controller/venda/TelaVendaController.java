@@ -69,7 +69,7 @@ public class TelaVendaController implements Initializable {
 
         ObservableList<Servico> listaServicos = FXCollections.observableArrayList(((ArrayList) Fachada.getnstance().listarServicos()));
         servicos.setItems(listaServicos);
-        
+
     }
 
     @FXML
@@ -84,7 +84,7 @@ public class TelaVendaController implements Initializable {
                 carros.setItems(listaCarros);
             } else {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Login");
+                alert.setTitle("Buscar");
                 alert.setHeaderText(null);
                 alert.setContentText("Cliente não identificado");
 
@@ -92,7 +92,12 @@ public class TelaVendaController implements Initializable {
             }
 
         } catch (ClienteNaoExisteException e) {
-            JOptionPane.showMessageDialog(null, e.getMessage());
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Venda");
+            alert.setHeaderText(null);
+            alert.setContentText(e.getMessage());
+
+            alert.showAndWait();
         }
 
     }
@@ -104,8 +109,9 @@ public class TelaVendaController implements Initializable {
         listar();
     }
 
+    @FXML
     private void preencherMecanicos() {
-        ObservableList<Mecanico> listaMecanicos = FXCollections.observableArrayList((ArrayList) Fachada.getnstance().listarMecanicos());
+        ObservableList<Mecanico> listaMecanicos = FXCollections.observableArrayList(Fachada.getnstance().listarMecanicos());
         mecanicos.setItems(listaMecanicos);
     }
 
@@ -167,13 +173,13 @@ public class TelaVendaController implements Initializable {
 
             listar();
         } else {
-                    Alert alert = new Alert(Alert.AlertType.ERROR);
-                    alert.setTitle("Venda");
-                    alert.setHeaderText(null);
-                    alert.setContentText("Selecione o mecanico!");
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Venda");
+            alert.setHeaderText(null);
+            alert.setContentText("Selecione o mecanico!");
 
-                    alert.showAndWait();
-                }
+            alert.showAndWait();
+        }
     }
 
     @FXML

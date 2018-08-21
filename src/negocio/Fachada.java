@@ -62,7 +62,7 @@ public class Fachada {
         this.negocioFun.cadastrarFuncionario(nome, cpf, telefone, salario);
     }
     public void cadastrarMecanico(String nome, String cpf, String telefone, double salario) throws FuncionarioJaExisteException, PessoaInvalidaException {
-        this.negocioFun.cadastrarFuncionario(nome, cpf, telefone, salario);
+        this.negocioFun.cadastrarMecanico(nome, cpf, telefone, salario);
     }
 
 
