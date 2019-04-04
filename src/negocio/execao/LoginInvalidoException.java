@@ -1,4 +1,4 @@
-package negocio.execao.carro;
+package negocio.execao;
 
 public class LoginInvalidoException extends Exception{
 

@@ -1,6 +1,6 @@
 package negocio;
 
-import negocio.execao.carro.LoginInvalidoException;
+import negocio.execao.LoginInvalidoException;
 import java.util.ArrayList;
 import java.util.List;
 import negocio.entidade.Funcionario;

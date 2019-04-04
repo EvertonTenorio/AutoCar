@@ -1,7 +1,6 @@
 package negocio;
 
 import java.util.ArrayList;
-import negocio.execao.carro.LoginInvalidoException;
 import java.util.List;
 import negocio.entidade.Carro;
 import negocio.entidade.Cliente;
@@ -14,6 +13,7 @@ import negocio.entidade.Venda;
 import negocio.execao.carro.CarroInvalidoException;
 import negocio.execao.carro.CarroJaExisteException;
 import negocio.execao.carro.CarroNaoExisteException;
+import negocio.execao.LoginInvalidoException;
 import negocio.execao.cliente.ClienteInvalidoException;
 import negocio.execao.cliente.ClienteJaExisteException;
 import negocio.execao.cliente.ClienteNaoExisteException;
