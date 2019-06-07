@@ -26,7 +26,9 @@ public class ConectionFactory {
     }
     
     public static Connection getConnection(){
-        Conectar();
+        if (con == null)
+            Conectar();
+        
         return con;
     }
 }
