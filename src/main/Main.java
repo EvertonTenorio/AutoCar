@@ -11,10 +11,12 @@ import javafx.scene.control.Alert;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import negocio.Fachada;
+import negocio.entidade.Cliente;
 import negocio.entidade.Funcionario;
 import negocio.entidade.Gerente;
 import negocio.execao.funcionario.FuncionarioJaExisteException;
 import negocio.execao.pessoa.PessoaInvalidaException;
+import repositorio.dao.ClienteDAO;
 
 public class Main extends Application {
 
@@ -46,6 +48,15 @@ public class Main extends Application {
         } catch (FuncionarioJaExisteException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
-        launch(args);
+        //launch(args);
+        
+        try {
+            Cliente c = new Cliente("Zé Maria","12345678900", "3763-2333");
+            ClienteDAO cd = new ClienteDAO();
+            
+            cd.cadastrar(c);
+        } catch (PessoaInvalidaException ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }

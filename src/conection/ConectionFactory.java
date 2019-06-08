@@ -24,11 +24,24 @@ public class ConectionFactory {
             throw new RuntimeException(e);
         }
     }
-    
-    public static Connection getConnection(){
-        if (con == null)
+
+    public static Connection getConnection() {
+        if (con == null) {
             Conectar();
-        
+        }
+
+        return con;
+    }
+
+    public static Connection closeConnection() {
+        try {
+            if (con != null) {
+                con.close();
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ConectionFactory.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
         return con;
     }
 }
