@@ -14,7 +14,7 @@ public class ConectionFactory {
         System.out.println("Conectando ao banco...");
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://127.0.0.1/autocar", "root", "96147789");
+            con = DriverManager.getConnection("jdbc:mysql://127.0.0.1/autocar", "root", "polo4268");
             System.out.println("Conectado.");
         } catch (ClassNotFoundException ex) {
             System.out.println("Classe não encontrada, adicione o driver nas bibliotecas.");

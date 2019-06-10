@@ -1,5 +1,7 @@
 package main;
 
+import conection.ConectionFactory;
+import java.sql.Connection;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.application.Application;
@@ -46,6 +48,10 @@ public class Main extends Application {
         } catch (FuncionarioJaExisteException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
+       
         launch(args);
+        
+      
     }
+    
 }
