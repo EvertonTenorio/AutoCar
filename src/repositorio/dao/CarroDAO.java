@@ -10,10 +10,6 @@ import javax.swing.JOptionPane;
 import jdk.nashorn.internal.scripts.JO;
 import negocio.entidade.Carro;
 
-/**
- *
- * @author jenil
- */
 public class CarroDAO {
 
     public void cadastrar(Carro c) {
