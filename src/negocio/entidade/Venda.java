@@ -1,4 +1,4 @@
-package negocio.entidade;
+    package negocio.entidade;
 
 import java.util.ArrayList;
 
@@ -65,7 +65,6 @@ public class Venda {
 
         for (int i = 0; i < cliente.getCarros().size(); i++) {
             if (cliente.getCarros().get(i).getPlaca().equals(placa)) {
-                cliente.getCarros().get(i).adicionarNoHistorico(servico);
                 break;
             }
         }

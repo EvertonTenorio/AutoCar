@@ -5,11 +5,11 @@ import java.util.ArrayList;
 public class Carro {
 
     private String placa;
-    private ArrayList<Servico> historico;
+    private int quilometragem;
 
     public Carro(String placa) {
         this.placa = placa;
-        this.historico = new ArrayList<>();
+        this.quilometragem = quilometragem;
     }
 
     public String getPlaca() {
@@ -20,16 +20,12 @@ public class Carro {
         this.placa = placa;
     }
 
-    public void setHistorico(ArrayList<Servico> historico) {
-        this.historico = historico;
+    public void setKm(int quilometragem) {
+        this.quilometragem = quilometragem;
     }
 
-    public ArrayList<Servico> getHistorico() {
-        return historico;
-    }
-
-    public void adicionarNoHistorico(Servico servico) {
-        this.historico.add(servico);
+    public int getKm() {
+        return quilometragem;
     }
 
     @Override
