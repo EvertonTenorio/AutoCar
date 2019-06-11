@@ -8,26 +8,27 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import negocio.entidade.Cliente;
+import negocio.entidade.Funcionario;
 
-public class ClienteDAO {
+public class FuncionarioDAO {
 
-    public void cadastrar(Cliente c) {
+    public void cadastrar(Funcionario f) {
         Connection con = ConectionFactory.getConnection();
         PreparedStatement ps = null;
 
         try {
             ps = con.prepareStatement("insert into pessoa (nome,cpf,telefone) values (?,?,?)");
 
-            ps.setString(1, c.getNome());
-            ps.setString(2, c.getCpf());
-            ps.setString(3, c.getTelefone());
+            ps.setString(1, f.getNome());
+            ps.setString(2, f.getCpf());
+            ps.setString(3, f.getTelefone());
 
             ps.executeUpdate();
 
-            ps = con.prepareStatement("insert into cliente (cpf,frequencia) values (?,?)");
+            ps = con.prepareStatement("insert into funcionario (cpf,salario) values (?,?)");
 
-            ps.setString(1, c.getCpf());
-            ps.setInt(2, c.getFrequencia());
+            ps.setString(1, f.getCpf());
+            ps.setDouble(2, f.getSalario());
 
             ps.executeUpdate();
 
@@ -40,23 +41,23 @@ public class ClienteDAO {
         }
     }
 
-    public void alterar(Cliente c) {
+    public void alterar(Funcionario f) {
         Connection con = ConectionFactory.getConnection();
         PreparedStatement ps = null;
 
         try {
             ps = con.prepareStatement("update into pessoa (nome,cpf,telefone) values (?,?,?)");
 
-            ps.setString(1, c.getNome());
-            ps.setString(2, c.getCpf());
-            ps.setString(3, c.getTelefone());
+            ps.setString(1, f.getNome());
+            ps.setString(2, f.getCpf());
+            ps.setString(3, f.getTelefone());
 
             ps.executeUpdate();
 
-            ps = con.prepareStatement("update into cliente (cpf,frequencia) values (?,?)");
+            ps = con.prepareStatement("update into funcionario (cpf,salario) values (?,?)");
 
-            ps.setString(1, c.getCpf());
-            ps.setInt(2, c.getFrequencia());
+            ps.setString(1, f.getCpf());
+            ps.setDouble(2, f.getSalario());
 
             ps.executeUpdate();
 
@@ -69,32 +70,33 @@ public class ClienteDAO {
         }
     }
 
-    public void remover(Cliente c) {
+    public void remover(Funcionario f) {
         Connection con = ConectionFactory.getConnection();
         PreparedStatement ps = null;
 
         try {
             ps = con.prepareStatement("delete into pessoa (nome,cpf,telefone) values (?,?,?)");
 
-            ps.setString(1, c.getNome());
-            ps.setString(2, c.getCpf());
-            ps.setString(3, c.getTelefone());
+            ps.setString(1, f.getNome());
+            ps.setString(2, f.getCpf());
+            ps.setString(3, f.getTelefone());
 
             ps.executeUpdate();
 
-            ps = con.prepareStatement("delete into cliente (cpf,frequencia) values (?,?)");
+            ps = con.prepareStatement("delete into funcionario (cpf,salario) values (?,?)");
 
-            ps.setString(1, c.getCpf());
-            ps.setInt(2, c.getFrequencia());
+            ps.setString(1, f.getCpf());
+            ps.setDouble(2, f.getSalario());
 
             ps.executeUpdate();
 
             JOptionPane.showMessageDialog(null, "Removido com sucesso");
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Erro ao remover: " + ex);
+            JOptionPane.showMessageDialog(null, "Erro ao salvar: " + ex);
         } finally {
             ConectionFactory.closeConnection();
         }
     }
+
 }
