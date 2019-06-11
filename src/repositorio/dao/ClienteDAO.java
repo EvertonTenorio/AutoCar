@@ -45,25 +45,18 @@ public class ClienteDAO {
         PreparedStatement ps = null;
 
         try {
-            ps = con.prepareStatement("update into pessoa (nome,cpf,telefone) values (?,?,?)");
+            ps = con.prepareStatement("update pessoa set nome = ?, telefone = ? where cpf = ?");
 
             ps.setString(1, c.getNome());
-            ps.setString(2, c.getCpf());
-            ps.setString(3, c.getTelefone());
+            ps.setString(2, c.getTelefone());
+            ps.setString(3, c.getCpf());
 
             ps.executeUpdate();
 
-            ps = con.prepareStatement("update into cliente (cpf,frequencia) values (?,?)");
-
-            ps.setString(1, c.getCpf());
-            ps.setInt(2, c.getFrequencia());
-
-            ps.executeUpdate();
-
-            JOptionPane.showMessageDialog(null, "Salvo com sucesso");
+            JOptionPane.showMessageDialog(null, "Alterado com sucesso");
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Erro ao salvar: " + ex);
+            JOptionPane.showMessageDialog(null, "Erro ao alterar: " + ex);
         } finally {
             ConectionFactory.closeConnection();
         }
@@ -74,18 +67,15 @@ public class ClienteDAO {
         PreparedStatement ps = null;
 
         try {
-            ps = con.prepareStatement("delete into pessoa (nome,cpf,telefone) values (?,?,?)");
+            ps = con.prepareStatement("delete from pessoa where cpf = ?");
 
-            ps.setString(1, c.getNome());
-            ps.setString(2, c.getCpf());
-            ps.setString(3, c.getTelefone());
+            ps.setString(1, c.getCpf());
 
             ps.executeUpdate();
 
-            ps = con.prepareStatement("delete into cliente (cpf,frequencia) values (?,?)");
+            ps = con.prepareStatement("delete from cliente where cpf = ?");
 
             ps.setString(1, c.getCpf());
-            ps.setInt(2, c.getFrequencia());
 
             ps.executeUpdate();
 

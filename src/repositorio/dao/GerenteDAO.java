@@ -22,6 +22,13 @@ public class GerenteDAO {
 
             ps.executeUpdate();
 
+            ps = con.prepareStatement("insert into funcionario (cpf,salario) values (?,?)");
+
+            ps.setString(1, g.getCpf());
+            ps.setDouble(2, g.getSalario());
+
+            ps.executeUpdate();
+
             ps = con.prepareStatement("insert into gerente (cpf,login,senha) values (?,?,?)");
 
             ps.setString(1, g.getCpf());
@@ -44,26 +51,33 @@ public class GerenteDAO {
         PreparedStatement ps = null;
 
         try {
-            ps = con.prepareStatement("update into pessoa (nome,cpf,telefone) values (?,?,?)");
+            ps = con.prepareStatement("update pessoa set nome = ?, telefone = ? where cpf = ?");
 
             ps.setString(1, g.getNome());
+            ps.setString(2, g.getTelefone());
+            ps.setString(3, g.getCpf());;
+
+            ps.executeUpdate();
+
+            ps = con.prepareStatement("update funcionario set salario = ? where cpf = ?");
+
+            ps.setDouble(1, g.getSalario());
             ps.setString(2, g.getCpf());
-            ps.setString(3, g.getTelefone());
 
             ps.executeUpdate();
 
-            ps = con.prepareStatement("update into gerente (cpf,login,senha) values (?,?,?)");
+            ps = con.prepareStatement("update gerente set login = ?, senha = ? where cpf = ?");
 
-            ps.setString(1, g.getCpf());
-            ps.setString(2, g.getLogin());
-            ps.setString(3, g.getSenha());
+            ps.setString(1, g.getLogin());
+            ps.setString(2, g.getSenha());
+            ps.setString(3, g.getCpf());
 
             ps.executeUpdate();
 
-            JOptionPane.showMessageDialog(null, "Salvo com sucesso");
+            JOptionPane.showMessageDialog(null, "Alterado com sucesso");
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Erro ao salvar: " + ex);
+            JOptionPane.showMessageDialog(null, "Erro ao alterar: " + ex);
         } finally {
             ConectionFactory.closeConnection();
         }
@@ -74,22 +88,24 @@ public class GerenteDAO {
         PreparedStatement ps = null;
 
         try {
-            ps = con.prepareStatement("delete into pessoa (nome,cpf,telefone) values (?,?,?)");
-
-            ps.setString(1, g.getNome());
-            ps.setString(2, g.getCpf());
-            ps.setString(3, g.getTelefone());
-
-            ps.executeUpdate();
-
-            ps = con.prepareStatement("delete into gerente (cpf,login,senha) values (?,?,?)");
+            ps = con.prepareStatement("delete from pessoa where cpf = ?");
 
             ps.setString(1, g.getCpf());
-            ps.setString(2, g.getLogin());
-            ps.setString(3, g.getSenha());
 
             ps.executeUpdate();
 
+            ps = con.prepareStatement("delete from funcionario where cpf = ?");
+
+            ps.setString(1, g.getCpf());
+
+            ps.executeUpdate();
+
+            ps = con.prepareStatement("delete from gerente where cpf = ?");
+            
+            ps.setString(1, g.getCpf());
+            
+            ps.executeUpdate();
+            
             JOptionPane.showMessageDialog(null, "Removido com sucesso");
 
         } catch (SQLException ex) {

@@ -37,9 +37,8 @@ public class CarroDAO {
         PreparedStatement stmt = null;
 
         try {
-            stmt = con.prepareStatement("update into carro (placa, quilometragem) values (?,?)");
-            stmt.setString(1, c.getPlaca());
-            stmt.setInt(2, c.getKm());
+            stmt = con.prepareStatement("update into carro (quilometragem) values (?)");
+            stmt.setInt(1, c.getKm());
 
             stmt.executeUpdate();
 
@@ -58,13 +57,13 @@ public class CarroDAO {
         PreparedStatement stmt = null;
 
         try {
-            stmt = con.prepareStatement("delete into carro (placa, quilometragem) values (?,?)");
+            stmt = con.prepareStatement("delete from carro where placa = ?");
+
             stmt.setString(1, c.getPlaca());
-            stmt.setInt(2, c.getKm());
 
             stmt.executeUpdate();
 
-            JOptionPane.showMessageDialog(null, "Alterado com sucesso");
+            JOptionPane.showMessageDialog(null, "Removido com sucesso");
 
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Erro ao salvar: " + ex);

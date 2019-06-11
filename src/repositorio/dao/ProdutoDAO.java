@@ -37,18 +37,18 @@ public class ProdutoDAO {
         PreparedStatement ps = null;
 
         try {
-            ps = con.prepareStatement("update into produto (codigo,valor,nome) values (?,?,?)");
+            ps = con.prepareStatement("update produto set valor = ? , nome = ? where codigo = ?");
 
-            ps.setInt(1, p.getCodigo());
-            ps.setDouble(2, p.getValor());
-            ps.setString(3, p.getNome());
+            ps.setDouble(1, p.getValor());
+            ps.setString(2, p.getNome());
+            ps.setInt(3, p.getCodigo());
 
             ps.executeUpdate();
 
-            JOptionPane.showMessageDialog(null, "Salvo com sucesso");
+            JOptionPane.showMessageDialog(null, "Alterado com sucesso");
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Erro ao salvar: " + ex);
+            JOptionPane.showMessageDialog(null, "Erro ao Alterar: " + ex);
         } finally {
             ConectionFactory.closeConnection();
         }
@@ -59,12 +59,10 @@ public class ProdutoDAO {
         PreparedStatement ps = null;
 
         try {
-            ps = con.prepareStatement("delete into produto (codigo,valor,nome) values (?,?,?)");
+            ps = con.prepareStatement("delete from produto where codigo = ?");
 
             ps.setInt(1, p.getCodigo());
-            ps.setDouble(2, p.getValor());
-            ps.setString(3, p.getNome());
-
+            
             ps.executeUpdate();
 
             JOptionPane.showMessageDialog(null, "Removido com sucesso");
