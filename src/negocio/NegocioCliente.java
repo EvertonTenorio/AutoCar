@@ -10,11 +10,6 @@ import negocio.execao.pessoa.PessoaInvalidaException;
 import repositorio.RepositorioCliente;
 import repositorio.interfaces.IRepositorioCliente;
 
-/*
- Por exemplo, o que acontece se o cliente for removido e tiver
-* alguma venda atrelada a ele? Queremos um sistema que funciona de forma consistente.
-* Esse comentário se aplica para todas as demais classes de entidades.
-* */
 public class NegocioCliente {
 
     private IRepositorioCliente repositorio;
