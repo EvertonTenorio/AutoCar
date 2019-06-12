@@ -4,37 +4,31 @@ import negocio.entidade.Funcionario;
 import java.util.ArrayList;
 import negocio.entidade.Gerente;
 import negocio.entidade.Mecanico;
+import repositorio.dao.FuncionarioDAO;
 import repositorio.interfaces.IRepositorioFuncionario;
 
-public class RepositorioFuncionario implements IRepositorioFuncionario{
+public class RepositorioFuncionario implements IRepositorioFuncionario {
 
-    private ArrayList<Funcionario> listaFuncionarios;
+    private FuncionarioDAO funcionariosDAO;
 
     public RepositorioFuncionario() {
-        this.listaFuncionarios = new ArrayList<>();
+        this.funcionariosDAO = new FuncionarioDAO();
     }
 
     public void cadastrarFuncionario(Funcionario funcionario) {
-        this.listaFuncionarios.add(funcionario);
+        this.funcionariosDAO = new FuncionarioDAO();
     }
 
     public Funcionario buscarFuncionario(String cpf) {
-        for (int i = 0; i < this.listaFuncionarios.size(); i++) {
-            if (this.listaFuncionarios.get(i).getCpf().equals(cpf)) {
-                return this.listaFuncionarios.get(i);
-            }
-        }
         return null;
     }
 
     public void removerFuncionario(Funcionario funcionario) {
-        listaFuncionarios.remove(funcionario);
+        this.funcionariosDAO.remover(funcionario);
     }
 
     public void alterarFuncionario(Funcionario funcionario) {
-        int indice = this.indiceFuncionario(funcionario.getCpf());
-
-        listaFuncionarios.set(indice, funcionario);
+        this.funcionariosDAO.alterar(funcionario);
     }
 
     public Funcionario logarGerente(String login, String senha) {
@@ -52,22 +46,16 @@ public class RepositorioFuncionario implements IRepositorioFuncionario{
     }
 
     public ArrayList<Funcionario> recuperarTodos() {
-        ArrayList<Funcionario> lista = new ArrayList<>();
+        return null;
+    }
+
+    @Override
+    public ArrayList<Mecanico> recuperarMecanicos() {
+        ArrayList<Mecanico> lista = new ArrayList<>();
 
         for (int i = 0; i < listaFuncionarios.size(); i++) {
-            lista.add(listaFuncionarios.get(i));
-        }
-
-        return lista;
-    }
-    
-    @Override
-    public ArrayList<Mecanico> recuperarMecanicos(){
-        ArrayList<Mecanico> lista = new ArrayList<>();
-        
-        for (int i = 0; i < listaFuncionarios.size(); i++){
             Funcionario f = listaFuncionarios.get(i);
-            if ( f instanceof Mecanico){
+            if (f instanceof Mecanico) {
                 Mecanico m = (Mecanico) listaFuncionarios.get(i);
                 lista.add(m);
             }

@@ -3,7 +3,10 @@ package repositorio.dao;
 import conection.ConectionFactory;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 import negocio.entidade.Produto;
 
@@ -54,6 +57,7 @@ public class ProdutoDAO {
         }
 
     }
+
     public void remover(Produto p) {
         Connection con = ConectionFactory.getConnection();
         PreparedStatement ps = null;
@@ -62,7 +66,7 @@ public class ProdutoDAO {
             ps = con.prepareStatement("delete from produto where codigo = ?");
 
             ps.setInt(1, p.getCodigo());
-            
+
             ps.executeUpdate();
 
             JOptionPane.showMessageDialog(null, "Removido com sucesso");
@@ -76,4 +80,3 @@ public class ProdutoDAO {
     }
 
 }
-

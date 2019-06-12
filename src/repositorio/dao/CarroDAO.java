@@ -3,7 +3,10 @@ package repositorio.dao;
 import conection.ConectionFactory;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -72,8 +75,39 @@ public class CarroDAO {
         }
     }
 
-    public void buscar(Carro c) {
+    public Carro buscar(String placa) {
         Connection con = ConectionFactory.getConnection();
         PreparedStatement stmt = null;
-    }
+        ResultSet rs = null;
+        
+        List<Carro> carros = new ArrayList<>();
+        
+        try{
+            stmt = con.prepareStatement("select * from carro where placa = ?");
+            stmt.setString(1, placa);
+            rs = stmt.executeQuery();
+        
+            while (rs.next()){
+                
+                Carro carro = new Carro();
+                
+                carro.setKm(rs.getInt("quilometragem"));
+                carro.setPlaca(rs.getString("placa"));
+                
+                carros.add(carro);
+                
+            }
+        
+        
+        
+        }catch (SQLException ex){
+            JOptionPane.showMessageDialog(null, "Erro ao buscar: " + ex);
+        }finally{
+            ConectionFactory.closeConnection();
+        }
+        return carros.get(0);
+        
+        }
+        
+        
 }

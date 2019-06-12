@@ -11,6 +11,12 @@ public class Carro {
         this.placa = placa;
         this.quilometragem = quilometragem;
     }
+    
+    public Carro() {
+        
+    }
+    
+    
 
     public String getPlaca() {
         return placa;

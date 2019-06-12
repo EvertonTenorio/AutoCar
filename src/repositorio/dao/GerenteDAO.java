@@ -14,28 +14,16 @@ public class GerenteDAO {
         PreparedStatement ps = null;
 
         try {
-            ps = con.prepareStatement("insert into pessoa (nome,cpf,telefone) values (?,?,?)");
+            ps = con.prepareStatement("call addGerente(?,?,?,?,?,?)");
 
-            ps.setString(1, g.getNome());
-            ps.setString(2, g.getCpf());
+            ps.setString(1, g.getCpf());
+            ps.setString(2, g.getNome());
             ps.setString(3, g.getTelefone());
-
-            ps.executeUpdate();
-
-            ps = con.prepareStatement("insert into funcionario (cpf,salario) values (?,?)");
-
-            ps.setString(1, g.getCpf());
             ps.setDouble(2, g.getSalario());
-
-            ps.executeUpdate();
-
-            ps = con.prepareStatement("insert into gerente (cpf,login,senha) values (?,?,?)");
-
-            ps.setString(1, g.getCpf());
             ps.setString(2, g.getLogin());
             ps.setString(3, g.getSenha());
 
-            ps.executeUpdate();
+            
 
             JOptionPane.showMessageDialog(null, "Salvo com sucesso");
 
